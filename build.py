@@ -8,10 +8,9 @@ Roguelike Blog Static Generator v2
 Использование:
     python3 build.py
 
-Структура:
-    index.html           — главная страница (список игр)
-    games/nethack.html   — страница отдельной игры
-    games/brogue.html
+Структура (результат сборки в docs/):
+    docs/index.html      — главная страница (список игр)
+    docs/games/brogue.html
     ...
 
 Frontmatter таблица:
@@ -31,6 +30,9 @@ import re
 import glob
 import shutil
 from datetime import datetime
+
+# Каталог с готовым сайтом (GitHub Pages: Settings → Pages → /docs)
+OUTPUT_DIR = 'docs'
 
 
 def parse_frontmatter(content):
@@ -285,12 +287,16 @@ def build():
     base_dir = os.path.dirname(__file__)
     articles_dir = os.path.join(base_dir, 'articles')
     static_dir = os.path.join(base_dir, 'static')
-    games_dir = os.path.join(base_dir, 'games')
+    output_dir = os.path.join(base_dir, OUTPUT_DIR)
+    games_dir = os.path.join(output_dir, 'games')
     
-    # Очищаем и создаём директорию games/
-    if os.path.exists(games_dir):
-        shutil.rmtree(games_dir)
+    # Очищаем и создаём каталог сборки
+    if os.path.exists(output_dir):
+        shutil.rmtree(output_dir)
     os.makedirs(games_dir)
+    # Отключаем Jekyll на GitHub Pages (чистый статический HTML)
+    with open(os.path.join(output_dir, '.nojekyll'), 'w', encoding='utf-8'):
+        pass
     
     # Читаем CSS и JS
     css_content = ''
@@ -498,7 +504,7 @@ def build():
         game_file = os.path.join(games_dir, f'{article["slug"]}.html')
         with open(game_file, 'w', encoding='utf-8') as f:
             f.write('\n'.join(html_parts))
-        print(f"    -> games/{article['slug']}.html")
+        print(f"    -> {OUTPUT_DIR}/games/{article['slug']}.html")
     
     # Генерируем главную страницу (index.html)
     game_cards = []
@@ -612,16 +618,16 @@ def build():
         '</html>'
     ]
     
-    index_file = os.path.join(base_dir, 'index.html')
+    index_file = os.path.join(output_dir, 'index.html')
     with open(index_file, 'w', encoding='utf-8') as f:
         f.write('\n'.join(index_parts))
-    print(f"    -> index.html")
+    print(f"    -> {OUTPUT_DIR}/index.html")
     
-    print(f"\nDone! Generated {len(articles) + 1} pages")
+    print(f"\nDone! Generated {len(articles) + 1} pages in {OUTPUT_DIR}/")
     print(f"Total games: {len(articles)}")
     print(f"Total hours: {total_hours}")
     print(f"Total deaths: {total_deaths}")
-    print(f"\nOpen index.html in browser to view")
+    print(f"\nOpen {OUTPUT_DIR}/index.html in browser to view")
 
 
 if __name__ == '__main__':

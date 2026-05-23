@@ -1,17 +1,21 @@
 # Roguelike Chronicles
 
-Статический блог о пройденных roguelike-играх. Генерируется из Markdown файлов в HTML для GitHub Pages.
+Статический блог о пройденных roguelike-играх. Генерируется из Markdown-файлов в HTML для [GitHub Pages](https://pages.github.com/).
 
 ## Структура проекта
 
 ```
 .
-├── articles/          # Markdown статьи
-├── static/            # CSS и JS
+├── articles/          # Исходники статей (Markdown)
+├── static/            # CSS и JS (встраиваются в HTML при сборке)
+├── docs/              # Собранный сайт — публикуется на GitHub Pages
+│   ├── index.html
+│   └── games/
 ├── build.py           # Генератор
-├── index.html         # Сгенерированный сайт
-└── README.md          # Этот файл
+└── README.md
 ```
+
+Каталог `docs/` пересоздаётся при каждой сборке. Его нужно коммитить в репозиторий вместе с исходниками.
 
 ## Как добавить статью
 
@@ -22,6 +26,7 @@
 title: "Название игры"
 hours: 123
 date: "2024-01-15"
+deaths: 42
 ---
 
 ## Заголовок
@@ -32,18 +37,18 @@ date: "2024-01-15"
 2. Запусти генератор:
 
 ```bash
-python3 build.py
+python build.py
 ```
 
-3. Коммить `index.html` в репозиторий
+3. Закоммить изменения в `articles/` и сгенерированный каталог `docs/`
 
 ## Поддерживаемый markdown
 
-- Заголовки `#` - `######`
+- Заголовки `#` — `######`
 - **Жирный**, *курсив*, `код`
 - Списки (маркированные и нумерованные)
 - Цитаты `>`
-- Блоки кода ```
+- Блоки кода ` ``` `
 - Таблицы `| Колонка 1 | Колонка 2 |`
 - Ссылки `[текст](url)`
 - Изображения `![alt](url)`
@@ -51,26 +56,32 @@ python3 build.py
 
 ## Публикация на GitHub Pages
 
-1. Создай репозиторий на GitHub
-2. Загрузи содержимое этой папки (`index.html`, `articles/`, `static/`)
-3. Settings → Pages → Source: Deploy from a branch → Branch: main / root
-4. Сайт будет доступен по `https://username.github.io/repo-name/`
+1. Создай репозиторий на GitHub и загрузи проект (исходники + `docs/`).
+2. Собери сайт локально: `python build.py`
+3. В репозитории: **Settings → Pages**
+4. **Build and deployment → Source:** Deploy from a branch
+5. **Branch:** `main` (или `master`), **Folder:** `/docs`
+6. Сохрани настройки. Через минуту сайт будет доступен по адресу:
+   - проектный сайт: `https://<username>.github.io/<repo-name>/`
+   - пользовательский сайт (репозиторий `<username>.github.io`): `https://<username>.github.io/`
+
+Файл `docs/.nojekyll` отключает обработку Jekyll — GitHub отдаёт HTML как есть.
 
 ## Локальная разработка
 
 ```bash
 # Клонировать
-gh repo clone username/repo-name
-cd repo-name
+git clone https://github.com/<username>/<repo-name>.git
+cd <repo-name>
 
-# Добавить статью
-vim articles/novaia-igra.md
+# Добавить или изменить статью
+# articles/novaia-igra.md
 
 # Пересобрать
-python3 build.py
+python build.py
 
-# Проверить
-python3 -m http.server 8000
+# Проверить (сервер из каталога docs/)
+python -m http.server 8000 --directory docs
 # Открыть http://localhost:8000
 ```
 
