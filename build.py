@@ -43,11 +43,6 @@ ASCII_DUNGEON = """\
     #..#
     ####"""
 
-ASCII_TITLE = """\
-╔═══════════════════════════════════════════╗
-║  R O G U E L I K E   C H R O N I C L E S  ║
-╚═══════════════════════════════════════════╝"""
-
 HTML_HEAD_LINKS = [
     '  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap">',
 ]
@@ -637,7 +632,7 @@ def build():
         '        <header class="index-header">',
         '          <div class="hero-ascii">',
         f'            <pre class="ascii-dungeon" aria-hidden="true">{ASCII_DUNGEON}</pre>',
-        f'            <pre class="ascii-title">{ASCII_TITLE}</pre>',
+        '            <h1>Roguelike Chronicles</h1>',
         '          </div>',
         '          <p class="index-subtitle">You feel an urge to document your dungeon runs.</p>',
         '          <div class="index-stats">',
