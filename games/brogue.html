@@ -4,47 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brogue — Roguelike Chronicles</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;600;700&display=swap">
   <style>
 /* =============================================
-   Roguelike Chronicles — Custom Styles v2
-   Multi-page layout with per-game table of contents
+   Roguelike Chronicles — terminal / ASCII theme
    ============================================= */
 
 :root {
-  --bg-primary: #0d1117;
-  --bg-secondary: #161b22;
-  --bg-sidebar: #0a0e14;
-  --bg-card: #1a1f27;
-  --bg-hover: #21262d;
-  --bg-active: #1c2129;
+  --bg-primary: #080b08;
+  --bg-secondary: #0f140f;
+  --bg-sidebar: #060806;
+  --bg-card: #0c100c;
+  --bg-hover: #141a14;
+  --bg-active: #101510;
 
-  --accent-green: #7ee787;
-  --accent-amber: #ffa657;
-  --accent-red: #ff7b72;
-  --accent-cyan: #56d4dd;
-  --accent-purple: #d2a8ff;
+  --phosphor-green: #5fcf5f;
+  --phosphor-amber: #c9a227;
+  --phosphor-red: #cf5f5f;
+  --phosphor-cyan: #5fcfcf;
+  --phosphor-purple: #9f7fcf;
 
-  --text-primary: #c9d1d9;
-  --text-secondary: #8b949e;
-  --text-muted: #6e7681;
-  --text-bright: #f0f6fc;
+  --accent-green: var(--phosphor-green);
+  --accent-amber: var(--phosphor-amber);
+  --accent-red: var(--phosphor-red);
+  --accent-cyan: var(--phosphor-cyan);
+  --accent-purple: var(--phosphor-purple);
 
-  --border-color: #30363d;
-  --border-subtle: #21262d;
+  --text-primary: #b8c4b8;
+  --text-secondary: #7a8a7a;
+  --text-muted: #4f5f4f;
+  --text-bright: #d8e8d8;
 
-  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
-  --font-terminal: 'VT323', monospace;
+  --border-color: #2a3a2a;
+  --border-bright: #3d5c3d;
+  --border-subtle: #151c15;
+
+  --floor-dot: rgba(95, 207, 95, 0.07);
+  --glow-green: rgba(95, 207, 95, 0.35);
+
+  --font-mono: 'JetBrains Mono', 'Courier New', Consolas, monospace;
+  --font-terminal: 'VT323', 'Courier New', monospace;
 
   --sidebar-width: 280px;
+  --panel-chamfer: 2px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
 
-body {
+body.roguelike-terminal {
   margin: 0;
   padding: 0;
   background: var(--bg-primary);
@@ -54,6 +63,38 @@ body {
   line-height: 1.7;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+/* Тайловый пол «.» на фоне основной области */
+.dungeon-floor {
+  position: fixed;
+  inset: 0;
+  left: var(--sidebar-width);
+  pointer-events: none;
+  z-index: 0;
+  background-color: var(--bg-primary);
+  background-image: radial-gradient(circle, var(--floor-dot) 1px, transparent 1px);
+  background-size: 12px 20px;
+}
+
+.crt-scanlines {
+  position: fixed;
+  inset: 0;
+  left: var(--sidebar-width);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.04;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.45) 2px,
+    rgba(0, 0, 0, 0.45) 4px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt-scanlines { display: none; }
 }
 
 a {
@@ -75,8 +116,47 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 }
 
 .app {
+  position: relative;
+  z-index: 2;
   display: flex;
   min-height: 100vh;
+}
+
+/* Панели в стиле ASCII-рамки (углы «+») */
+.terminal-panel {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  border-radius: 0;
+  box-shadow:
+    inset 0 0 24px rgba(0, 0, 0, 0.35),
+    0 0 0 1px var(--bg-primary);
+}
+
+.terminal-panel::before,
+.terminal-panel::after {
+  position: absolute;
+  font-family: var(--font-terminal);
+  font-size: 16px;
+  line-height: 1;
+  color: var(--accent-green);
+  text-shadow: 0 0 8px var(--glow-green);
+  pointer-events: none;
+  user-select: none;
+}
+
+.terminal-panel::before {
+  content: '+';
+  top: -1px;
+  left: 4px;
+  transform: translateY(-50%);
+}
+
+.terminal-panel::after {
+  content: '+';
+  bottom: -1px;
+  right: 4px;
+  transform: translateY(50%);
 }
 
 /* =============================================
@@ -87,7 +167,8 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   width: var(--sidebar-width);
   min-height: 100vh;
   background: var(--bg-sidebar);
-  border-right: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-bright);
+  box-shadow: inset -8px 0 24px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -97,6 +178,13 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   z-index: 100;
   overflow-y: auto;
   overflow-x: hidden;
+  min-width: 0;
+}
+
+/* Flex-дети не должны раздувать сайдбар по ширине */
+.sidebar > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .sidebar::-webkit-scrollbar { width: 4px; }
@@ -111,7 +199,10 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 }
 
 .logo {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2em;
   font-family: var(--font-terminal);
   font-size: 48px;
   font-weight: 400;
@@ -120,6 +211,11 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   line-height: 1;
   text-shadow: 0 0 20px rgba(126, 231, 135, 0.3);
   transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  caret-color: transparent;
 }
 
 .logo:hover {
@@ -136,6 +232,7 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   margin-top: 4px;
   letter-spacing: 2px;
   text-transform: uppercase;
+  overflow-wrap: break-word;
 }
 
 /* =============================================
@@ -184,15 +281,18 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 .sidebar-toc {
   flex: 1;
   padding: 12px 0;
-  overflow-y: auto;
+  min-height: 0;
+  overflow-x: hidden;
 }
 
-.toc-label {
+.toc-label,
+.other-games-label,
+.all-games-label {
   padding: 0 20px;
-  font-size: 10px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  color: var(--accent-amber);
+  letter-spacing: 1px;
   margin-bottom: 8px;
 }
 
@@ -214,15 +314,18 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   border-left: 2px solid transparent;
   transition: all 0.2s ease;
   position: relative;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .toc-link::before {
-  content: '#';
+  content: '>';
   position: absolute;
   left: 10px;
   opacity: 0;
   color: var(--accent-green);
   font-size: 11px;
+  font-family: var(--font-terminal);
   transition: opacity 0.2s ease;
 }
 
@@ -249,27 +352,22 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 .sidebar-other-games {
   padding: 12px 0;
   border-top: 1px solid var(--border-subtle);
-}
-
-.other-games-label {
-  padding: 0 20px;
-  font-size: 10px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
+  overflow-x: hidden;
 }
 
 .nav-game-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
   padding: 8px 20px;
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 12px;
   transition: all 0.2s ease;
   border-left: 2px solid transparent;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .nav-game-link:hover {
@@ -280,16 +378,17 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 
 .nav-game-title {
   flex: 1;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .nav-game-hours {
+  flex-shrink: 0;
   font-size: 11px;
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
-  margin-left: 8px;
 }
 
 /* =============================================
@@ -299,16 +398,19 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 .sidebar-all-games {
   flex: 1;
   padding: 12px 0;
-  overflow-y: auto;
+  min-height: 0;
+  overflow-x: hidden;
 }
 
-.all-games-label {
-  padding: 0 20px;
-  font-size: 10px;
+.nav-game-link::before {
+  content: '· ';
   color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
+  font-family: var(--font-terminal);
+}
+
+.nav-game-link:hover::before {
+  content: '> ';
+  color: var(--accent-green);
 }
 
 /* =============================================
@@ -391,8 +493,22 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 .index-header {
   text-align: center;
   margin-bottom: 48px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid var(--border-color);
+  padding: 32px 24px 28px;
+}
+
+.ascii-banner {
+  display: inline-block;
+  margin: 0 auto 20px;
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.15;
+  color: var(--text-muted);
+  text-align: left;
+  white-space: pre;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px dashed var(--border-color);
+  text-shadow: 0 0 1px var(--accent-green);
 }
 
 .index-header h1 {
@@ -418,21 +534,26 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 
 .index-stat {
   text-align: center;
+  padding: 12px 20px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(0, 0, 0, 0.25);
+  min-width: 88px;
 }
 
 .index-stat-value {
   display: block;
   font-family: var(--font-terminal);
-  font-size: 36px;
-  color: var(--text-bright);
-  line-height: 1.2;
+  font-size: 40px;
+  color: var(--accent-green);
+  line-height: 1.1;
+  text-shadow: 0 0 12px var(--glow-green);
 }
 
 .index-stat-label {
-  font-size: 10px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  color: var(--accent-amber);
+  letter-spacing: 1px;
 }
 
 /* Games Grid */
@@ -445,9 +566,6 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 /* Game Card */
 .game-card {
   display: block;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
   padding: 24px;
   text-decoration: none;
   color: inherit;
@@ -469,8 +587,10 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 
 .game-card:hover {
   border-color: var(--accent-green);
-  box-shadow: 0 0 0 1px rgba(126, 231, 135, 0.15);
-  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 20px rgba(95, 207, 95, 0.06),
+    0 0 12px rgba(95, 207, 95, 0.12);
+  transform: translateY(-1px);
   text-decoration: none;
 }
 
@@ -495,9 +615,11 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 }
 
 .game-card-hours {
-  padding: 3px 10px;
-  border-radius: 12px;
+  padding: 2px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 0;
   font-size: 11px;
+  font-family: var(--font-terminal);
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
@@ -563,68 +685,46 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 
 .article-page-header {
   margin-bottom: 32px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border-color);
+  padding: 24px;
 }
 
 .article-page-header h1 {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-bright);
-  margin: 0 0 16px 0;
-}
-
-.article-page-meta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.article-date {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-variant-numeric: tabular-nums;
-}
-
-.article-hours {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-}
-
-.article-hours.time-short {
-  background: rgba(126, 231, 135, 0.1);
+  font-family: var(--font-terminal);
+  font-size: 36px;
+  font-weight: 400;
   color: var(--accent-green);
+  margin: 0 0 16px 0;
+  text-shadow: 0 0 16px var(--glow-green);
 }
 
-.article-hours.time-medium {
-  background: rgba(255, 166, 87, 0.1);
-  color: var(--accent-amber);
-}
-
-.article-hours.time-long {
-  background: rgba(255, 123, 114, 0.15);
-  color: var(--accent-red);
-}
-
-.article-deaths {
-  display: inline-flex;
+/* Строка статуса в духе NetHack / Brogue */
+.status-bar {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 4px;
-  padding: 4px 12px;
-  border-radius: 20px;
+  gap: 8px 4px;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--text-muted);
-  background: rgba(255, 123, 114, 0.05);
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
 }
 
-.hours-icon, .deaths-icon { font-size: 13px; }
+.status-key {
+  color: var(--accent-amber);
+  margin-right: 4px;
+}
+
+.status-sep {
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.status-item.time-short { color: var(--accent-green); }
+.status-item.time-medium { color: var(--accent-amber); }
+.status-item.time-long { color: var(--accent-red); }
+.status-item.status-danger { color: var(--accent-red); }
 
 /* =============================================
    STATISTICS TABLE
@@ -633,17 +733,14 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 .stats-section {
   margin-bottom: 32px;
   padding: 20px 24px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
 }
 
 .stats-title {
-  font-size: 14px;
-  font-weight: 600;
+  font-family: var(--font-terminal);
+  font-size: 18px;
+  font-weight: 400;
   color: var(--accent-amber);
   margin: 0 0 16px 0;
-  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
@@ -696,10 +793,20 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 }
 
 .article-content h2 {
-  font-size: 18px;
-  color: var(--text-bright);
+  font-family: var(--font-terminal);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--accent-green);
   margin: 28px 0 14px;
   scroll-margin-top: 24px;
+  padding-left: 12px;
+  border-left: 3px solid var(--border-bright);
+}
+
+.article-content h2::before {
+  content: '## ';
+  color: var(--text-muted);
+  font-size: 0.85em;
 }
 
 .article-content h3 {
@@ -726,21 +833,32 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 
 .article-content code {
   background: var(--bg-secondary);
-  color: var(--accent-green);
-  padding: 2px 8px;
-  border-radius: 4px;
+  color: var(--accent-cyan);
+  padding: 2px 6px;
+  border-radius: 0;
   font-size: 13px;
   font-family: var(--font-mono);
   border: 1px solid var(--border-subtle);
 }
 
 .article-content pre {
-  background: var(--bg-sidebar);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 20px;
+  background: #040604;
+  border: 1px solid var(--border-bright);
+  border-radius: 0;
+  padding: 16px 20px;
   margin: 20px 0;
   overflow-x: auto;
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.5);
+}
+
+.article-content pre::before {
+  content: ' ``` ';
+  display: block;
+  font-family: var(--font-terminal);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  letter-spacing: 2px;
 }
 
 .article-content pre code {
@@ -752,14 +870,23 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   line-height: 1.6;
 }
 
+/* Блок цитаты — как строка message log */
 .article-content blockquote {
   margin: 20px 0;
-  padding: 16px 20px;
-  border-left: 4px solid var(--accent-purple);
-  background: rgba(210, 168, 255, 0.05);
-  border-radius: 0 8px 8px 0;
-  font-style: italic;
-  color: var(--text-secondary);
+  padding: 12px 16px;
+  border: none;
+  border-left: 3px solid var(--accent-amber);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0;
+  font-style: normal;
+  color: var(--text-primary);
+}
+
+.article-content blockquote::before {
+  content: '> ';
+  color: var(--accent-amber);
+  font-family: var(--font-terminal);
+  font-size: 14px;
 }
 
 .article-content blockquote p { margin: 0; }
@@ -772,8 +899,21 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 
 .article-content li { margin: 8px 0; }
 
-.article-content ul li::marker { color: var(--accent-green); }
-.article-content ol li::marker { color: var(--accent-amber); }
+.article-content ul {
+  list-style: none;
+  padding-left: 8px;
+}
+
+.article-content ul li::before {
+  content: '· ';
+  color: var(--accent-green);
+  font-weight: bold;
+}
+
+.article-content ol li::marker {
+  color: var(--accent-amber);
+  font-family: var(--font-terminal);
+}
 
 .article-content img {
   max-width: 100%;
@@ -822,8 +962,8 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   border-collapse: collapse;
   margin: 20px 0;
   font-size: 13px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border: 1px solid var(--border-bright);
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -862,10 +1002,39 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 
 .site-footer {
   text-align: center;
-  padding: 32px;
+  padding: 24px 32px 32px;
   color: var(--text-muted);
   font-size: 12px;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px dashed var(--border-color);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.footer-status {
+  font-family: var(--font-terminal);
+  font-size: 16px;
+  color: var(--accent-amber);
+  margin: 0 0 8px;
+  animation: blink-more 1.2s step-end infinite;
+}
+
+@keyframes blink-more {
+  50% { opacity: 0.35; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-status { animation: none; }
+}
+
+.footer-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+  letter-spacing: 0.5px;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 11px;
 }
 
 .site-footer a {
@@ -881,6 +1050,11 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 
 @media (max-width: 768px) {
   :root { --sidebar-width: 100%; }
+
+  .dungeon-floor,
+  .crt-scanlines {
+    left: 0;
+  }
 
   .app { flex-direction: column; }
 
@@ -913,11 +1087,13 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 
   </style>
 </head>
-<body>
+<body class="roguelike-terminal">
+  <div class="dungeon-floor" aria-hidden="true"></div>
+  <div class="crt-scanlines" aria-hidden="true"></div>
   <div class="app">
     <aside class="sidebar">
       <div class="sidebar-header">
-        <a href="../index.html" class="logo" title="Roguelike Chronicles">@</a>
+        <a href="../index.html" class="logo" title="Roguelike Chronicles" aria-label="Roguelike Chronicles">@</a>
         <div class="subtitle">Roguelike Chronicles</div>
       </div>
       <div class="sidebar-current-game">
@@ -928,7 +1104,7 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
         </div>
       </div>
       <nav class="sidebar-toc">
-        <div class="toc-label">Contents</div>
+        <div class="toc-label">~ map ~</div>
         <ul>
 <li><a href="#ascii-aesthetics" class="toc-link" data-target="ascii-aesthetics">ASCII Aesthetics</a></li>
 <li><a href="#minimalism-as-philosophy" class="toc-link" data-target="minimalism-as-philosophy">Minimalism as Philosophy</a></li>
@@ -938,7 +1114,7 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
         </ul>
       </nav>
       <nav class="sidebar-other-games">
-        <div class="other-games-label">Other Games</div>
+        <div class="other-games-label">~ other ~</div>
         <ul>
 
         </ul>
@@ -949,22 +1125,18 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
     </aside>
     <main class="main">
       <div class="article-page">
-        <header class="article-page-header">
+        <header class="article-page-header terminal-panel">
           <h1>Brogue</h1>
-          <div class="article-page-meta">
-            <span class="article-date">05.11.2024</span>
-            <span class="article-hours time-medium">
-              <span class="hours-icon">&#x23F3;</span>
-              <span class="hours-value">95</span> hours
-            </span>
-            <span class="article-deaths">
-              <span class="deaths-icon">&#x2620;</span>
-              <span class="deaths-value">156</span> deaths
-            </span>
+          <div class="status-bar" role="status">
+            <span class="status-item"><span class="status-key">Date</span> 05.11.2024</span>
+            <span class="status-sep">|</span>
+            <span class="status-item time-medium"><span class="status-key">Time</span> 95h</span>
+            <span class="status-sep">|</span>
+            <span class="status-item status-danger"><span class="status-key">Deaths</span> 156</span>
           </div>
         </header>
-        <div class="stats-section">
-          <h2 class="stats-title">Statistics</h2>
+        <div class="stats-section terminal-panel">
+          <h2 class="stats-title">~ character sheet ~</h2>
 <table class="stats-table">
 <tbody>
 <tr><td class="stat-metric">Hours played</td><td class="stat-value val-normal">95</td></tr>
@@ -1033,7 +1205,9 @@ The amulet was behind a trap. I used the wand of empowerment, summoned 3 warrior
         </div>
       </div>
       <footer class="site-footer">
-        <p>Roguelike Chronicles :: 2026</p>
+        <p class="footer-status">-- More --</p>
+        <p class="footer-hint">j/k scroll · g/G top/bottom</p>
+        <p class="footer-copy">Roguelike Chronicles :: 2026</p>
       </footer>
     </main>
   </div>
@@ -1070,7 +1244,7 @@ The amulet was behind a trap. I used the wand of empowerment, summoned 3 warrior
             if (link.dataset.target === current) {
                 link.classList.add('active');
                 // Auto-scroll sidebar to keep active item visible
-                link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
             }
         });
     }
