@@ -30,7 +30,7 @@
             if (link.dataset.target === current) {
                 link.classList.add('active');
                 // Auto-scroll sidebar to keep active item visible
-                link.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
             }
         });
     }

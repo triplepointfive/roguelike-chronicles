@@ -423,7 +423,7 @@ def build():
             # Sidebar
             '    <aside class="sidebar">',
             '      <div class="sidebar-header">',
-            '        <a href="../index.html" class="logo" title="Roguelike Chronicles">@</a>',
+            '        <a href="../index.html" class="logo" title="Roguelike Chronicles" aria-label="Roguelike Chronicles">@</a>',
             '        <div class="subtitle">Roguelike Chronicles</div>',
             '      </div>',
             # Текущая игра (активная)
@@ -567,7 +567,7 @@ def build():
         # Sidebar
         '    <aside class="sidebar">',
         '      <div class="sidebar-header">',
-        '        <a href="index.html" class="logo" title="Roguelike Chronicles">@</a>',
+        '        <a href="index.html" class="logo" title="Roguelike Chronicles" aria-label="Roguelike Chronicles">@</a>',
         '        <div class="subtitle">Roguelike Chronicles</div>',
         '      </div>',
         '      <nav class="sidebar-all-games">',

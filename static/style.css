@@ -88,6 +88,13 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   z-index: 100;
   overflow-y: auto;
   overflow-x: hidden;
+  min-width: 0;
+}
+
+/* Flex-дети не должны раздувать сайдбар по ширине */
+.sidebar > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .sidebar::-webkit-scrollbar { width: 4px; }
@@ -102,7 +109,10 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 }
 
 .logo {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2em;
   font-family: var(--font-terminal);
   font-size: 48px;
   font-weight: 400;
@@ -111,6 +121,11 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   line-height: 1;
   text-shadow: 0 0 20px rgba(126, 231, 135, 0.3);
   transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  caret-color: transparent;
 }
 
 .logo:hover {
@@ -127,6 +142,7 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   margin-top: 4px;
   letter-spacing: 2px;
   text-transform: uppercase;
+  overflow-wrap: break-word;
 }
 
 /* =============================================
@@ -175,7 +191,8 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 .sidebar-toc {
   flex: 1;
   padding: 12px 0;
-  overflow-y: auto;
+  min-height: 0;
+  overflow-x: hidden;
 }
 
 .toc-label {
@@ -205,6 +222,8 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   border-left: 2px solid transparent;
   transition: all 0.2s ease;
   position: relative;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .toc-link::before {
@@ -240,6 +259,7 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 .sidebar-other-games {
   padding: 12px 0;
   border-top: 1px solid var(--border-subtle);
+  overflow-x: hidden;
 }
 
 .other-games-label {
@@ -255,12 +275,15 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
   padding: 8px 20px;
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 12px;
   transition: all 0.2s ease;
   border-left: 2px solid transparent;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .nav-game-link:hover {
@@ -271,16 +294,17 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 
 .nav-game-title {
   flex: 1;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .nav-game-hours {
+  flex-shrink: 0;
   font-size: 11px;
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
-  margin-left: 8px;
 }
 
 /* =============================================
@@ -290,7 +314,8 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 .sidebar-all-games {
   flex: 1;
   padding: 12px 0;
-  overflow-y: auto;
+  min-height: 0;
+  overflow-x: hidden;
 }
 
 .all-games-label {
