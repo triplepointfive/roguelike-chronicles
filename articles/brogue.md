@@ -1,75 +1,61 @@
 ---
 title: "Brogue"
-hours: 95
-date: "2024-11-05"
-deaths: 156
-first_win: "2024-11-01"
-version: "1.14"
-character: "Adventurer"
+hours: 14
+date: "2026-05-23"
+deaths: 211
+version: "1.15.1"
 table:
-  - metric: "Hours played"
-    value: "95"
+  - metric: "First win after (with save scumming)"
+    value: "14 hours"
   - metric: "Total deaths"
-    value: "156"
+    value: "211"
   - metric: "Deepest floor reached"
-    value: "Depth 26 (Amulet)"
+    value: "Depth 28"
   - metric: "First win date"
-    value: "2024-11-01"
-  - metric: "Character class"
-    value: "Adventurer"
-  - metric: "Build style"
-    value: "Teleport + Allies"
+    value: "2026-05-23"
   - metric: "Gold collected"
-    value: "12,847"
-  - metric: "Lumenstones obtained"
-    value: "0 (direct ascension)"
-  - metric: "Seeds explored"
-    value: "~200"
-  - metric: "Brogue version"
-    value: "1.14"
+    value: "15,910"
 ---
 
-## ASCII Aesthetics
 
-Brogue is arguably the most beautiful ASCII game in the world. It has no tiles — only Unicode characters, but they are used so masterfully that you forget about it. Fire flickers, water reflects light, torches cast dynamic shadows. All of this — in a terminal.
+## Quick Overview
 
-## Minimalism as Philosophy
+People often recommend Brogue as the first traditional roguelike you should play. Supposedly it’s not that deep, has fewer mechanics, and is almost considered “easy.”
 
-Brogue strips away everything unnecessary:
+Yeah, none of that is true.
 
-- **No character classes** — only your decisions define the build
-- **No XP for kills** — only for exploring gold
-- **No shops** — gold is used to recharge staves/wands
-- **No health regeneration** — only potions and food
+Sure, there’s no dedicated “clean your ears” button like in ADOM, but the game still has plenty of mechanics going on, and there’s more than enough stuff to lose hours reading about on the wiki.
 
-> Every decision in Brogue carries weight. Spend your last healing potion now or risk it?
+The monster roster isn’t huge, but every enemy feels distinct. Each one has some nasty gimmick, and every fight demands its own approach. Weapons aren’t just different damage numbers either. Every weapon comes with its own quirks and positioning requirements.
 
-## My Notes
+And that’s the core of the game.
 
-The first 30 hours were constant deaths at depths 1-10. Brogue seemed impossible. Then I understood the key mechanic: **everything in the environment can be used**.
+Brogue lives and dies by its combat, but not in the “walk into enemy until one of you dies” kind of way.
 
-### Tactics:
+## What I Learned After the First Hour
 
-1. *Throw a torch* into grass — you'll set the entire field on fire, including enemies
-2. *Drown an enemy* — lure them to water and use a staff of push
-3. *Pull into gas* — a wand of attraction + paralysis trap
-4. *Let them fight* — two enemies nearby will start fighting each other
+As tradition demands, I died to an eel on the second floor.
 
-## The Decisive Run
+Water is now terrifying. If there’s a lake nearby, I want absolutely nothing to do with it. Cross it as fast as possible and pray.
 
-Depth 26 — the final floor. I reached it with:
+Unlike a lot of roguelikes, there’s no XP system and no character levels here, so you don’t actually have to fight everything you see. What *is* mandatory, though, is fully exploring the dungeon.
 
-- Staff of teleportation (3 charges)
-- Wand of empowerment (summons allies)
-- Healing potion (2 bottles)
-- Chain mail enchanted to +3
-- Sword enchanted to +4
+The entire game revolves around the items you find, so the more of the floor you uncover, the better your chances of surviving later.
 
-The amulet was behind a trap. I used the wand of empowerment, summoned 3 warriors, they triggered the traps... and I teleported to the amulet.
+Positioning matters a lot too. The game doesn’t allow diagonal attacks near walls, which means only two enemies can hit you while you stand in a doorway. It’s one of the safest spots in the game, almost like fighting in a one-tile corridor.
 
-## Why Brogue is Special
+## What I Learned After the First Five Hours
 
-- **Seeds** — you can share specific dungeons with friends
-- **Daily seeds** — one seed per day for the entire community
-- **Recording** — you can rewatch any run
-- **No grinding** — only skill, no farming
+The early floors get cleared quickly. At this point I was basically mashing the auto-explore key to speed through them.
+
+I’d already figured out tactics for every monster appearing up to depth 4. Nothing too complicated, but each enemy needed its own approach, and once those patterns clicked, the early game became pretty stable.
+
+Floor 4 is where you can finally start drinking unidentified potions and reading scrolls. That’s also where the direction of the run starts taking shape.
+
+What items are you getting? Which potions rolled lucky? Do you have tools for single-target fights, or for enemies that refuse to walk into obvious choke points?
+
+Against Jellies, the best tactic is hiding in a doorway so their clones can’t surround you from every side.
+
+Against Goblin Conjurers, stairs work wonders. Go up or down a floor and wait for the goblin to follow you.
+
+When he arrives, he comes alone — without his spectral blades — so you get a chance to kill him before he summons anything.
