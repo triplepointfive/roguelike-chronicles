@@ -1189,18 +1189,16 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
       <div class="sidebar-current-game">
         <div class="current-game-title">Brogue</div>
         <div class="current-game-meta">
-          <span class="current-game-hours time-medium">95h</span>
-          <span class="current-game-deaths">&#x2620; 156</span>
+          <span class="current-game-hours time-short">14h</span>
+          <span class="current-game-deaths">&#x2620; 211</span>
         </div>
       </div>
       <nav class="sidebar-toc">
         <div class="toc-label">~ map ~</div>
         <ul>
-<li><a href="#ascii-aesthetics" class="toc-link" data-target="ascii-aesthetics">ASCII Aesthetics</a></li>
-<li><a href="#minimalism-as-philosophy" class="toc-link" data-target="minimalism-as-philosophy">Minimalism as Philosophy</a></li>
-<li><a href="#my-notes" class="toc-link" data-target="my-notes">My Notes</a></li>
-<li><a href="#the-decisive-run" class="toc-link" data-target="the-decisive-run">The Decisive Run</a></li>
-<li><a href="#why-brogue-is-special" class="toc-link" data-target="why-brogue-is-special">Why Brogue is Special</a></li>
+<li><a href="#quick-overview" class="toc-link" data-target="quick-overview">Quick Overview</a></li>
+<li><a href="#what-i-learned-after-the-first-hour" class="toc-link" data-target="what-i-learned-after-the-first-hour">What I Learned After the First Hour</a></li>
+<li><a href="#what-i-learned-after-the-first-five-hours" class="toc-link" data-target="what-i-learned-after-the-first-five-hours">What I Learned After the First Five Hours</a></li>
         </ul>
       </nav>
       <nav class="sidebar-other-games">
@@ -1225,80 +1223,67 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
         <header class="article-page-header">
           <h1>Brogue</h1>
           <div class="status-bar" role="status">
-            <span class="status-item"><span class="status-key">Date</span> 05.11.2024</span>
+            <span class="status-item"><span class="status-key">Date</span> 23.05.2026</span>
             <span class="status-sep">|</span>
-            <span class="status-item time-medium"><span class="status-key">Time</span> 95h</span>
+            <span class="status-item time-short"><span class="status-key">Time</span> 14h</span>
             <span class="status-sep">|</span>
-            <span class="status-item status-danger"><span class="status-key">Deaths</span> 156</span>
+            <span class="status-item status-danger"><span class="status-key">Deaths</span> 211</span>
           </div>
         </header>
         <div class="stats-section terminal-panel">
           <h2 class="stats-title">~ character sheet ~</h2>
 <table class="stats-table">
 <tbody>
-<tr><td class="stat-metric">Hours played</td><td class="stat-value val-normal">95</td></tr>
-<tr><td class="stat-metric">Total deaths</td><td class="stat-value val-normal">156</td></tr>
-<tr><td class="stat-metric">Deepest floor reached</td><td class="stat-value val-normal">Depth 26 (Amulet)</td></tr>
-<tr><td class="stat-metric">First win date</td><td class="stat-value val-normal">2024-11-01</td></tr>
-<tr><td class="stat-metric">Character class</td><td class="stat-value val-normal">Adventurer</td></tr>
-<tr><td class="stat-metric">Build style</td><td class="stat-value val-normal">Teleport + Allies</td></tr>
-<tr><td class="stat-metric">Gold collected</td><td class="stat-value val-normal">12,847</td></tr>
-<tr><td class="stat-metric">Lumenstones obtained</td><td class="stat-value val-normal">0 (direct ascension)</td></tr>
-<tr><td class="stat-metric">Seeds explored</td><td class="stat-value val-normal">~200</td></tr>
-<tr><td class="stat-metric">Brogue version</td><td class="stat-value val-normal">1.14</td></tr>
+<tr><td class="stat-metric">First win after (with save scumming)</td><td class="stat-value val-normal">14 hours</td></tr>
+<tr><td class="stat-metric">Total deaths</td><td class="stat-value val-normal">211</td></tr>
+<tr><td class="stat-metric">Deepest floor reached</td><td class="stat-value val-normal">Depth 28</td></tr>
+<tr><td class="stat-metric">First win date</td><td class="stat-value val-normal">2026-05-23</td></tr>
+<tr><td class="stat-metric">Gold collected</td><td class="stat-value val-normal">15,910</td></tr>
 </tbody>
 </table>
         </div>
         <div class="article-content">
-<h2 id="ascii-aesthetics">ASCII Aesthetics</h2>
+<h2 id="quick-overview">Quick Overview</h2>
 
-<p>Brogue is arguably the most beautiful ASCII game in the world. It has no tiles — only Unicode characters, but they are used so masterfully that you forget about it. Fire flickers, water reflects light, torches cast dynamic shadows. All of this — in a terminal.</p>
+<p>People often recommend Brogue as the first traditional roguelike you should play. Supposedly it’s not that deep, has fewer mechanics, and is almost considered “easy.”</p>
 
-<h2 id="minimalism-as-philosophy">Minimalism as Philosophy</h2>
+<p>Yeah, none of that is true.</p>
 
-<p>Brogue strips away everything unnecessary:</p>
+<p>Sure, there’s no dedicated “clean your ears” button like in ADOM, but the game still has plenty of mechanics going on, and there’s more than enough stuff to lose hours reading about on the wiki.</p>
 
-<ul>
-<li><strong>No character classes</strong> — only your decisions define the build</li>
-<li><strong>No XP for kills</strong> — only for exploring gold</li>
-<li><strong>No shops</strong> — gold is used to recharge staves/wands</li>
-<li><strong>No health regeneration</strong> — only potions and food</li>
-</ul>
-<blockquote>
-Every decision in Brogue carries weight. Spend your last healing potion now or risk it?
-</blockquote>
-<h2 id="my-notes">My Notes</h2>
+<p>The monster roster isn’t huge, but every enemy feels distinct. Each one has some nasty gimmick, and every fight demands its own approach. Weapons aren’t just different damage numbers either. Every weapon comes with its own quirks and positioning requirements.</p>
 
-<p>The first 30 hours were constant deaths at depths 1-10. Brogue seemed impossible. Then I understood the key mechanic: <strong>everything in the environment can be used</strong>.</p>
+<p>And that’s the core of the game.</p>
 
-<h3>Tactics:</h3>
+<p>Brogue lives and dies by its combat, but not in the “walk into enemy until one of you dies” kind of way.</p>
 
-<ol>
-<li><em>Throw a torch</em> into grass — you'll set the entire field on fire, including enemies</li>
-<li><em>Drown an enemy</em> — lure them to water and use a staff of push</li>
-<li><em>Pull into gas</em> — a wand of attraction + paralysis trap</li>
-<li><em>Let them fight</em> — two enemies nearby will start fighting each other</li>
-</ol>
-<h2 id="the-decisive-run">The Decisive Run</h2>
+<h2 id="what-i-learned-after-the-first-hour">What I Learned After the First Hour</h2>
 
-<p>Depth 26 — the final floor. I reached it with:</p>
+<p>As tradition demands, I died to an eel on the second floor.</p>
 
-<ul>
-<li>Staff of teleportation (3 charges)</li>
-<li>Wand of empowerment (summons allies)</li>
-<li>Healing potion (2 bottles)</li>
-<li>Chain mail enchanted to +3</li>
-<li>Sword enchanted to +4</li>
-</ul>
-The amulet was behind a trap. I used the wand of empowerment, summoned 3 warriors, they triggered the traps... and I teleported to the amulet.
+<p>Water is now terrifying. If there’s a lake nearby, I want absolutely nothing to do with it. Cross it as fast as possible and pray.</p>
 
-<h2 id="why-brogue-is-special">Why Brogue is Special</h2>
+<p>Unlike a lot of roguelikes, there’s no XP system and no character levels here, so you don’t actually have to fight everything you see. What <em>is</em> mandatory, though, is fully exploring the dungeon.</p>
 
-<ul>
-<li><strong>Seeds</strong> — you can share specific dungeons with friends</li>
-<li><strong>Daily seeds</strong> — one seed per day for the entire community</li>
-<li><strong>Recording</strong> — you can rewatch any run</li>
-</ul>- <strong>No grinding</strong> — only skill, no farming
+<p>The entire game revolves around the items you find, so the more of the floor you uncover, the better your chances of surviving later.</p>
+
+<p>Positioning matters a lot too. The game doesn’t allow diagonal attacks near walls, which means only two enemies can hit you while you stand in a doorway. It’s one of the safest spots in the game, almost like fighting in a one-tile corridor.</p>
+
+<h2 id="what-i-learned-after-the-first-five-hours">What I Learned After the First Five Hours</h2>
+
+<p>The early floors get cleared quickly. At this point I was basically mashing the auto-explore key to speed through them.</p>
+
+<p>I’d already figured out tactics for every monster appearing up to depth 4. Nothing too complicated, but each enemy needed its own approach, and once those patterns clicked, the early game became pretty stable.</p>
+
+<p>Floor 4 is where you can finally start drinking unidentified potions and reading scrolls. That’s also where the direction of the run starts taking shape.</p>
+
+<p>What items are you getting? Which potions rolled lucky? Do you have tools for single-target fights, or for enemies that refuse to walk into obvious choke points?</p>
+
+<p>Against Jellies, the best tactic is hiding in a doorway so their clones can’t surround you from every side.</p>
+
+<p>Against Goblin Conjurers, stairs work wonders. Go up or down a floor and wait for the goblin to follow you.</p>
+
+<p>When he arrives, he comes alone — without his spectral blades — so you get a chance to kill him before he summons anything.</p>
         </div>
       </div>
         </div>
