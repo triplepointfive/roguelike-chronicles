@@ -1,91 +1,56 @@
 # Roguelike Chronicles
 
-Статический блог о пройденных roguelike-играх. Генерируется из Markdown-файлов в HTML для [GitHub Pages](https://pages.github.com/).
+Статический блог о пройденных roguelike-играх. Каждая игра — **отдельная HTML-страница** с оглавлением. Генерируется из Markdown для [GitHub Pages](https://pages.github.com/).
+
+> **Важно:** на GitHub в браузере по умолчанию показывается `README.md` — это обычный Markdown без стилей. Чтобы увидеть сайт, откройте собранный каталог **`docs/`** (после `python build.py`) локально или опубликуйте Pages из `/docs`.
 
 ## Структура проекта
 
 ```
 .
 ├── articles/          # Исходники статей (Markdown)
-├── static/            # CSS и JS (встраиваются в HTML при сборке)
-├── docs/              # Собранный сайт — публикуется на GitHub Pages
-│   ├── index.html
-│   └── games/
+├── static/            # CSS и JS (встраиваются при сборке)
+├── docs/              # Собранный сайт → GitHub Pages
+│   ├── index.html     # Список игр
+│   └── games/         # Страница каждой игры
 ├── build.py           # Генератор
 └── README.md
 ```
 
-Каталог `docs/` пересоздаётся при каждой сборке. Его нужно коммитить в репозиторий вместе с исходниками.
-
 ## Как добавить статью
 
-1. Создай файл `articles/название-игры.md`:
+1. Создай `articles/название-игры.md` с frontmatter (`title`, `hours`, `date`, `deaths`, …).
+2. Запусти `python build.py`
+3. Закоммить `articles/` и обновлённый `docs/`
 
-```markdown
----
-title: "Название игры"
-hours: 123
-date: "2024-01-15"
-deaths: 42
----
+При 5–10 играх на главной будут карточки, у каждой игры — своя страница и боковое оглавление по разделам.
 
-## Заголовок
-
-Текст статьи в **markdown** формате.
-```
-
-2. Запусти генератор:
+## Локальный просмотр
 
 ```bash
 python build.py
+python -m http.server 8000 --directory docs
+# http://localhost:8000
 ```
-
-3. Закоммить изменения в `articles/` и сгенерированный каталог `docs/`
-
-## Поддерживаемый markdown
-
-- Заголовки `#` — `######`
-- **Жирный**, *курсив*, `код`
-- Списки (маркированные и нумерованные)
-- Цитаты `>`
-- Блоки кода ` ``` `
-- Таблицы `| Колонка 1 | Колонка 2 |`
-- Ссылки `[текст](url)`
-- Изображения `![alt](url)`
-- Горизонтальная линия `---`
 
 ## Публикация на GitHub Pages
 
-1. Создай репозиторий на GitHub и загрузи проект (исходники + `docs/`).
-2. Собери сайт локально: `python build.py`
-3. В репозитории: **Settings → Pages**
-4. **Build and deployment → Source:** Deploy from a branch
-5. **Branch:** `main` (или `master`), **Folder:** `/docs`
-6. Сохрани настройки. Через минуту сайт будет доступен по адресу:
-   - проектный сайт: `https://<username>.github.io/<repo-name>/`
-   - пользовательский сайт (репозиторий `<username>.github.io`): `https://<username>.github.io/`
+1. Загрузи репозиторий (исходники + `docs/`)
+2. **Settings → Pages →** Branch: `main`, Folder: **`/docs`**
+3. Сайт: `https://<username>.github.io/<repo-name>/`
 
-Файл `docs/.nojekyll` отключает обработку Jekyll — GitHub отдаёт HTML как есть.
+## Jekyll или build.py?
 
-## Локальная разработка
+| | **build.py (сейчас)** | **Jekyll** |
+|---|------------------------|------------|
+| Зависимости | Только Python, без pip | Ruby, gem, тема |
+| Страницы | Уже отдельный HTML на игру | Через коллекции и шаблоны |
+| Стили | Полный контроль в `static/style.css` | Тема + переопределения |
+| Сборка | `python build.py` | `jekyll build` → обычно `_site` |
 
-```bash
-# Клонировать
-git clone https://github.com/<username>/<repo-name>.git
-cd <repo-name>
-
-# Добавить или изменить статью
-# articles/novaia-igra.md
-
-# Пересобрать
-python build.py
-
-# Проверить (сервер из каталога docs/)
-python -m http.server 8000 --directory docs
-# Открыть http://localhost:8000
-```
+Переход на Jekyll имеет смысл, если нужны плагины, теги, RSS или экосистема тем. Для личного блога с кастомным «терминальным» UI текущий генератор проще и уже масштабируется добавлением `.md` в `articles/`.
 
 ## Требования
 
 - Python 3.7+
-- Никаких внешних зависимостей
+- Без внешних pip-зависимостей

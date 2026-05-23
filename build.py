@@ -34,7 +34,7 @@ from datetime import datetime
 # Каталог с готовым сайтом (GitHub Pages: Settings → Pages → /docs)
 OUTPUT_DIR = 'docs'
 
-ASCII_BANNER = """\
+ASCII_DUNGEON = """\
  ##########
  #........#
  #..@.....#
@@ -43,9 +43,34 @@ ASCII_BANNER = """\
     #..#
     ####"""
 
+ASCII_TITLE = """\
+╔═══════════════════════════════════════════╗
+║  R O G U E L I K E   C H R O N I C L E S  ║
+╚═══════════════════════════════════════════╝"""
+
 HTML_HEAD_LINKS = [
-    '  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;600;700&display=swap">',
+    '  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap">',
 ]
+
+
+def terminal_screen_open(title):
+    """Открывает блок «экран терминала» с заголовком."""
+    return [
+        '      <div class="terminal-screen">',
+        '        <div class="terminal-titlebar">',
+        '          <span class="tb-led" aria-hidden="true"></span>',
+        f'          <span class="tb-title">{title}</span>',
+        '          <span class="tb-tag">ASCII</span>',
+        '        </div>',
+        '        <div class="terminal-body">',
+    ]
+
+
+def terminal_screen_close():
+    return [
+        '        </div>',
+        '      </div>',
+    ]
 
 HTML_BODY_OPEN = [
     '<body class="roguelike-terminal">',
@@ -451,7 +476,7 @@ def build():
             '    <aside class="sidebar">',
             '      <div class="sidebar-header">',
             '        <a href="../index.html" class="logo" title="Roguelike Chronicles" aria-label="Roguelike Chronicles">@</a>',
-            '        <div class="subtitle">Roguelike Chronicles</div>',
+            '        <div class="subtitle">[ chronicles ]</div>',
             '      </div>',
             # Текущая игра (активная)
             '      <div class="sidebar-current-game">',
@@ -482,9 +507,9 @@ def build():
             '    </aside>',
             # Main content
             '    <main class="main">',
+            *terminal_screen_open(f'~/games/{article["slug"]}'),
             '      <div class="article-page">',
-            # Header
-            '        <header class="article-page-header terminal-panel">',
+            '        <header class="article-page-header">',
             f'          <h1>{article["title"]}</h1>',
             '          <div class="status-bar" role="status">',
             f'            <span class="status-item"><span class="status-key">Date</span> {date_formatted}</span>',
@@ -511,6 +536,7 @@ def build():
             article['content'],
             '        </div>',
             '      </div>',
+            *terminal_screen_close(),
             *site_footer_html(year),
             '    </main>',
             '  </div>',
@@ -588,7 +614,7 @@ def build():
         '    <aside class="sidebar">',
         '      <div class="sidebar-header">',
         '        <a href="index.html" class="logo" title="Roguelike Chronicles" aria-label="Roguelike Chronicles">@</a>',
-        '        <div class="subtitle">Roguelike Chronicles</div>',
+        '        <div class="subtitle">[ chronicles ]</div>',
         '      </div>',
         '      <nav class="sidebar-all-games">',
         '        <div class="all-games-label">~ games ~</div>',
@@ -606,10 +632,13 @@ def build():
         '    </aside>',
         # Main content
         '    <main class="main main-index">',
+        *terminal_screen_open('~/chronicles — main hall'),
         '      <div class="index-container">',
-        '        <header class="index-header terminal-panel">',
-        f'          <pre class="ascii-banner" aria-hidden="true">{ASCII_BANNER}</pre>',
-        '          <h1>Roguelike Chronicles</h1>',
+        '        <header class="index-header">',
+        '          <div class="hero-ascii">',
+        f'            <pre class="ascii-dungeon" aria-hidden="true">{ASCII_DUNGEON}</pre>',
+        f'            <pre class="ascii-title">{ASCII_TITLE}</pre>',
+        '          </div>',
         '          <p class="index-subtitle">You feel an urge to document your dungeon runs.</p>',
         '          <div class="index-stats">',
         f'            <div class="index-stat">',
@@ -626,11 +655,13 @@ def build():
         '            </div>',
         '          </div>',
         '        </header>',
+        '        <h2 class="section-heading">═══ dungeon log ═══</h2>',
         '        <div class="games-grid">',
         '\n'.join(game_cards),
         '        </div>',
         '      </div>',
-        *site_footer_html(year, hint='j/k scroll · pick a game from the map'),
+        *terminal_screen_close(),
+        *site_footer_html(year, hint='[j/k] scroll  [g] top  [G] bottom  · pick a game'),
         '    </main>',
         '  </div>',
         '</body>',
