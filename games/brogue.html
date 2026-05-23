@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brogue — Roguelike Chronicles</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap">
   <style>
 /* =============================================
    Roguelike Chronicles — terminal / ASCII theme
@@ -18,11 +18,11 @@
   --bg-hover: #141a14;
   --bg-active: #101510;
 
-  --phosphor-green: #5fcf5f;
-  --phosphor-amber: #c9a227;
-  --phosphor-red: #cf5f5f;
-  --phosphor-cyan: #5fcfcf;
-  --phosphor-purple: #9f7fcf;
+  --phosphor-green: #00ff9f;
+  --phosphor-amber: #ffcc00;
+  --phosphor-red: #ff6b6b;
+  --phosphor-cyan: #5ee7ff;
+  --phosphor-purple: #c9a0ff;
 
   --accent-green: var(--phosphor-green);
   --accent-amber: var(--phosphor-amber);
@@ -39,14 +39,14 @@
   --border-bright: #3d5c3d;
   --border-subtle: #151c15;
 
-  --floor-dot: rgba(95, 207, 95, 0.07);
-  --glow-green: rgba(95, 207, 95, 0.35);
+  --floor-dot: rgba(0, 255, 159, 0.09);
+  --glow-green: rgba(0, 255, 159, 0.45);
+  --glow-amber: rgba(255, 204, 0, 0.35);
 
-  --font-mono: 'JetBrains Mono', 'Courier New', Consolas, monospace;
-  --font-terminal: 'VT323', 'Courier New', monospace;
+  --font-mono: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+  --font-terminal: 'VT323', 'Courier New', Courier, monospace;
 
-  --sidebar-width: 280px;
-  --panel-chamfer: 2px;
+  --sidebar-width: 300px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -56,11 +56,12 @@ html { scroll-behavior: smooth; }
 body.roguelike-terminal {
   margin: 0;
   padding: 0;
-  background: var(--bg-primary);
+  background: #000;
   color: var(--text-primary);
   font-family: var(--font-mono);
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -83,7 +84,7 @@ body.roguelike-terminal {
   left: var(--sidebar-width);
   pointer-events: none;
   z-index: 1;
-  opacity: 0.04;
+  opacity: 0.07;
   background: repeating-linear-gradient(
     0deg,
     transparent,
@@ -122,7 +123,71 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   min-height: 100vh;
 }
 
-/* Панели в стиле ASCII-рамки (углы «+») */
+/* ═══ Главный «экран терминала» ═══ */
+.terminal-screen {
+  flex: 1;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  margin: 12px 12px 0;
+  width: auto;
+  max-width: none;
+  border: 1px solid rgba(0, 255, 159, 0.45);
+  box-shadow:
+    inset 0 0 32px rgba(0, 0, 0, 0.55);
+  background: #030503;
+}
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  background: linear-gradient(180deg, #0f1a0f 0%, #080d08 100%);
+  border-bottom: 1px solid var(--border-bright);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.tb-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--phosphor-green);
+  box-shadow: 0 0 8px var(--glow-green);
+  flex-shrink: 0;
+}
+
+.tb-title {
+  flex: 1;
+  color: var(--phosphor-amber);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tb-title::before {
+  content: '$ ';
+  color: var(--phosphor-green);
+}
+
+.tb-tag {
+  padding: 2px 8px;
+  border: 1px solid var(--border-bright);
+  color: var(--phosphor-green);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Вложенные панели (карточки, статы) */
 .terminal-panel {
   position: relative;
   background: var(--bg-card);
@@ -167,8 +232,8 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   width: var(--sidebar-width);
   min-height: 100vh;
   background: var(--bg-sidebar);
-  border-right: 1px solid var(--border-bright);
-  box-shadow: inset -8px 0 24px rgba(0, 0, 0, 0.4);
+  border-right: 1px solid rgba(0, 255, 159, 0.35);
+  box-shadow: inset -12px 0 32px rgba(0, 0, 0, 0.55);
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -204,12 +269,14 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   justify-content: center;
   width: 1.2em;
   font-family: var(--font-terminal);
-  font-size: 48px;
+  font-size: 56px;
   font-weight: 400;
-  color: var(--accent-green);
+  color: var(--phosphor-green);
   text-decoration: none;
   line-height: 1;
-  text-shadow: 0 0 20px rgba(126, 231, 135, 0.3);
+  text-shadow:
+    0 0 12px var(--glow-green),
+    0 0 28px rgba(0, 255, 159, 0.25);
   transition: all 0.3s ease;
   cursor: pointer;
   user-select: none;
@@ -226,12 +293,11 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 }
 
 .subtitle {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--text-muted);
-  margin-top: 4px;
+  font-family: var(--font-terminal);
+  font-size: 18px;
+  color: var(--phosphor-amber);
+  margin-top: 8px;
   letter-spacing: 2px;
-  text-transform: uppercase;
   overflow-wrap: break-word;
 }
 
@@ -470,60 +536,80 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   flex: 1;
   margin-left: var(--sidebar-width);
   min-height: 100vh;
+  min-width: 0;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  padding-bottom: 16px;
 }
 
 /* =============================================
    INDEX PAGE
    ============================================= */
 
-.main-index {
-  background: var(--bg-primary);
+.main-index,
+.main {
+  background: transparent;
 }
 
 .index-container {
-  flex: 1;
-  max-width: 900px;
   width: 100%;
-  margin: 0 auto;
-  padding: 48px 32px;
+  padding: 28px 24px 32px;
 }
 
 .index-header {
   text-align: center;
-  margin-bottom: 48px;
-  padding: 32px 24px 28px;
+  margin-bottom: 32px;
 }
 
-.ascii-banner {
-  display: inline-block;
-  margin: 0 auto 20px;
-  padding: 12px 16px;
+.hero-ascii {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.ascii-dungeon {
+  margin: 0;
+  padding: 14px 16px;
   font-family: var(--font-mono);
-  font-size: 13px;
-  line-height: 1.15;
-  color: var(--text-muted);
-  text-align: left;
+  font-size: 12px;
+  line-height: 1.2;
   white-space: pre;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px dashed var(--border-color);
-  text-shadow: 0 0 1px var(--accent-green);
+  text-align: left;
+  color: var(--text-muted);
+  background: #000;
+  border: 1px solid var(--border-bright);
+  box-shadow: inset 0 0 20px rgba(0, 255, 159, 0.04);
 }
 
 .index-header h1 {
   font-family: var(--font-terminal);
   font-size: 42px;
   font-weight: 400;
-  color: var(--accent-green);
-  margin: 0 0 12px 0;
-  text-shadow: 0 0 30px rgba(126, 231, 135, 0.2);
+  color: var(--phosphor-green);
+  margin: 0;
+  text-shadow: 0 0 16px var(--glow-green);
 }
 
 .index-subtitle {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin: 0 0 24px 0;
+  font-family: var(--font-terminal);
+  font-size: 22px;
+  color: var(--phosphor-amber);
+  margin: 0 0 28px 0;
+  text-shadow: 0 0 12px var(--glow-amber);
+}
+
+.section-heading {
+  font-family: var(--font-terminal);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--phosphor-amber);
+  text-align: center;
+  margin: 0 0 20px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--glow-amber);
 }
 
 .index-stats {
@@ -677,10 +763,8 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
    ============================================= */
 
 .article-page {
-  max-width: 780px;
   width: 100%;
-  margin: 0 auto;
-  padding: 48px 32px;
+  padding: 28px 24px 16px;
 }
 
 .article-page-header {
@@ -1072,8 +1156,14 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 
   .main { margin-left: 0; }
 
+  .terminal-screen {
+    margin: 8px 8px 0;
+  }
+
   .article-page,
-  .index-container { padding: 24px 16px; }
+  .index-container { padding: 20px 14px; }
+
+  .ascii-dungeon { font-size: 10px; max-width: 100%; overflow-x: auto; }
 
   .index-stats { gap: 20px; }
   .index-stat-value { font-size: 28px; }
@@ -1094,7 +1184,7 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
     <aside class="sidebar">
       <div class="sidebar-header">
         <a href="../index.html" class="logo" title="Roguelike Chronicles" aria-label="Roguelike Chronicles">@</a>
-        <div class="subtitle">Roguelike Chronicles</div>
+        <div class="subtitle">[ chronicles ]</div>
       </div>
       <div class="sidebar-current-game">
         <div class="current-game-title">Brogue</div>
@@ -1124,8 +1214,15 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
       </div>
     </aside>
     <main class="main">
+      <div class="terminal-screen">
+        <div class="terminal-titlebar">
+          <span class="tb-led" aria-hidden="true"></span>
+          <span class="tb-title">~/games/brogue</span>
+          <span class="tb-tag">ASCII</span>
+        </div>
+        <div class="terminal-body">
       <div class="article-page">
-        <header class="article-page-header terminal-panel">
+        <header class="article-page-header">
           <h1>Brogue</h1>
           <div class="status-bar" role="status">
             <span class="status-item"><span class="status-key">Date</span> 05.11.2024</span>
@@ -1204,6 +1301,8 @@ The amulet was behind a trap. I used the wand of empowerment, summoned 3 warrior
 </ul>- <strong>No grinding</strong> — only skill, no farming
         </div>
       </div>
+        </div>
+      </div>
       <footer class="site-footer">
         <p class="footer-status">-- More --</p>
         <p class="footer-hint">j/k scroll · g/G top/bottom</p>
@@ -1222,6 +1321,26 @@ The amulet was behind a trap. I used the wand of empowerment, summoned 3 warrior
 
     const tocLinks = document.querySelectorAll('.toc-link');
     const h2Elements = document.querySelectorAll('.article-content h2[id]');
+    const sidebar = document.querySelector('.sidebar');
+    const desktopSidebar = window.matchMedia('(min-width: 769px)');
+
+    /**
+     * Прокрутить пункт TOC только внутри сайдбара (не трогать window).
+     * scrollIntoView() на мобилке тянет страницу к сайдбару вверху — отсюда «откат».
+     */
+    function scrollTocLinkInSidebar(link) {
+        if (!sidebar || !desktopSidebar.matches) return;
+        if (sidebar.scrollHeight <= sidebar.clientHeight) return;
+
+        const linkRect = link.getBoundingClientRect();
+        const sidebarRect = sidebar.getBoundingClientRect();
+
+        if (linkRect.top < sidebarRect.top) {
+            sidebar.scrollTop += linkRect.top - sidebarRect.top - 8;
+        } else if (linkRect.bottom > sidebarRect.bottom) {
+            sidebar.scrollTop += linkRect.bottom - sidebarRect.bottom + 8;
+        }
+    }
 
     /**
      * Update active TOC item based on scroll position
@@ -1233,7 +1352,7 @@ The amulet was behind a trap. I used the wand of empowerment, summoned 3 warrior
 
         let current = null;
         h2Elements.forEach(h2 => {
-            const top = h2.offsetTop;
+            const top = h2.getBoundingClientRect().top + window.scrollY;
             if (scrollPos >= top) {
                 current = h2.id;
             }
@@ -1243,8 +1362,7 @@ The amulet was behind a trap. I used the wand of empowerment, summoned 3 warrior
             link.classList.remove('active');
             if (link.dataset.target === current) {
                 link.classList.add('active');
-                // Auto-scroll sidebar to keep active item visible
-                link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+                scrollTocLinkInSidebar(link);
             }
         });
     }
@@ -1259,9 +1377,9 @@ The amulet was behind a trap. I used the wand of empowerment, summoned 3 warrior
 
             if (target) {
                 e.preventDefault();
-                const offsetTop = target.offsetTop - 16;
+                const top = target.getBoundingClientRect().top + window.scrollY - 16;
                 window.scrollTo({
-                    top: offsetTop,
+                    top: top,
                     behavior: 'smooth'
                 });
                 history.pushState(null, null, '#' + targetId);
@@ -1279,7 +1397,7 @@ The amulet was behind a trap. I used the wand of empowerment, summoned 3 warrior
             updateActiveToc();
             scrollTimeout = null;
         }, 50);
-    });
+    }, { passive: true });
 
     /**
      * Handle initial hash on page load
@@ -1290,8 +1408,8 @@ The amulet was behind a trap. I used the wand of empowerment, summoned 3 warrior
             const target = document.getElementById(hash);
             if (target) {
                 setTimeout(() => {
-                    const offsetTop = target.offsetTop - 16;
-                    window.scrollTo({ top: offsetTop, behavior: 'instant' });
+                    const top = target.getBoundingClientRect().top + window.scrollY - 16;
+                    window.scrollTo({ top: top, behavior: 'instant' });
                     updateActiveToc();
                 }, 100);
             }
@@ -1300,54 +1418,52 @@ The amulet was behind a trap. I used the wand of empowerment, summoned 3 warrior
     handleHash();
 
     /**
-     * Keyboard navigation (vim-style)
+     * Keyboard navigation (vim-style) — только не на сенсорных устройствах без клавиатуры
      */
-    document.addEventListener('keydown', function(e) {
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (!window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
-        switch(e.key) {
-            case 'j':
-                e.preventDefault();
-                window.scrollBy({ top: 40, behavior: 'smooth' });
-                break;
-            case 'k':
-                e.preventDefault();
-                window.scrollBy({ top: -40, behavior: 'smooth' });
-                break;
-            case 'g':
-                e.preventDefault();
-                if (e.repeat) return;
-                // Double-g detection
-                if (window._gKeyPressed) {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    window._gKeyPressed = false;
-                } else {
-                    window._gKeyPressed = true;
-                    setTimeout(() => { window._gKeyPressed = false; }, 400);
-                }
-                break;
-            case 'G':
-                e.preventDefault();
-                window.scrollTo({
-                    top: document.body.scrollHeight,
-                    behavior: 'smooth'
-                });
-                break;
-        }
-    });
+            switch(e.key) {
+                case 'j':
+                    e.preventDefault();
+                    window.scrollBy({ top: 40, behavior: 'smooth' });
+                    break;
+                case 'k':
+                    e.preventDefault();
+                    window.scrollBy({ top: -40, behavior: 'smooth' });
+                    break;
+                case 'g':
+                    e.preventDefault();
+                    if (e.repeat) return;
+                    if (window._gKeyPressed) {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        window._gKeyPressed = false;
+                    } else {
+                        window._gKeyPressed = true;
+                        setTimeout(() => { window._gKeyPressed = false; }, 400);
+                    }
+                    break;
+                case 'G':
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: document.body.scrollHeight,
+                        behavior: 'smooth'
+                    });
+                    break;
+            }
+        });
+    }
 
     /**
-     * Mobile sidebar toggle
+     * Mobile sidebar — сворачивание секций по тапу на заголовок
      */
     if (window.innerWidth <= 768) {
-        const sidebar = document.querySelector('.sidebar');
         if (sidebar) {
-            // Collapse sidebar sections on mobile (only show header + current game)
             const toc = sidebar.querySelector('.sidebar-toc');
             const otherGames = sidebar.querySelector('.sidebar-other-games');
             const allGames = sidebar.querySelector('.sidebar-all-games');
 
-            // Add toggle buttons for collapsible sections
             [toc, otherGames, allGames].forEach(section => {
                 if (!section) return;
                 const label = section.querySelector('.toc-label, .other-games-label, .all-games-label');
