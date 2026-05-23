@@ -34,6 +34,34 @@ from datetime import datetime
 # Каталог с готовым сайтом (GitHub Pages: Settings → Pages → /docs)
 OUTPUT_DIR = 'docs'
 
+ASCII_BANNER = """\
+ ##########
+ #........#
+ #..@.....#
+ #........#
+ ####..####
+    #..#
+    ####"""
+
+HTML_HEAD_LINKS = [
+    '  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;600;700&display=swap">',
+]
+
+HTML_BODY_OPEN = [
+    '<body class="roguelike-terminal">',
+    '  <div class="dungeon-floor" aria-hidden="true"></div>',
+    '  <div class="crt-scanlines" aria-hidden="true"></div>',
+]
+
+def site_footer_html(year, hint='j/k scroll · g/G top/bottom'):
+    return [
+        '      <footer class="site-footer">',
+        f'        <p class="footer-status">-- More --</p>',
+        f'        <p class="footer-hint">{hint}</p>',
+        f'        <p class="footer-copy">Roguelike Chronicles :: {year}</p>',
+        '      </footer>',
+    ]
+
 
 def parse_frontmatter(content):
     """Парсит YAML frontmatter из markdown файла."""
@@ -412,13 +440,12 @@ def build():
             '  <meta charset="UTF-8">',
             '  <meta name="viewport" content="width=device-width, initial-scale=1.0">',
             f'  <title>{article["title"]} — Roguelike Chronicles</title>',
-            '  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">',
-            '  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;600;700&display=swap">',
+            *HTML_HEAD_LINKS,
             '  <style>',
             css_content,
             '  </style>',
             '</head>',
-            '<body>',
+            *HTML_BODY_OPEN,
             '  <div class="app">',
             # Sidebar
             '    <aside class="sidebar">',
@@ -436,14 +463,14 @@ def build():
             '      </div>',
             # Оглавление (разделы h2)
             '      <nav class="sidebar-toc">',
-            '        <div class="toc-label">Contents</div>',
+            '        <div class="toc-label">~ map ~</div>',
             '        <ul>',
             toc_html,
             '        </ul>',
             '      </nav>',
             # Другие игры
             '      <nav class="sidebar-other-games">',
-            '        <div class="other-games-label">Other Games</div>',
+            '        <div class="other-games-label">~ other ~</div>',
             '        <ul>',
             other_games_html,
             '        </ul>',
@@ -457,18 +484,14 @@ def build():
             '    <main class="main">',
             '      <div class="article-page">',
             # Header
-            '        <header class="article-page-header">',
+            '        <header class="article-page-header terminal-panel">',
             f'          <h1>{article["title"]}</h1>',
-            '          <div class="article-page-meta">',
-            f'            <span class="article-date">{date_formatted}</span>',
-            f'            <span class="article-hours {time_class}">',
-            '              <span class="hours-icon">&#x23F3;</span>',
-            f'              <span class="hours-value">{article["hours"]}</span> hours',
-            '            </span>',
-            f'            <span class="article-deaths">',
-            '              <span class="deaths-icon">&#x2620;</span>',
-            f'              <span class="deaths-value">{article["deaths"]}</span> deaths',
-            '            </span>',
+            '          <div class="status-bar" role="status">',
+            f'            <span class="status-item"><span class="status-key">Date</span> {date_formatted}</span>',
+            f'            <span class="status-sep">|</span>',
+            f'            <span class="status-item {time_class}"><span class="status-key">Time</span> {article["hours"]}h</span>',
+            f'            <span class="status-sep">|</span>',
+            f'            <span class="status-item status-danger"><span class="status-key">Deaths</span> {article["deaths"]}</span>',
             '          </div>',
             '        </header>',
         ]
@@ -476,8 +499,8 @@ def build():
         # Таблица статистики
         if article['stats_table']:
             html_parts.extend([
-                '        <div class="stats-section">',
-                '          <h2 class="stats-title">Statistics</h2>',
+                '        <div class="stats-section terminal-panel">',
+                '          <h2 class="stats-title">~ character sheet ~</h2>',
                 article['stats_table'],
                 '        </div>',
             ])
@@ -488,9 +511,7 @@ def build():
             article['content'],
             '        </div>',
             '      </div>',
-            '      <footer class="site-footer">',
-            f'        <p>Roguelike Chronicles :: {year}</p>',
-            '      </footer>',
+            *site_footer_html(year),
             '    </main>',
             '  </div>',
             '  <script>',
@@ -522,7 +543,7 @@ def build():
         preview = re.sub(r'<[^>]+>', '', preview)  # Strip tags
         
         game_cards.append(
-            f'<a href="games/{article["slug"]}.html" class="game-card">'
+            f'<a href="games/{article["slug"]}.html" class="game-card terminal-panel">'
             f'  <div class="game-card-header">'
             f'    <h2 class="game-card-title">{article["title"]}</h2>'
             f'    <div class="game-card-meta">'
@@ -533,7 +554,7 @@ def build():
             f'  <div class="game-card-date">{date_formatted}</div>'
             f'  <p class="game-card-preview">{preview}</p>'
             f'  <div class="game-card-footer">'
-            f'    <span class="game-card-link">Read more &rarr;</span>'
+            f'    <span class="game-card-link">&gt; enter dungeon</span>'
             f'  </div>'
             f'</a>'
         )
@@ -556,13 +577,12 @@ def build():
         '  <meta charset="UTF-8">',
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0">',
         '  <title>Roguelike Chronicles</title>',
-        '  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">',
-        '  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;600;700&display=swap">',
+        *HTML_HEAD_LINKS,
         '  <style>',
         css_content,
         '  </style>',
         '</head>',
-        '<body>',
+        *HTML_BODY_OPEN,
         '  <div class="app">',
         # Sidebar
         '    <aside class="sidebar">',
@@ -571,7 +591,7 @@ def build():
         '        <div class="subtitle">Roguelike Chronicles</div>',
         '      </div>',
         '      <nav class="sidebar-all-games">',
-        '        <div class="all-games-label">Games</div>',
+        '        <div class="all-games-label">~ games ~</div>',
         '        <ul>',
         main_nav_html,
         '        </ul>',
@@ -587,9 +607,10 @@ def build():
         # Main content
         '    <main class="main main-index">',
         '      <div class="index-container">',
-        '        <header class="index-header">',
+        '        <header class="index-header terminal-panel">',
+        f'          <pre class="ascii-banner" aria-hidden="true">{ASCII_BANNER}</pre>',
         '          <h1>Roguelike Chronicles</h1>',
-        '          <p class="index-subtitle">A journey through traditional roguelike games.</p>',
+        '          <p class="index-subtitle">You feel an urge to document your dungeon runs.</p>',
         '          <div class="index-stats">',
         f'            <div class="index-stat">',
         f'              <span class="index-stat-value">{len(articles)}</span>',
@@ -609,9 +630,7 @@ def build():
         '\n'.join(game_cards),
         '        </div>',
         '      </div>',
-        '      <footer class="site-footer">',
-        f'        <p>Roguelike Chronicles :: {year}</p>',
-        '      </footer>',
+        *site_footer_html(year, hint='j/k scroll · pick a game from the map'),
         '    </main>',
         '  </div>',
         '</body>',
