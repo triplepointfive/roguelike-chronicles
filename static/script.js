@@ -8,6 +8,26 @@
 
     const tocLinks = document.querySelectorAll('.toc-link');
     const h2Elements = document.querySelectorAll('.article-content h2[id]');
+    const sidebar = document.querySelector('.sidebar');
+    const desktopSidebar = window.matchMedia('(min-width: 769px)');
+
+    /**
+     * Прокрутить пункт TOC только внутри сайдбара (не трогать window).
+     * scrollIntoView() на мобилке тянет страницу к сайдбару вверху — отсюда «откат».
+     */
+    function scrollTocLinkInSidebar(link) {
+        if (!sidebar || !desktopSidebar.matches) return;
+        if (sidebar.scrollHeight <= sidebar.clientHeight) return;
+
+        const linkRect = link.getBoundingClientRect();
+        const sidebarRect = sidebar.getBoundingClientRect();
+
+        if (linkRect.top < sidebarRect.top) {
+            sidebar.scrollTop += linkRect.top - sidebarRect.top - 8;
+        } else if (linkRect.bottom > sidebarRect.bottom) {
+            sidebar.scrollTop += linkRect.bottom - sidebarRect.bottom + 8;
+        }
+    }
 
     /**
      * Update active TOC item based on scroll position
@@ -19,7 +39,7 @@
 
         let current = null;
         h2Elements.forEach(h2 => {
-            const top = h2.offsetTop;
+            const top = h2.getBoundingClientRect().top + window.scrollY;
             if (scrollPos >= top) {
                 current = h2.id;
             }
@@ -29,8 +49,7 @@
             link.classList.remove('active');
             if (link.dataset.target === current) {
                 link.classList.add('active');
-                // Auto-scroll sidebar to keep active item visible
-                link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+                scrollTocLinkInSidebar(link);
             }
         });
     }
@@ -45,9 +64,9 @@
 
             if (target) {
                 e.preventDefault();
-                const offsetTop = target.offsetTop - 16;
+                const top = target.getBoundingClientRect().top + window.scrollY - 16;
                 window.scrollTo({
-                    top: offsetTop,
+                    top: top,
                     behavior: 'smooth'
                 });
                 history.pushState(null, null, '#' + targetId);
@@ -65,7 +84,7 @@
             updateActiveToc();
             scrollTimeout = null;
         }, 50);
-    });
+    }, { passive: true });
 
     /**
      * Handle initial hash on page load
@@ -76,8 +95,8 @@
             const target = document.getElementById(hash);
             if (target) {
                 setTimeout(() => {
-                    const offsetTop = target.offsetTop - 16;
-                    window.scrollTo({ top: offsetTop, behavior: 'instant' });
+                    const top = target.getBoundingClientRect().top + window.scrollY - 16;
+                    window.scrollTo({ top: top, behavior: 'instant' });
                     updateActiveToc();
                 }, 100);
             }
@@ -86,54 +105,52 @@
     handleHash();
 
     /**
-     * Keyboard navigation (vim-style)
+     * Keyboard navigation (vim-style) — только не на сенсорных устройствах без клавиатуры
      */
-    document.addEventListener('keydown', function(e) {
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (!window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
-        switch(e.key) {
-            case 'j':
-                e.preventDefault();
-                window.scrollBy({ top: 40, behavior: 'smooth' });
-                break;
-            case 'k':
-                e.preventDefault();
-                window.scrollBy({ top: -40, behavior: 'smooth' });
-                break;
-            case 'g':
-                e.preventDefault();
-                if (e.repeat) return;
-                // Double-g detection
-                if (window._gKeyPressed) {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    window._gKeyPressed = false;
-                } else {
-                    window._gKeyPressed = true;
-                    setTimeout(() => { window._gKeyPressed = false; }, 400);
-                }
-                break;
-            case 'G':
-                e.preventDefault();
-                window.scrollTo({
-                    top: document.body.scrollHeight,
-                    behavior: 'smooth'
-                });
-                break;
-        }
-    });
+            switch(e.key) {
+                case 'j':
+                    e.preventDefault();
+                    window.scrollBy({ top: 40, behavior: 'smooth' });
+                    break;
+                case 'k':
+                    e.preventDefault();
+                    window.scrollBy({ top: -40, behavior: 'smooth' });
+                    break;
+                case 'g':
+                    e.preventDefault();
+                    if (e.repeat) return;
+                    if (window._gKeyPressed) {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        window._gKeyPressed = false;
+                    } else {
+                        window._gKeyPressed = true;
+                        setTimeout(() => { window._gKeyPressed = false; }, 400);
+                    }
+                    break;
+                case 'G':
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: document.body.scrollHeight,
+                        behavior: 'smooth'
+                    });
+                    break;
+            }
+        });
+    }
 
     /**
-     * Mobile sidebar toggle
+     * Mobile sidebar — сворачивание секций по тапу на заголовок
      */
     if (window.innerWidth <= 768) {
-        const sidebar = document.querySelector('.sidebar');
         if (sidebar) {
-            // Collapse sidebar sections on mobile (only show header + current game)
             const toc = sidebar.querySelector('.sidebar-toc');
             const otherGames = sidebar.querySelector('.sidebar-other-games');
             const allGames = sidebar.querySelector('.sidebar-all-games');
 
-            // Add toggle buttons for collapsible sections
             [toc, otherGames, allGames].forEach(section => {
                 if (!section) return;
                 const label = section.querySelector('.toc-label, .other-games-label, .all-games-label');
