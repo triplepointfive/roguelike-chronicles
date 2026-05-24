@@ -47,6 +47,16 @@ HTML_HEAD_LINKS = [
     '  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap">',
 ]
 
+GA_SCRIPT = [
+    '  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKC3J0J8XS"></script>',
+    '  <script>',
+    '    window.dataLayer = window.dataLayer || [];',
+    '    function gtag(){dataLayer.push(arguments);}',
+    "    gtag('js', new Date());",
+    "    gtag('config', 'G-BKC3J0J8XS');",
+    '  </script>',
+]
+
 
 def terminal_screen_open(title):
     """Открывает блок «экран терминала» с заголовком."""
@@ -460,6 +470,7 @@ def build():
             '  <meta name="viewport" content="width=device-width, initial-scale=1.0">',
             f'  <title>{article["title"]} — Roguelike Chronicles</title>',
             *HTML_HEAD_LINKS,
+            *GA_SCRIPT,
             '  <style>',
             css_content,
             '  </style>',
@@ -615,6 +626,7 @@ def build():
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0">',
         '  <title>Roguelike Chronicles</title>',
         *HTML_HEAD_LINKS,
+        *GA_SCRIPT,
         '  <style>',
         css_content,
         '  </style>',
