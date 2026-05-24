@@ -32,6 +32,12 @@ And that’s the core of the game.
 
 Brogue lives and dies by its combat, but not in the “walk into enemy until one of you dies” kind of way.
 
+The level generation is some of the most beautiful I’ve seen in the genre.
+
+There’s color everywhere — treasure vaults, lakes of water and lava, glowing terrain, strange vegetation. Floors don’t just look like “floor” either. You walk across grass, carpets, swamps, mud, crystal formations, and all kinds of other terrain that make each level feel distinct.
+
+It’s a massive step forward from the classic “rectangular rooms connected by corridors” dungeon design.
+
 ## What I Learned After the First Hour
 
 As tradition demands, I died to an eel on the second floor.
@@ -59,3 +65,19 @@ Against Jellies, the best tactic is hiding in a doorway so their clones can’t 
 Against Goblin Conjurers, stairs work wonders. Go up or down a floor and wait for the goblin to follow you.
 
 When he arrives, he comes alone — without his spectral blades — so you get a chance to kill him before he summons anything.
+
+At this point I could consistently reach depths 7, 8, and sometimes 9 — which is exactly where the game started killing me again.
+
+Some deaths came from completely new enemies I’d never seen before. Dar Blademasters, for example, apparently took personal offense to the concept of running away. Once one of them noticed me, escaping stopped being an option.
+
+And then there were ogres. Of course there were ogres.
+
+One run gave me an especially stupid situation. I had two possible paths forward.
+
+One corridor had a sleeping ogre in it, except he woke up the moment I tried to sneak past.
+
+The other path had a statue that animated as soon as I approached it.
+
+And naturally, the statue contained another ogre.
+
+So what exactly was the correct play there?
