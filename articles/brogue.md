@@ -93,3 +93,27 @@ The other path had a statue that animated as soon as I approached it.
 And naturally, the statue contained another ogre.
 
 So what exactly was the correct play there?
+
+## What I Learned After the Twenty Hours
+
+So the game runs on items — they're the only way to upgrade yourself. By depths 6–7, enemies start showing up that you simply can't beat with your starting gear. You'll have to pick something to commit to.
+
+Items *must* be upgraded. The simplest strategy is to pick one thing and dump every Scroll of Enchanting into it. The other option is to spread the levels across several items. It's a choice between having a +12 axe or a +6 axe with a +6 ring. Only one way to find out what works — try it.
+
+Here's my ID strategy. For the first 4 floors, hoard everything you find. Let it sit in your inventory, it's not bothering anyone. By depths 3–4 your inventory will be full — that's when identification begins.
+
+Start with potions. The big one is Potion of Detect Magic. It lets you skip negative potions and immediately shows which equipment is cursed or blessed. Cursed stuff — throw it away immediately, don't waste inventory space or time. Blessed gear you can either commit to enchanting or just use enough to identify naturally: 20 kills for weapons, 1000 steps for armor, 1500 steps for rings.
+
+Before reading scrolls, keep a few things in mind:
+- If you find a Scroll of Enchantment — do you have an item worth spending it on? These are the most valuable scrolls in the game, wasting even one hurts.
+- If it's a negative scroll — will it cause problems? There are only two bad kinds, and for both you're better off reading them on a cleared floor, - preferably not deeper in the dungeon while summoned monsters are weaker.
+- If you get Scroll of Protect Weapon or Protect Armor — is the weapon/armor you're wearing worth the scroll?
+- If you find Scroll of Negation — is there a vault or enchanted items on the floor that you'd hate to see lose their upgrades?
+
+You get the idea. Potions you can chug without much worry, but scrolls are far more valuable — save them.
+
+Wands and staffs should be tried out as soon as you find them to figure out what they do. Just be ready for negative effects — like healing a monster or creating a clone of it. Nothing worse than making an enemy invisible at the worst possible moment.
+
+Among dangerous new enemies, the Revenant shows up — immune to normal weapons. You need magic or special abilities to deal with it. It's common enough that you won't have a Potion of Descent for every encounter.
+
+One more tip: don't ally yourself with a Salamander. I had one as a companion once, and we walked into a gas trap. The gas ignited instantly — courtesy of my friendly Salamander — and I barely survived the explosion. Not thinking twice, already seeing the trap, the Salamander decided to stand on it again, triggering a second blast that buried us both for good. Needless to say, I never made that mistake again.
