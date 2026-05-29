@@ -354,6 +354,14 @@ def build():
     # Отключаем Jekyll на GitHub Pages (чистый статический HTML)
     with open(os.path.join(output_dir, '.nojekyll'), 'w', encoding='utf-8'):
         pass
+
+    # Копируем изображения
+    images_source = os.path.join(base_dir, 'images')
+    images_dest = os.path.join(output_dir, 'images')
+    if os.path.exists(images_source):
+        if os.path.exists(images_dest):
+            shutil.rmtree(images_dest)
+        shutil.copytree(images_source, images_dest)
     
     # Читаем CSS и JS
     css_content = ''

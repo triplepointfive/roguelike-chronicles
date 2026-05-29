@@ -997,6 +997,33 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
   border-radius: 8px;
   border: 1px solid var(--border-color);
   margin: 20px 0;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  object-fit: contain;
 }
 
 .article-content hr {

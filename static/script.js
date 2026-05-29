@@ -165,4 +165,25 @@
         }
     }
 
+    /**
+     * Image modal — открытие по клику, закрытие по клику на изображение или фон
+     */
+    const modal = document.createElement('div');
+    modal.className = 'modal-overlay';
+    const modalImg = document.createElement('img');
+    modal.appendChild(modalImg);
+    document.body.appendChild(modal);
+
+    document.addEventListener('click', function(e) {
+        const target = e.target.closest('.article-content img');
+        if (!target) return;
+        modalImg.src = target.src;
+        modalImg.alt = target.alt;
+        modal.classList.add('open');
+    });
+
+    modal.addEventListener('click', function() {
+        modal.classList.remove('open');
+    });
+
 })();
