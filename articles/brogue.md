@@ -38,6 +38,18 @@ There’s color everywhere — treasure vaults, lakes of water and lava, glowing
 
 It’s a massive step forward from the classic “rectangular rooms connected by corridors” dungeon design.
 
+## First Death
+
+Totally out of nowhere, my first death came on depth 6. If only I'd known how far I'd get — and how many more times I'd die much sooner.
+
+It was a Goblin Conjurer. He was just chilling in a big, well-lit room, completely unaware I was coming for him.
+
+But the moment I got close, he summoned a horde of spectral blades. I already knew that killing them only made him summon more, so I figured I wouldn't bother — straight for the goblin it was.
+
+Reading my play like a book, the goblin booked it. While I was chasing him down, the spectral blades were stabbing me in the back. What I didn't know back then was that they're faster than you — fast enough to both catch up and get their hits in.
+
+When death started breathing down my neck, I went into panic mode, chugging every unknown potion I had. But nothing worked. No magic happened that day.
+
 ## What I Learned After the First Hour
 
 As tradition demands, I died to an eel on the second floor.
