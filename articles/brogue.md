@@ -117,3 +117,154 @@ Wands and staffs should be tried out as soon as you find them to figure out what
 Among dangerous new enemies, the Revenant shows up — immune to normal weapons. You need magic or special abilities to deal with it. It's common enough that you won't have a Potion of Descent for every encounter.
 
 One more tip: don't ally yourself with a Salamander. I had one as a companion once, and we walked into a gas trap. The gas ignited instantly — courtesy of my friendly Salamander — and I barely survived the explosion. Not thinking twice, already seeing the trap, the Salamander decided to stand on it again, triggering a second blast that buried us both for good. Needless to say, I never made that mistake again.
+
+## To the Amulet and Back Again (Story of a Single Run)
+
+Right away, I should say this run was full of pain and suffering. Not the cinematic kind. The quiet kind: muscle memory of wrong turns, the seed number stopping at a grudge, the cursor hovering over “New Game” long after you promised yourself you’d quit for the day.
+
+I’d already managed to beat the game using a pile of save files, and at one point I even cleared Bullet Brogue without using saves at all. But this particular run was brutal. I’m not even going to admit how many times I restarted it. Way too many.
+
+Still, I wanted to finish this exact run, even if the item drops weren’t especially generous.
+
+But hey, a win is a win.
+
+The game actually lets you restart using the same seed. You could even say Brogue encourages this kind of strategy — if you start a New Seeded Game, it automatically selects your last seed.
+
+So if anyone wants to experience my suffering personally, here it is: *427364548*.
+
+### Depth 1
+
+Pretty standard opening floor. Jackals, rats, kobolds — business as usual.
+
+There was also a vault, and I immediately grabbed a war pike (+0) from it. Turns out there was also a leather armor (+3 of mutuality) inside, but of course I didn’t know that at the time.
+
+I like weapons. And even though I know heavy weapons never carry runes, I picked the war pike anyway. Slow commits. No safety net. In a game that punishes hesitation, I tied my own hands on purpose.
+
+### Depth 2
+
+Four Bloats, spawned almost back-to-back. The gas didn’t just pool — it crept. I backed into a dead end, counted turns, listened for the hiss to thin out. 
+One wrong step and the screen blurs. I took none.
+
+There was also a monkey that stole one of my potions, but by now I already know chasing monkeys is almost never worth it. Those little bastards know the dungeon layout better than I do and have no problem running circles around entire floors.
+
+What they *don’t* know how to do is dodge darts.
+
+So I got my mysterious potion back.
+
+One floor below, I immediately found another monkey trapped in a cage. Of course I freed it. A helper like that is never useless.
+
+To stop it from dying instantly, I even healed it with a Bloodwort stalk. We’ll see how long it survives.
+
+Well then, time to start gambling on unidentified potions.
+
+First attempt: bad idea. Potion of confusion.
+
+Then strength, immediately followed by incineration.
+
+The monkey apparently sensed disaster coming and wisely backed away. Meanwhile I had to sprint into a lake to put myself out.
+
+After healing up a bit, I kept drinking.
+
+And then came potion of descent.
+
+Thankfully I’d been testing potions near a staircase, so climbing back up wasn’t too hard.
+
+Next came telepathy and potion of life. At least those were useful.
+
+Still no Detect Magic. The scrolls sat in my pack like unopened threats. I’d have to gamble blind later. Of course I would.
+
+### Depth 4
+
+This was the floor where our little team decided fighting a Pink Jelly in the open was a good idea.
+
+The result was predictable. One wrong angle, a split, and the floor was quiet again.
+
+While I was still cleaning up the remaining jelly clones, a Goblin decided it was the perfect moment to start hunting me down. I definitely didn’t have enough health left for a straight fight, so I ended up running circles around the floor until I found a Bloodwort stalk.
+
+After positioning myself so only I was standing inside the healing gas, I finally dealt with the Goblin.
+
+### Depth 5
+
+That’s it. The tutorial zone was over. 
+
+The dungeon stopped testing me. It started counting my mistakes.
+
+From this point on, the enemies stopped being polite.
+
+There was no way I was getting further with starter gear, so I dumped every Scroll of Enchantment I had into the war pike, bringing it up to +3.
+
+I still didn’t really have enough strength to use it properly, but technically I *could* hold it.
+
+I’d just have to put my entire body weight behind every swing. 
+
+Slower commits. Missed turns meant punishment. But the damage paid for it.
+
+### Depth 6
+
+The new floor introduced me to a new enemy: Vampire Bats.
+
+This is one of those enemies that immediately checks what kind of build you’ve brought with you. A starter dagger won’t handle them.
+
+Thankfully, the war pike worked perfectly.
+
+I skewered them like kebabs.
+
+Later I ran into an entire group of Acid Mounds. Neither my armor nor my weapon were remotely prepared for that.
+
+Good thing I’d already identified incendiary potion. One Molotov cocktail later, the entire group was on fire.
+
+They didn’t even manage to reach me before roasting alive together.
+
+Then I finally got Detect Magic. The leather armor (+2) slid on like it had been waiting.
+
+I burned the bad scrolls in lava before they could talk back. Packed the rest.
+
+Deeper floors don’t care how prepared you feel. But at least I’d know what I was walking into.
+
+### Depth 7
+
+Right near the staircase I ran into an entire Goblin squad.
+
+I had absolutely no intention of fighting them, so instead I tossed a potion of confusion into the group. Conveniently, there was a chasm nearby.
+
+Confusion hits. They don’t stop to think. They just keep walking. One by one, they step over the chasm edge and drop.
+
+This was also where I found a Scroll of Protect Weapon.
+
+From that point on, acid enemies stopped being a problem. My armor, on the other hand, remained unprotected for the entire run, so I constantly had to work around that.
+
+Meanwhile, the game kept giving me Scrolls of Protect Weapon. I think I found four of them total.
+
+Four Scrolls of Protect Weapon. One pike. The dungeon clearly had a favorite.
+
+### Depth 8
+
+First Ogre. In early runs, these forced a retreat or a panic scroll. Those are second dungeon check if I'm ready to mid game.
+
+Now, +5 pike and +2 armor just chewed through it. 
+
+The build finally clicked.
+
+### Depth 9
+
+I walked straight into a trap set by a Spider.
+
+The bastard shoots webs at basically any angle, unlike most enemies that only attack diagonally or orthogonally. It also spits poison, because apparently webs alone weren’t annoying enough.
+
+Other than that, not too dangerous.
+
+Eight eyes watching. None of them mattered if I kept my distance. Angle, step, thrust. Repeat.
+
+### Finale
+
+And this was the final gear setup I carried all the way back to the surface.
+
+I probably could’ve sold it to the next unfortunate adventurer for a decent profit, but honestly I’ll keep it as a souvenir instead.
+
+![Total](../images/brogue/total.png)
+
+I even got an achievement somehow.
+
+Pure luck, honestly.
+
+![Dragonslayer](../images/brogue/dragonslayer.png)
