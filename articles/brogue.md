@@ -1,8 +1,8 @@
 ---
 title: "Brogue"
-hours: 14
+hours: 40
 date: "2026-05-23"
-deaths: 211
+deaths: 397
 version: "1.15.1"
 table:
   - metric: "First win after (with save scumming)"
@@ -13,8 +13,6 @@ table:
     value: "Depth 28"
   - metric: "First win date"
     value: "2026-05-23"
-  - metric: "Gold collected"
-    value: "15,910"
 ---
 
 
