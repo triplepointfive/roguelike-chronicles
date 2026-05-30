@@ -325,6 +325,68 @@ Shame I’d already burned through all my Identification scrolls. Not about to r
 
 Turned out to be a +2 Ring of Reaping. Useful, sure. But not the core of this build.
 
+### Depth 17
+
+The dead are closing in. A Zombie and four Wraiths, all at once. Without an ally, I’d have zero chance.
+
+Another ring drops. +3 Transference. Exactly what I’d been hoping for. Might actually make this run survivable
+
+### Depth 18
+
+The turning point. Reloaded a couple times here.
+
+Time to use the wands. Polymorph on the Troll ally, then Plenty to double him up.
+
+Problem is, every time I tried, the RNG refused to cooperate.
+
+One cast: a helpless Kraken. Next: a Bloat. Then a Goblin Warlord, who suddenly remembered I’d wiped out his squad and switched from ally to enemy.
+
+Couldn’t force a single useful roll. Shelved the Wand of Polymorph for later. Kept my two Trolls.
+
+Guess I’ll skip the fantasy about a powerhouse squad.
+
+Ran into a Lich. One of the nastiest enemies out there. Summons on sight, and when it dies, it leaves a Phylactery behind.
+
+Got lucky and struck it before it spotted us. Dodged the summoning entirely. But luck isn’t a strategy.
+
+Dungeon’s getting darker. Traps everywhere. We stepped into one. Fell a floor.
+
+### Depth 19
+
+Landed right on a Flame Turret. That’s how the final stretch greets you.
+
+No more mercy. The heaviest enemies are all active now.
+
+And I’m burning. Down to a sliver of health, I chugged a Potion of Life just to survive the fire.
+
+Hit another trap. Dropped another floor. Didn’t even get to clear what was above. Just fell through.
+
+### Depth 20.
+
+And immediately, a Revenant. My least favorite enemy. Not just one. Two.
+
+Normally, I let the numbers decide. But Revenants ignore physical damage entirely. All those Potions of Strength? Dead weight.
+
+No staffs in my pack. Trolls don’t cast spells.
+
+Panic. What now?
+
+Remembered the incendiary darts.
+
+One dart to ignite it. Just had to outlast the burn. I could step back. The Trolls just kept swinging, not realizing their hits did zero damage.
+
+That’s how I lost my ally.
+
+Right on cue, an Explosive Imp shows up. Where the hell was it when I needed to deal with the Revenant?
+
+Last Potion of Life.
+
+Floor 20, and I’m out of heals again.
+
+This time, the Lich summoned Phantoms and Furies. Good thing I had a Potion of Telepathy. At least I could see the Phantoms now.
+
+Barely survived that one. Literally 5% health left. Too close.
+
 ### Finale
 
 And this was the final gear setup I carried all the way back to the surface.
