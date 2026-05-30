@@ -361,7 +361,7 @@ And I’m burning. Down to a sliver of health, I chugged a Potion of Life just t
 
 Hit another trap. Dropped another floor. Didn’t even get to clear what was above. Just fell through.
 
-### Depth 20.
+### Depth 20
 
 And immediately, a Revenant. My least favorite enemy. Not just one. Two.
 
@@ -386,6 +386,118 @@ Floor 20, and I’m out of heals again.
 This time, the Lich summoned Phantoms and Furies. Good thing I had a Potion of Telepathy. At least I could see the Phantoms now.
 
 Barely survived that one. Literally 5% health left. Too close.
+
+### Depth 21
+
+Wraiths again. This time, the Troll held them off alone while I dealt with a Revenant.
+
+Didn’t last. Fell to their chill. Back to solo. Darkest stretch of the dungeon, and I’m alone again.
+
+Darts ran out. Had to pull the Wand of Polymorph. Dropped a couple more Revenants that way.
+
+Feels like the dungeon’s tracking my weaknesses and countering them.
+
+Path down blocked by a lake. I already know what’s waiting.
+
+Kraken at the edge. The moment I stepped close, tentacles locked onto my legs.
+
+Against a +11 war pike, it didn’t stand a chance.
+
+### Depth 22
+
+Reloaded here multiple times. Hardest floor yet. Vast open spaces, fire, and hissing brimstone everywhere.
+
+Across the blaze: a Lich, casually throwing its army at me.
+
+Revenants I no longer have the tools to fight.
+
+Deadlock. No retreat.
+
+Popped the Potion of Invisibility. Slipped past. Downward.
+
+No idea how I’m getting back up.
+
+Right now, only the Amulet matters.
+
+### Depth 23
+
+Next room. Tentacle Horror with the Toxic trait. Should’ve taken it out. But it wasn’t alone. Another one, standard variant.
+
+Second one was still asleep. Pulled the Toxic one into a 1v1.
+
+Strike. Poison hits. Strike again. Poison stacks.
+
+Half health. Enemy drops. Poison fades, slowly.
+
+### Depth 24
+
+Nothing else matters now. Just find the stairs down.
+
+Food supplies are fine. Just need a safe corner to eat.
+
+Another Tentacle Horror. Survived on exactly 10% health.
+
+Dar Priestess blew up on death. Barely made it through the blast.
+
+Used a charge from the Wand of Negation on a Revenant. Stripped its immunity. Left it helpless.
+
+### Depth 25
+
+Fell through the floor before finding the stairs. No choice left.
+
+Good thing the descent to the final level was right there. Going straight down. I’ll figure out the way back later.
+
+### Depth 26
+
+There it is. Finally. Sitting right there on the stone.
+
+Potion of Speed down. The world snaps into focus. One strike, two—the path clears. Inventory’s bleeding out, but hesitation costs more than supplies now.
+
+Fingers close around it. Cold. Heavy. Not a trophy—a timer.
+
+The statue cracks. Warden of Yendor wakes. I don’t fight it. I drop a Potion of Descent at its feet. Let it fall.
+
+Golem shifts. Tentacle uncoils in the corner. Same trick. Both swallowed by the floor. I don’t have the stamina for a fair fight, and the Amulet just lit up the entire dungeon. Every alert radius within earshot is turning toward me.
+
+I slot it into the pack. Close the lid.
+
+The real run starts now.
+
+### The Ascent
+
+A pack of Furies blocks the path. Survive on fumes.
+
+While patching myself up, the Warden catches up. Found his way up faster than expected.
+
+Lucky he’s slow. I slip past without taking a hit. Keep moving. Feel the ground tremble behind me with every step he takes.
+
+Then—something new this run. A Dragon.
+
+Only at 60% health. Must’ve taken damage somewhere earlier.
+
+That’s the only reason I drop it. War pike. Two swings.
+
+Didn’t even have time to react.
+
+Tentacle Horror next. Potion of Speed. Strike, step back, strike again. Kill it clean. Zero damage taken.
+
+Depth 22 again.
+
+Fire, brimstone, and everything I left alive.
+
+Slip past a Golem. Face the Lich and its summoned horde. Last real threat on the way up.
+
+### Ending
+
+The rest of the climb isn’t heroic. It’s arithmetic.
+
+Track the hunger counter. Count the turns. Retrace safe paths I mapped on the way down. The Warden’s footsteps fade into the lower dark. The dungeon stops throwing new monsters at me—it just demands I don’t make mistakes.
+
+Stairs up. One floor at a time. No shortcuts. No miracles. Just the Amulet’s weight in the pack and the surface pulling closer.
+
+I reach the top. The stone ceiling cracks open to daylight.
+
+Run complete.
 
 ### Finale
 
