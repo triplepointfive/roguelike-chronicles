@@ -287,6 +287,44 @@ Potion of Life saves me again. Last one in the pack. From here on out, it’s ju
 
 Ran into a Nauseous Zombie. Another dead adventurer who didn’t get to rest. Harmless alone, but the nausea lingers long after it’s dead. Screen warps, swings feel heavy, accuracy drops. Just had to push through the debuff.
 
+### Depth 14
+
+Halfway mark. I could actually count the floors left. Enemies were getting tougher—mutations starting to show up, making them genuinely dangerous.
+
+Lucky for me, it was just an Ogre with the Reflective trait. I wasn’t planning on wasting magic on it anyway.
+
+Found four Scrolls of Identification. Didn’t want to waste inventory space, so I identified my entire backlog on the spot.
+
+If only I knew how badly I’d need them later.
+
+Two wands popped out: Polymorph and Plenty. Interesting combo. Exactly what I needed.
+
+### Depth 15
+
+Stepped right into a Net Trap. While I was struggling to cut myself free, a couple of Centaurs managed to get tangled in it too. Don’t know what they were thinking, but the pike’s reach let me stab them straight from the trap.
+
+Then two more Trolls. Also stuck in the nets. Maybe triggering the trap wasn’t a bad idea—it kept me at a safe distance.
+
+Another wave. Centaurs and Trolls. These ones were smarter: archers hanging back, Trolls soaking hits. No way to win this clean. Teleportation Charm it was.
+
+Bottom of the map held a Goblin Fortress. Two dozen of them. But I’d learned their patterns by now. Heads dropped, one after another.
+
+At the back, asleep: the Goblin Warlord. Woke him up with the pike.
+
+He immediately screamed for backup.
+
+Too bad there was no one left to answer.
+
+Finally, a new ally. A Troll, this time. I had a feeling this one would stick around. Let him tank the damage—he regenerates fast. I’ll stay back and work the pike.
+
+### Depth 16
+
+In one of the lit rooms, found a ring on the floor. First one this run. The loot pool was running dry, but you take what you get.
+
+Shame I’d already burned through all my Identification scrolls. Not about to risk equipping something blind.
+
+Turned out to be a +2 Ring of Reaping. Useful, sure. But not the core of this build.
+
 ### Finale
 
 And this was the final gear setup I carried all the way back to the surface.
