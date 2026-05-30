@@ -253,6 +253,40 @@ Other than that, not too dangerous.
 
 Eight eyes watching. None of them mattered if I kept my distance. Angle, step, thrust. Repeat.
 
+### Depth 10
+
+Deep in the dungeon, I ran into a Dar Blademaster. Fast. Weapon already drawn. Theoretically, my pike should drop him in two swings — if I could actually hit him. Reality took six of my attacks and four of his. I barely walked away.
+
+Right after him, a Wisp. Bright blue, doesn’t deal direct damage, just ignites everything it touches. Including me. I backed into a pool, sizzling, lost a sliver of health putting myself out.
+
+Walking around half-dead isn’t smart. The dungeon doesn’t forgive that kind of risk.
+
+I waited. Let the wounds close. Didn’t regret it.
+
+Next: a Wraith. Probably leftover from some adventurer who didn’t make it. Its chill locked onto me, slowing every step. Wraiths flee when they’re low. You can’t outrun them with short weapons. The pike didn’t need to chase.
+
+### Depth 11
+
+Another Wraith immediately. This one wasn’t scared of reach. When I was down to one hit of health, I chugged a Potion of Life. Rare stuff. But the enemy wasn’t cheap either. Four of its strikes would drop me.
+
+In the marshes, a Bog. Grabs you, won’t let go. Water’s a death trap now, eels aside.
+
+Another elf. Faster than the last. Dying, I popped a Teleportation Charm. Big gamble. Never know where you’ll land. Luck held.
+
+And again—a Wraith. Another brutal fight. Barely survived.
+
+Third time on this floor I had to stop and wait for my health to tick back up. Relentless. And this isn’t even halfway down. Every step costs something.
+
+### Depth 12
+
+Trolls start showing up here. Big, regenerate fast, hit hard. Three of its strikes and the run’s over. I’d need four of mine to drop it.
+
+No choice but to push forward. Gotta risk it.
+
+Potion of Life saves me again. Last one in the pack. From here on out, it’s just me, the pike, and whatever drops.
+
+Ran into a Nauseous Zombie. Another dead adventurer who didn’t get to rest. Harmless alone, but the nausea lingers long after it’s dead. Screen warps, swings feel heavy, accuracy drops. Just had to push through the debuff.
+
 ### Finale
 
 And this was the final gear setup I carried all the way back to the surface.
