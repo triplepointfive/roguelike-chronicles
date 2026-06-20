@@ -9,10 +9,10 @@ table:
     value: "14 hours"
   - metric: "Total deaths"
     value: "211"
-  - metric: "Deepest floor reached"
-    value: "Depth 28"
   - metric: "First win date"
     value: "2026-05-23"
+  - metric: "Single success run"
+    value: "2 hours"
 ---
 
 
