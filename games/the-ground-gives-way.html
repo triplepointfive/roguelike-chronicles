@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brogue — Roguelike Chronicles</title>
+  <title>The Ground Gives Way — Roguelike Chronicles</title>
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKC3J0J8XS"></script>
@@ -1222,10 +1222,10 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
         <div class="subtitle">[ chronicles ]</div>
       </div>
       <div class="sidebar-current-game">
-        <div class="current-game-title">Brogue</div>
+        <div class="current-game-title">The Ground Gives Way</div>
         <div class="current-game-meta">
-          <span class="current-game-hours time-short">40h</span>
-          <span class="current-game-deaths">&#x2620; 397</span>
+          <span class="current-game-hours time-short">31h</span>
+          <span class="current-game-deaths">&#x2620; 166</span>
         </div>
       </div>
       <nav class="sidebar-toc">
@@ -1235,14 +1235,14 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
 <li><a href="#first-death" class="toc-link" data-target="first-death">First Death</a></li>
 <li><a href="#what-i-learned-after-the-first-hour" class="toc-link" data-target="what-i-learned-after-the-first-hour">What I Learned After the First Hour</a></li>
 <li><a href="#what-i-learned-after-the-first-five-hours" class="toc-link" data-target="what-i-learned-after-the-first-five-hours">What I Learned After the First Five Hours</a></li>
-<li><a href="#what-i-learned-after-the-twenty-hours" class="toc-link" data-target="what-i-learned-after-the-twenty-hours">What I Learned After the Twenty Hours</a></li>
-<li><a href="#to-the-amulet-and-back-again-story-of-a-single-run" class="toc-link" data-target="to-the-amulet-and-back-again-story-of-a-single-run">To the Amulet and Back Again (Story of a Single Run)</a></li>
+<li><a href="#what-i-learned-after-fifteen-hours" class="toc-link" data-target="what-i-learned-after-fifteen-hours">What I Learned After Fifteen Hours</a></li>
+<li><a href="#to-the-artifact-and-back-again-story-of-a-single-run" class="toc-link" data-target="to-the-artifact-and-back-again-story-of-a-single-run">To the Artifact and Back Again (Story of a Single Run)</a></li>
         </ul>
       </nav>
       <nav class="sidebar-other-games">
         <div class="other-games-label">~ other ~</div>
         <ul>
-<li><a href="the-ground-gives-way.html" class="nav-game-link"><span class="nav-game-title">The Ground Gives Way</span><span class="nav-game-hours">31h</span></a></li>
+<li><a href="brogue.html" class="nav-game-link"><span class="nav-game-title">Brogue</span><span class="nav-game-hours">40h</span></a></li>
         </ul>
       </nav>
       <div class="sidebar-footer">
@@ -1253,530 +1253,391 @@ a:hover { color: var(--accent-cyan); text-decoration: underline; }
       <div class="terminal-screen">
         <div class="terminal-titlebar">
           <span class="tb-led" aria-hidden="true"></span>
-          <span class="tb-title">~/games/brogue</span>
+          <span class="tb-title">~/games/the-ground-gives-way</span>
           <span class="tb-tag">ASCII</span>
         </div>
         <div class="terminal-body">
       <div class="article-page">
         <header class="article-page-header">
-          <h1>Brogue</h1>
+          <h1>The Ground Gives Way</h1>
           <div class="status-bar" role="status">
-            <span class="status-item"><span class="status-key">Date</span> 23.05.2026</span>
+            <span class="status-item"><span class="status-key">Date</span> 15.06.2026</span>
             <span class="status-sep">|</span>
-            <span class="status-item time-short"><span class="status-key">Time</span> 40h</span>
+            <span class="status-item time-short"><span class="status-key">Time</span> 31h</span>
             <span class="status-sep">|</span>
-            <span class="status-item status-danger"><span class="status-key">Deaths</span> 397</span>
+            <span class="status-item status-danger"><span class="status-key">Deaths</span> 166</span>
           </div>
         </header>
         <div class="stats-section terminal-panel">
           <h2 class="stats-title">~ character sheet ~</h2>
 <table class="stats-table">
 <tbody>
-<tr><td class="stat-metric">First win after (with save scumming)</td><td class="stat-value val-normal">14 hours</td></tr>
-<tr><td class="stat-metric">Total deaths</td><td class="stat-value val-normal">211</td></tr>
-<tr><td class="stat-metric">First win date</td><td class="stat-value val-normal">2026-05-23</td></tr>
-<tr><td class="stat-metric">Single success run</td><td class="stat-value val-normal">2 hours</td></tr>
+<tr><td class="stat-metric">First win after (with save scumming)</td><td class="stat-value val-normal">17 hours</td></tr>
+<tr><td class="stat-metric">Total deaths</td><td class="stat-value val-normal">92</td></tr>
+<tr><td class="stat-metric">First win date</td><td class="stat-value val-normal">14.06.2026</td></tr>
+<tr><td class="stat-metric">Single success run</td><td class="stat-value val-normal">57 minutes</td></tr>
 </tbody>
 </table>
         </div>
         <div class="article-content">
 <h2 id="quick-overview">Quick Overview</h2>
 
-<p>People often recommend Brogue as the first traditional roguelike you should play. Supposedly it’s not that deep, has fewer mechanics, and is almost considered “easy.”</p>
+<p>The game has a small community, but the people who play it seem to love it.</p>
 
-<p>Yeah, none of that is true.</p>
+<p>Judging by the description, this isn't supposed to be a huge roguelike. Some players even call it a coffee-break roguelike.</p>
 
-<p>Sure, there’s no dedicated “clean your ears” button like in ADOM, but the game still has plenty of mechanics going on, and there’s more than enough stuff to lose hours reading about on the wiki.</p>
+<p>We'll see about that.</p>
 
-<p>The monster roster isn’t huge, but every enemy feels distinct. Each one has some nasty gimmick, and every fight demands its own approach. Weapons aren’t just different damage numbers either. Every weapon comes with its own quirks and positioning requirements.</p>
-
-<p>And that’s the core of the game.</p>
-
-<p>Brogue lives and dies by its combat, but not in the “walk into enemy until one of you dies” kind of way.</p>
-
-<p>The level generation is some of the most beautiful I’ve seen in the genre.</p>
-
-<p>There’s color everywhere — treasure vaults, lakes of water and lava, glowing terrain, strange vegetation. Floors don’t just look like “floor” either. You walk across grass, carpets, swamps, mud, crystal formations, and all kinds of other terrain that make each level feel distinct.</p>
-
-<p>It’s a massive step forward from the classic “rectangular rooms connected by corridors” dungeon design.</p>
+<p>My bet is that the game is a lot harder than it looks and that clearing it quickly won't be an option. There will be walls to bang my head against and hopefully a few memorable "wow" moments along the way.</p>
 
 <h2 id="first-death">First Death</h2>
 
-<p>Totally out of nowhere, my first death came on depth 6. If only I'd known how far I'd get — and how many more times I'd die much sooner.</p>
+<p>I'm not sure if this counts or not, but my very first death happened in the tutorial.</p>
 
-<p>It was a Goblin Conjurer. He was just chilling in a big, well-lit room, completely unaware I was coming for him.</p>
+<p>In the lesson called "The Dungeon," right after getting through the traps, I ran into two wild dogs at once. My only item was a torch, which turned out to be less helpful in combat than I had hoped.</p>
 
-<p>But the moment I got close, he summoned a horde of spectral blades. I already knew that killing them only made him summon more, so I figured I wouldn't bother — straight for the goblin it was.</p>
+<p>The dogs won.</p>
 
-<p>Reading my play like a book, the goblin booked it. While I was chasing him down, the spectral blades were stabbing me in the back. What I didn't know back then was that they're faster than you — fast enough to both catch up and get their hits in.</p>
+<p>My first <em>real</em> death happened on the third floor of the dungeon.</p>
 
-<p>When death started breathing down my neck, I went into panic mode, chugging every unknown potion I had. But nothing worked. No magic happened that day.</p>
+<p>After clearing the level, there was still one unopened door left. The game specifically asked whether I was sure I wanted to open it.</p>
+
+<p>There didn't seem to be any reason not to. I hadn't noticed any warnings. Maybe my character was concerned about the noise coming from the other side.</p>
+
+<p>You could definitely hear that somebody was in there.</p>
+
+<p>Turns out it was a party.</p>
+
+<p>The first guest to come say hello was a shock bolt.</p>
+
+<p>Then a zombie.</p>
+
+<p>Then another zombie.</p>
+
+<p>Then an acid blob, which immediately started working on my armor.</p>
+
+<p>And then another zombie.</p>
+
+<p>Somewhere in the back I could also see a mummy waiting for her turn, but she never got the chance.</p>
+
+<p>I died first.</p>
 
 <h2 id="what-i-learned-after-the-first-hour">What I Learned After the First Hour</h2>
 
-<p>As tradition demands, I died to an eel on the second floor.</p>
+<p>What's interesting is that the game doesn't seem to have that many mechanics, but it does have a lot of items.</p>
 
-<p>Water is now terrifying. If there’s a lake nearby, I want absolutely nothing to do with it. Cross it as fast as possible and pray.</p>
+<p>Burn an enemy, and you're left with a pile of embers. Eat a banana and you get a banana peel.</p>
 
-<p>Unlike a lot of roguelikes, there’s no XP system and no character levels here, so you don’t actually have to fight everything you see. What <em>is</em> mandatory, though, is fully exploring the dungeon.</p>
+<p>The game starts you with absolutely nothing. No weapon, no fancy equipment.</p>
 
-<p>The entire game revolves around the items you find, so the more of the floor you uncover, the better your chances of surviving later.</p>
+<p>Just your fists.</p>
 
-<p>Positioning matters a lot too. The game doesn’t allow diagonal attacks near walls, which means only two enemies can hit you while you stand in a doorway. It’s one of the safest spots in the game, almost like fighting in a one-tile corridor.</p>
+<p>Good luck.</p>
+
+<p>The levels aren't empty either. There are bushes, patches of vegetation, ponds, lava pools, poisonous pools, and all kinds of terrain features.</p>
+
+<p>It's a long way from the classic formula of rectangular rooms connected by corridors.</p>
+
+<p>The game promises a steep difficulty curve as you descend deeper into the dungeon.</p>
+
+<p>That creates an interesting dilemma.</p>
+
+<p>On one hand, you want to explore every floor as thoroughly as possible to find more items.</p>
+
+<p>On the other hand, there's no experience system and no character progression.</p>
+
+<p>Which means killing monsters isn't automatically worth the risk.</p>
 
 <h2 id="what-i-learned-after-the-first-five-hours">What I Learned After the First Five Hours</h2>
 
-<p>The early floors get cleared quickly. At this point I was basically mashing the auto-explore key to speed through them.</p>
+<p>So far I'm struggling to get through the Underground.</p>
 
-<p>I’d already figured out tactics for every monster appearing up to depth 4. Nothing too complicated, but each enemy needed its own approach, and once those patterns clicked, the early game became pretty stable.</p>
+<p>At first, I played the way I usually do in roguelikes: clear every floor, kill everything that moves, and collect as many items as possible.</p>
 
-<p>Floor 4 is where you can finally start drinking unidentified potions and reading scrolls. That’s also where the direction of the run starts taking shape.</p>
+<p>Apparently that's not the right approach here.</p>
 
-<p>What items are you getting? Which potions rolled lucky? Do you have tools for single-target fights, or for enemies that refuse to walk into obvious choke points?</p>
+<p>The advice I keep seeing is to avoid fights whenever possible and to keep your health above +5. I wasn't doing either of those things. In most roguelikes, enemies aren't dangerous enough for that level of caution.</p>
 
-<p>Against Jellies, the best tactic is hiding in a doorway so their clones can’t surround you from every side.</p>
+<p>Here, they might be.</p>
 
-<p>Against Goblin Conjurers, stairs work wonders. Go up or down a floor and wait for the goblin to follow you.</p>
+<p>Most of the loot I find is junk. Very little of it actually helps in combat. What I really want is some kind of build. Any build.</p>
 
-<p>When he arrives, he comes alone — without his spectral blades — so you get a chance to kill him before he summons anything.</p>
+<p>I don't care what it is, as long as the items work together.</p>
 
-<p>At this point I could consistently reach depths 7, 8, and sometimes 9 — which is exactly where the game started killing me again.</p>
+<p>So far everything feels completely random.</p>
 
-<p>Some deaths came from completely new enemies I’d never seen before. Dar Blademasters, for example, apparently took personal offense to the concept of running away. Once one of them noticed me, escaping stopped being an option.</p>
+<p>For now, I'm going to try a different strategy: stop hoarding food, keep my health higher, and descend faster in search of better equipment.</p>
 
-<p>And then there were ogres. Of course there were ogres.</p>
+<p>We'll see how that goes.</p>
 
-<p>One run gave me an especially stupid situation. I had two possible paths forward.</p>
+<p>I died immediately after writing those notes.</p>
 
-<p>One corridor had a sleeping ogre in it, except he woke up the moment I tried to sneak past.</p>
+<p>On the very next floor.</p>
 
-<p>The other path had a statue that animated as soon as I approached it.</p>
+<p>Crushed by a door that I was trying to use to lock out a goblin.</p>
 
-<p>And naturally, the statue contained another ogre.</p>
+<img src="../images/tggw/door.png" alt="Door" loading="lazy">
 
-<p>So what exactly was the correct play there?</p>
+<h2 id="what-i-learned-after-fifteen-hours">What I Learned After Fifteen Hours</h2>
 
-<h2 id="what-i-learned-after-the-twenty-hours">What I Learned After the Twenty Hours</h2>
+<p>A certain amount of despair has started to set in.</p>
 
-<p>So the game runs on items — they're the only way to upgrade yourself. By depths 6–7, enemies start showing up that you simply can't beat with your starting gear. You'll have to pick something to commit to.</p>
+<p>My death counter is approaching one hundred.</p>
 
-<p>Items <em>must</em> be upgraded. The simplest strategy is to pick one thing and dump every Scroll of Enchanting into it. The other option is to spread the levels across several items. It's a choice between having a +12 axe or a +6 axe with a +6 ring. Only one way to find out what works — try it.</p>
+<p>I've only reached the Laboratory three times, and even then I only made it to depths 3 or 4 before something killed me.</p>
 
-<p>Here's my ID strategy. For the first 4 floors, hoard everything you find. Let it sit in your inventory, it's not bothering anyone. By depths 3–4 your inventory will be full — that's when identification begins.</p>
+<p>The strange thing is that the game doesn't seem mechanically overwhelming.</p>
 
-<p>Start with potions. The big one is Potion of Detect Magic. It lets you skip negative potions and immediately shows which equipment is cursed or blessed. Cursed stuff — throw it away immediately, don't waste inventory space or time. Blessed gear you can either commit to enchanting or just use enough to identify naturally: 20 kills for weapons, 1000 steps for armor, 1500 steps for rings.</p>
+<p>There aren't that many systems on the surface.</p>
 
-<p>Before reading scrolls, keep a few things in mind:<br>
-<ul><br>
-<li>If you find a Scroll of Enchantment — do you have an item worth spending it on? These are the most valuable scrolls in the game, wasting even one hurts.</li><br>
-<li>If it's a negative scroll — will it cause problems? There are only two bad kinds, and for both you're better off reading them on a cleared floor, - preferably not deeper in the dungeon while summoned monsters are weaker.</li><br>
-<li>If you get Scroll of Protect Weapon or Protect Armor — is the weapon/armor you're wearing worth the scroll?</li><br>
-<li>If you find Scroll of Negation — is there a vault or enchanted items on the floor that you'd hate to see lose their upgrades?</li><br>
-</ul><br>
-You get the idea. Potions you can chug without much worry, but scrolls are far more valuable — save them.</p>
+<p>Yet somehow I'm clearly missing something.</p>
 
-<p>Wands and staffs should be tried out as soon as you find them to figure out what they do. Just be ready for negative effects — like healing a monster or creating a clone of it. Nothing worse than making an enemy invisible at the worst possible moment.</p>
+<p>To be fair, I'm not using all the tools the game gives me.</p>
 
-<p>Among dangerous new enemies, the Revenant shows up — immune to normal weapons. You need magic or special abilities to deal with it. It's common enough that you won't have a Potion of Descent for every encounter.</p>
+<p>I keep trying to play as a straightforward fighter. My mana is almost always at zero, and sometimes it's negative.</p>
 
-<p>One more tip: don't ally yourself with a Salamander. I had one as a companion once, and we walked into a gas trap. The gas ignited instantly — courtesy of my friendly Salamander — and I barely survived the explosion. Not thinking twice, already seeing the trap, the Salamander decided to stand on it again, triggering a second blast that buried us both for good. Needless to say, I never made that mistake again.</p>
+<p>As a result, wands mostly pass me by.</p>
 
-<h2 id="to-the-amulet-and-back-again-story-of-a-single-run">To the Amulet and Back Again (Story of a Single Run)</h2>
+<p>I don't donate money to the guild either, so my reputation isn't exactly impressive. That means mechanisms are largely unavailable to me as well.</p>
 
-<p>Right away, I should say this run was full of pain and suffering. Not the cinematic kind. The quiet kind: muscle memory of wrong turns, the seed number stopping at a grudge, the cursor hovering over “New Game” long after you promised yourself you’d quit for the day.</p>
+<p>And I don't steal.</p>
 
-<p>I’d already managed to beat the game using a pile of save files, and at one point I even cleared Bullet Brogue without using saves at all. But this particular run was brutal. I’m not even going to admit how many times I restarted it. Way too many.</p>
+<p>I've experimented with it a couple of times, but I still haven't figured out how important it really is.</p>
 
-<p>Still, I wanted to finish this exact run, even if the item drops weren’t especially generous.</p>
+<p>At one point I robbed a castle.</p>
 
-<p>But hey, a win is a win.</p>
+<p>It went badly.</p>
 
-<p>The game actually lets you restart using the same seed. You could even say Brogue encourages this kind of strategy — if you start a New Seeded Game, it automatically selects your last seed.</p>
+<p>Still, it seemed worth trying if only to find out what would happen.</p>
 
-<p>So if anyone wants to experience my suffering personally, here it is: <em>427364548</em>.</p>
+<p>The answer, as it turns out, is "nothing good."</p>
 
-<h3>Depth 1</h3>
+<p>I reach the Dungeon in about half of my runs.</p>
 
-<p>Pretty standard opening floor. Jackals, rats, kobolds — business as usual.</p>
+<p>Treasure vaults, on the other hand, I usually leave alone. Surviving is hard enough already.</p>
 
-<p>There was also a vault, and I immediately grabbed a war pike (+0) from it. Turns out there was also a leather armor (+3 of mutuality) inside, but of course I didn’t know that at the time.</p>
+<p>I did open one once.</p>
 
-<p>I like weapons. And even though I know heavy weapons never carry runes, I picked the war pike anyway. Slow commits. No safety net. In a game that punishes hesitation, I tied my own hands on purpose.</p>
+<p>Inside was a Troll with 24 health.</p>
 
-<h3>Depth 2</h3>
+<p>And my immediate thought was:</p>
 
-<p>Four Bloats, spawned almost back-to-back. The gas didn’t just pool — it crept. I backed into a dead end, counted turns, listened for the hiss to thin out. <br>
-One wrong step and the screen blurs. I took none.</p>
+<p>How exactly am I supposed to kill that?</p>
 
-<p>There was also a monkey that stole one of my potions, but by now I already know chasing monkeys is almost never worth it. Those little bastards know the dungeon layout better than I do and have no problem running circles around entire floors.</p>
+<p>The game always promised to be difficult.</p>
 
-<p>What they <em>don’t</em> know how to do is dodge darts.</p>
+<p>Oddly enough, what keeps me going is the record win streak.</p>
 
-<p>So I got my mysterious potion back.</p>
+<p>If somebody managed to achieve a streak that large, then the game must be beatable.</p>
 
-<p>One floor below, I immediately found another monkey trapped in a cage. Of course I freed it. A helper like that is never useless.</p>
+<p>As for useful discoveries, I've finally figured out how save scumming works here.</p>
 
-<p>To stop it from dying instantly, I even healed it with a Bloodwort stalk. We’ll see how long it survives.</p>
+<p>Not that I actually use it.</p>
 
-<p>Well then, time to start gambling on unidentified potions.</p>
+<p>The runs are short. Half of them last less than ten minutes anyway.</p>
 
-<p>First attempt: bad idea. Potion of confusion.</p>
+<p>It's usually faster to start over and hope the dungeon decides to be a little more generous next time.</p>
 
-<p>Then strength, immediately followed by incineration.</p>
+<h2 id="to-the-artifact-and-back-again-story-of-a-single-run">To the Artifact and Back Again (Story of a Single Run)</h2>
 
-<p>The monkey apparently sensed disaster coming and wisely backed away. Meanwhile I had to sprint into a lake to put myself out.</p>
+<h3>The Only Reload</h3>
 
-<p>After healing up a bit, I kept drinking.</p>
+<p>I’ll admit upfront: this didn’t go through on the first try. One reload.<br>
+I didn’t expect the ascent to be this unforgiving. Got turned around on the stair layout and wandered straight into a Castle.<br>
+Even with <em>spoilers</em> on my heels, I pushed toward the portal anyway. Turns out it was deactivated. No path back.<br>
+That was the only reload. The rest was clean.</p>
 
-<p>And then came potion of descent.</p>
+<h3>Underground 1</h3>
 
-<p>Thankfully I’d been testing potions near a staircase, so climbing back up wasn’t too hard.</p>
+<p>When I was a child, listening to stories about legendary artifacts and the adventurers who hunted them, I always dreamed of becoming one of them.</p>
 
-<p>Next came telepathy and potion of life. At least those were useful.</p>
+<p>I grew up on tales told around campfires. I didn't want to listen to those stories—I wanted to bring one back myself. Something heavy. Something ancient. Something with a history of its own. The kind of treasure that makes people stop talking when you put it on the table.</p>
 
-<p>Still no Detect Magic. The scrolls sat in my pack like unopened threats. I’d have to gamble blind later. Of course I would.</p>
+<p>Eventually I learned that there was a vast dungeon somewhere in the neighboring forest. Nobody had ever reached the bottom. People spoke of walls made of pure gold, endless treasures, and wonders no one had ever seen before.</p>
 
-<h3>Depth 4</h3>
+<p>That was enough for me.</p>
 
-<p>This was the floor where our little team decided fighting a Pink Jelly in the open was a good idea.</p>
+<p>I left my pack at the edge of the woods and continued with only the essentials. If I found the entrance, I could always come back for the rest. If not, at least I wouldn't wear out my boots searching.</p>
 
-<p>The result was predictable. One wrong angle, a split, and the floor was quiet again.</p>
+<p>Then one day, during one of those searches, the ground opened beneath my feet.</p>
 
-<p>While I was still cleaning up the remaining jelly clones, a Goblin decided it was the perfect moment to start hunting me down. I definitely didn’t have enough health left for a straight fight, so I ended up running circles around the floor until I found a Bloodwort stalk.</p>
+<p>I crashed down into darkness and landed hard on damp soil. When I got up, I found myself in a chamber with mossy walls.</p>
 
-<p>After positioning myself so only I was standing inside the healing gas, I finally dealt with the Goblin.</p>
+<p>A wooden door stood nearby, which meant this definitely wasn't some animal trap.</p>
 
-<h3>Depth 5</h3>
+<p>This was it.</p>
 
-<p>That’s it. The tutorial zone was over.</p>
+<p>The dungeon I had been looking for.</p>
 
-<p>The dungeon stopped testing me. It started counting my mistakes.</p>
+<p>I had nothing with me except my fists. I could have tried climbing back out, but curiosity won. There were no skeletons lying around, no signs that other adventurers had met terrible fates down here.</p>
 
-<p>From this point on, the enemies stopped being polite.</p>
+<p>So I decided to keep going.</p>
 
-<p>There was no way I was getting further with starter gear, so I dumped every Scroll of Enchantment I had into the war pike, bringing it up to +3.</p>
+<p>If I was lucky, I'd find something useful before whatever dangers lurked below found me first.</p>
 
-<p>I still didn’t really have enough strength to use it properly, but technically I <em>could</em> hold it.</p>
+<p>The air was cold and damp. Naturally, the first thing I did was open the door.</p>
 
-<p>I’d just have to put my entire body weight behind every swing.</p>
+<p>The room beyond was brighter. Long grass covered the floor, and clusters of luminescent fungus cast a pale glow across the stone.</p>
 
-<p>Slower commits. Missed turns meant punishment. But the damage paid for it.</p>
+<p>After searching around, I found a rod.</p>
 
-<h3>Depth 6</h3>
+<p>I had some talent for magic, but I had never seen a rod like this before and had no idea how to use it.</p>
 
-<p>The new floor introduced me to a new enemy: Vampire Bats.</p>
+<p>There was another passage leading onward, and curiosity got the better of me again.</p>
 
-<p>This is one of those enemies that immediately checks what kind of build you’ve brought with you. A starter dagger won’t handle them.</p>
+<p>Beyond it was a circular chamber with a small room built in the center. It immediately looked like the sort of place where something valuable would be stored, safe from the moisture dripping from the ceiling.</p>
 
-<p>Thankfully, the war pike worked perfectly.</p>
+<p>I was right.</p>
 
-<p>I skewered them like kebabs.</p>
+<p>Sitting on a shelf was a hand axe.</p>
 
-<p>Later I ran into an entire group of Acid Mounds. Neither my armor nor my weapon were remotely prepared for that.</p>
+<p>It was in excellent condition. The kind of tool that would fetch a respectable price back home. Someone had clearly taken good care of it.</p>
 
-<p>Good thing I’d already identified incendiary potion. One Molotov cocktail later, the entire group was on fire.</p>
+<p>I doubted anyone would mind if I borrowed it.</p>
 
-<p>They didn’t even manage to reach me before roasting alive together.</p>
+<p>Axes are best used where there's room to swing them, and from what I'd seen so far, this dungeon had plenty of space.</p>
 
-<p>Then I finally got Detect Magic. The leather armor (+2) slid on like it had been waiting.</p>
+<p>The next room contained a massive block of ice.</p>
 
-<p>I burned the bad scrolls in lava before they could talk back. Packed the rest.</p>
+<p>Strangely, it hadn't melted despite the relatively mild temperature underground. Its smooth surfaces made it obvious that it was man-made.</p>
 
-<p>Deeper floors don’t care how prepared you feel. But at least I’d know what I was walking into.</p>
+<p>The ice was opaque, though. I couldn't see what was trapped inside.</p>
 
-<h3>Depth 7</h3>
+<p>Perhaps some powerful mage had frozen a dangerous monster. Or perhaps it was a treasure someone desperately wanted to hide.</p>
 
-<p>Right near the staircase I ran into an entire Goblin squad.</p>
+<p>There was only one way to find out.</p>
 
-<p>I had absolutely no intention of fighting them, so instead I tossed a potion of confusion into the group. Conveniently, there was a chasm nearby.</p>
+<p>I hacked away at it with my axe.</p>
 
-<p>Confusion hits. They don’t stop to think. They just keep walking. One by one, they step over the chasm edge and drop.</p>
+<p>In the end, there was nothing inside.</p>
 
-<p>This was also where I found a Scroll of Protect Weapon.</p>
+<p>All I managed to uncover was an ice crystal.</p>
 
-<p>From that point on, acid enemies stopped being a problem. My armor, on the other hand, remained unprotected for the entire run, so I constantly had to work around that.</p>
+<p>Well, no reason to waste it. Into my pack it went.</p>
 
-<p>Meanwhile, the game kept giving me Scrolls of Protect Weapon. I think I found four of them total.</p>
+<p>The block collapsed into a mound of snow that immediately began to melt.</p>
 
-<p>Four Scrolls of Protect Weapon. One pike. The dungeon clearly had a favorite.</p>
+<p>Further ahead I spotted a massive shield.</p>
 
-<h3>Depth 8</h3>
+<p>A tower shield.</p>
 
-<p>First Ogre. In early runs, these forced a retreat or a panic scroll. Those are second dungeon check if I'm ready to mid game.</p>
+<p>The moment I picked it up, my arm started aching from the weight. It became immediately obvious that if I carried this thing, my magical ambitions were over.</p>
 
-<p>Now, +5 pike and +2 armor just chewed through it.</p>
+<p>On the other hand, I didn't own a single wand.</p>
 
-<p>The build finally clicked.</p>
+<p>I wasn't giving up much.</p>
 
-<h3>Depth 9</h3>
+<p>The shield scraped against the stone floor as I walked, leaving scratches behind. The corridor no longer felt quiet.</p>
 
-<p>I walked straight into a trap set by a Spider.</p>
+<p>Sneaking was out of the question now.</p>
 
-<p>The bastard shoots webs at basically any angle, unlike most enemies that only attack diagonally or orthogonally. It also spits poison, because apparently webs alone weren’t annoying enough.</p>
+<p>If trouble came, I'd have to face it head-on.</p>
 
-<p>Other than that, not too dangerous.</p>
+<p>So be it.</p>
 
-<p>Eight eyes watching. None of them mattered if I kept my distance. Angle, step, thrust. Repeat.</p>
+<p>I'd be a warrior.</p>
 
-<h3>Depth 10</h3>
+<p>Further on I encountered a wild dog.</p>
 
-<p>Deep in the dungeon, I ran into a Dar Blademaster. Fast. Weapon already drawn. Theoretically, my pike should drop him in two swings — if I could actually hit him. Reality took six of my attacks and four of his. I barely walked away.</p>
+<p>Something about its cheerful barking told me it was a good boy and unlikely to cause any trouble.</p>
 
-<p>Right after him, a Wisp. Bright blue, doesn’t deal direct damage, just ignites everything it touches. Including me. I backed into a pool, sizzling, lost a sliver of health putting myself out.</p>
+<p>I was right.</p>
 
-<p>Walking around half-dead isn’t smart. The dungeon doesn’t forgive that kind of risk.</p>
+<p>Unfortunately, I had no food to share with him. The dog seemed happy enough to see me, but had no intention of following me.</p>
 
-<p>I waited. Let the wounds close. Didn’t regret it.</p>
+<p>Apparently life in the dungeon suited him just fine.</p>
 
-<p>Next: a Wraith. Probably leftover from some adventurer who didn’t make it. Its chill locked onto me, slowing every step. Wraiths flee when they’re low. You can’t outrun them with short weapons. The pike didn’t need to chase.</p>
+<p>In the next chamber I noticed that the floor had partially collapsed.</p>
 
-<h3>Depth 11</h3>
+<p>Several depressions dotted the ground. At the bottom of one of them I spotted a bottle.</p>
 
-<p>Another Wraith immediately. This one wasn’t scared of reach. When I was down to one hit of health, I chugged a Potion of Life. Rare stuff. But the enemy wasn’t cheap either. Four of its strikes would drop me.</p>
+<p>I recognized it immediately.</p>
 
-<p>In the marshes, a Bog. Grabs you, won’t let go. Water’s a death trap now, eels aside.</p>
+<p>Wine.</p>
 
-<p>Another elf. Faster than the last. Dying, I popped a Teleportation Charm. Big gamble. Never know where you’ll land. Luck held.</p>
+<p>Back in my village, drinking alcohol was considered a sin. Still, I decided to take it with me.</p>
 
-<p>And again—a Wraith. Another brutal fight. Barely survived.</p>
+<p>Perhaps nobody would be watching down here.</p>
 
-<p>Third time on this floor I had to stop and wait for my health to tick back up. Relentless. And this isn’t even halfway down. Every step costs something.</p>
+<p>And perhaps I'd finally find out what all the fuss was about.</p>
 
-<h3>Depth 12</h3>
+<p>Nearby lay a dagger.</p>
 
-<p>Trolls start showing up here. Big, regenerate fast, hit hard. Three of its strikes and the run’s over. I’d need four of mine to drop it.</p>
+<p>A weapon for thieves. For people who hide in shadows and strike when nobody is looking.</p>
 
-<p>No choice but to push forward. Gotta risk it.</p>
+<p>Not my style.</p>
 
-<p>Potion of Life saves me again. Last one in the pack. From here on out, it’s just me, the pike, and whatever drops.</p>
+<p>Besides, carrying a giant shield and a tiny dagger at the same time would look ridiculous.</p>
 
-<p>Ran into a Nauseous Zombie. Another dead adventurer who didn’t get to rest. Harmless alone, but the nausea lingers long after it’s dead. Screen warps, swings feel heavy, accuracy drops. Just had to push through the debuff.</p>
+<p>I took it anyway.</p>
 
-<h3>Depth 14</h3>
+<p>You never know.</p>
 
-<p>Halfway mark. I could actually count the floors left. Enemies were getting tougher—mutations starting to show up, making them genuinely dangerous.</p>
+<p>From the next room came the sound of movement.</p>
 
-<p>Lucky for me, it was just an Ogre with the Reflective trait. I wasn’t planning on wasting magic on it anyway.</p>
+<p>Something was definitely in there.</p>
 
-<p>Found four Scrolls of Identification. Didn’t want to waste inventory space, so I identified my entire backlog on the spot.</p>
+<p>I could have avoided it. Walked away and continued exploring.</p>
 
-<p>If only I knew how badly I’d need them later.</p>
+<p>But I had decent equipment now, and I felt confident enough to investigate.</p>
 
-<p>Two wands popped out: Polymorph and Plenty. Interesting combo. Exactly what I needed.</p>
+<p>As if trying to warn me off, there was another door immediately behind the first.</p>
 
-<h3>Depth 15</h3>
+<p>Still, I was determined to see what was waiting on the other side.</p>
 
-<p>Stepped right into a Net Trap. While I was struggling to cut myself free, a couple of Centaurs managed to get tangled in it too. Don’t know what they were thinking, but the pike’s reach let me stab them straight from the trap.</p>
+<p>Behind the two doors was another wild dog.</p>
 
-<p>Then two more Trolls. Also stuck in the nets. Maybe triggering the trap wasn’t a bad idea—it kept me at a safe distance.</p>
+<p>This one had either gone feral or simply hadn't eaten in a very long time. It made its intentions clear the moment it saw me.</p>
 
-<p>Another wave. Centaurs and Trolls. These ones were smarter: archers hanging back, Trolls soaking hits. No way to win this clean. Teleportation Charm it was.</p>
+<p>I'd rather not go into detail about what happened next.</p>
 
-<p>Bottom of the map held a Goblin Fortress. Two dozen of them. But I’d learned their patterns by now. Heads dropped, one after another.</p>
+<p>I'm not particularly proud of it.</p>
 
-<p>At the back, asleep: the Goblin Warlord. Woke him up with the pike.</p>
+<p>In the middle of the room stood a fountain radiating magical energy.</p>
 
-<p>He immediately screamed for backup.</p>
+<p>A shame it wasn't much use to me. I'd practically abandoned magic the moment I picked up the shield.</p>
 
-<p>Too bad there was no one left to answer.</p>
+<p>Small bushes grew nearby, so I decided to search them for anything useful.</p>
 
-<p>Finally, a new ally. A Troll, this time. I had a feeling this one would stick around. Let him tank the damage—he regenerates fast. I’ll stay back and work the pike.</p>
+<p>To my surprise, one of them was growing bananas.</p>
 
-<h3>Depth 16</h3>
+<p>Only one was ripe. The others were tiny and green.</p>
 
-<p>In one of the lit rooms, found a ring on the floor. First one this run. The loot pool was running dry, but you take what you get.</p>
+<p>I took the ripe one.</p>
 
-<p>Shame I’d already burned through all my Identification scrolls. Not about to risk equipping something blind.</p>
+<p>A little further on, a rat was waiting for me in the next passage.</p>
 
-<p>Turned out to be a +2 Ring of Reaping. Useful, sure. But not the core of this build.</p>
+<p>That encounter was considerably less dramatic.</p>
 
-<h3>Depth 17</h3>
+<p>The room beyond contained two rotten apples and a handful of coins.</p>
 
-<p>The dead are closing in. A Zombie and four Wraiths, all at once. Without an ally, I’d have zero chance.</p>
+<p>Even the rat hadn't been desperate enough to eat those apples.</p>
 
-<p>Another ring drops. +3 Transference. Exactly what I’d been hoping for. Might actually make this run survivable</p>
+<p>I took them anyway.</p>
 
-<h3>Depth 18</h3>
+<p>There were also two sacks.</p>
 
-<p>The turning point. Reloaded a couple times here.</p>
+<p>Inside one I found a zircon. Assuming I survived long enough to leave this place, I could probably sell it for a decent amount.</p>
 
-<p>Time to use the wands. Polymorph on the Troll ally, then Plenty to double him up.</p>
+<p>Nearby was a pile of stones.</p>
 
-<p>Problem is, every time I tried, the RNG refused to cooperate.</p>
+<p>Not large stones, but certainly large enough to hurt if thrown.</p>
 
-<p>One cast: a helpless Kraken. Next: a Bloat. Then a Goblin Warlord, who suddenly remembered I’d wiped out his squad and switched from ally to enemy.</p>
+<p>I armed myself with a few, though with both hands already occupied I doubted I'd be able to throw them very far.</p>
 
-<p>Couldn’t force a single useful roll. Shelved the Wand of Polymorph for later. Kept my two Trolls.</p>
+<p>Buried among the rocks was a seed.</p>
 
-<p>Guess I’ll skip the fantasy about a powerhouse squad.</p>
+<p>I had no intention of taking up gardening underground, and I had no idea how long it would take for anything to grow.</p>
 
-<p>Ran into a Lich. One of the nastiest enemies out there. Summons on sight, and when it dies, it leaves a Phylactery behind.</p>
+<p>The seed could stay where it was.</p>
 
-<p>Got lucky and struck it before it spotted us. Dodged the summoning entirely. But luck isn’t a strategy.</p>
+<p>At last the corridor came to an end.</p>
 
-<p>Dungeon’s getting darker. Traps everywhere. We stepped into one. Fell a floor.</p>
+<p>A spiral staircase descended into darkness.</p>
 
-<h3>Depth 19</h3>
+<p>The air grew colder.</p>
 
-<p>Landed right on a Flame Turret. That’s how the final stretch greets you.</p>
-
-<p>No more mercy. The heaviest enemies are all active now.</p>
-
-<p>And I’m burning. Down to a sliver of health, I chugged a Potion of Life just to survive the fire.</p>
-
-<p>Hit another trap. Dropped another floor. Didn’t even get to clear what was above. Just fell through.</p>
-
-<h3>Depth 20</h3>
-
-<p>And immediately, a Revenant. My least favorite enemy. Not just one. Two.</p>
-
-<p>Normally, I let the numbers decide. But Revenants ignore physical damage entirely. All those Potions of Strength? Dead weight.</p>
-
-<p>No staffs in my pack. Trolls don’t cast spells.</p>
-
-<p>Panic. What now?</p>
-
-<p>Remembered the incendiary darts.</p>
-
-<p>One dart to ignite it. Just had to outlast the burn. I could step back. The Trolls just kept swinging, not realizing their hits did zero damage.</p>
-
-<p>That’s how I lost my ally.</p>
-
-<p>Right on cue, an Explosive Imp shows up. Where the hell was it when I needed to deal with the Revenant?</p>
-
-<p>Last Potion of Life.</p>
-
-<p>Floor 20, and I’m out of heals again.</p>
-
-<p>This time, the Lich summoned Phantoms and Furies. Good thing I had a Potion of Telepathy. At least I could see the Phantoms now.</p>
-
-<p>Barely survived that one. Literally 5% health left. Too close.</p>
-
-<h3>Depth 21</h3>
-
-<p>Wraiths again. This time, the Troll held them off alone while I dealt with a Revenant.</p>
-
-<p>Didn’t last. Fell to their chill. Back to solo. Darkest stretch of the dungeon, and I’m alone again.</p>
-
-<p>Darts ran out. Had to pull the Wand of Polymorph. Dropped a couple more Revenants that way.</p>
-
-<p>Feels like the dungeon’s tracking my weaknesses and countering them.</p>
-
-<p>Path down blocked by a lake. I already know what’s waiting.</p>
-
-<p>Kraken at the edge. The moment I stepped close, tentacles locked onto my legs.</p>
-
-<p>Against a +11 war pike, it didn’t stand a chance.</p>
-
-<h3>Depth 22</h3>
-
-<p>Reloaded here multiple times. Hardest floor yet. Vast open spaces, fire, and hissing brimstone everywhere.</p>
-
-<p>Across the blaze: a Lich, casually throwing its army at me.</p>
-
-<p>Revenants I no longer have the tools to fight.</p>
-
-<p>Deadlock. No retreat.</p>
-
-<p>Popped the Potion of Invisibility. Slipped past. Downward.</p>
-
-<p>No idea how I’m getting back up.</p>
-
-<p>Right now, only the Amulet matters.</p>
-
-<h3>Depth 23</h3>
-
-<p>Next room. Tentacle Horror with the Toxic trait. Should’ve taken it out. But it wasn’t alone. Another one, standard variant.</p>
-
-<p>Second one was still asleep. Pulled the Toxic one into a 1v1.</p>
-
-<p>Strike. Poison hits. Strike again. Poison stacks.</p>
-
-<p>Half health. Enemy drops. Poison fades, slowly.</p>
-
-<h3>Depth 24</h3>
-
-<p>Nothing else matters now. Just find the stairs down.</p>
-
-<p>Food supplies are fine. Just need a safe corner to eat.</p>
-
-<p>Another Tentacle Horror. Survived on exactly 10% health.</p>
-
-<p>Dar Priestess blew up on death. Barely made it through the blast.</p>
-
-<p>Used a charge from the Wand of Negation on a Revenant. Stripped its immunity. Left it helpless.</p>
-
-<h3>Depth 25</h3>
-
-<p>Fell through the floor before finding the stairs. No choice left.</p>
-
-<p>Good thing the descent to the final level was right there. Going straight down. I’ll figure out the way back later.</p>
-
-<h3>Depth 26</h3>
-
-<p>There it is. Finally. Sitting right there on the stone.</p>
-
-<p>Potion of Speed down. The world snaps into focus. One strike, two—the path clears. Inventory’s bleeding out, but hesitation costs more than supplies now.</p>
-
-<p>Fingers close around it. Cold. Heavy. Not a trophy—a timer.</p>
-
-<p>The statue cracks. Warden of Yendor wakes. I don’t fight it. I drop a Potion of Descent at its feet. Let it fall.</p>
-
-<p>Golem shifts. Tentacle uncoils in the corner. Same trick. Both swallowed by the floor. I don’t have the stamina for a fair fight, and the Amulet just lit up the entire dungeon. Every alert radius within earshot is turning toward me.</p>
-
-<p>I slot it into the pack. Close the lid.</p>
-
-<p>The real run starts now.</p>
-
-<h3>The Ascent</h3>
-
-<p>A pack of Furies blocks the path. Survive on fumes.</p>
-
-<p>While patching myself up, the Warden catches up. Found his way up faster than expected.</p>
-
-<p>Lucky he’s slow. I slip past without taking a hit. Keep moving. Feel the ground tremble behind me with every step he takes.</p>
-
-<p>Then—something new this run. A Dragon.</p>
-
-<p>Only at 60% health. Must’ve taken damage somewhere earlier.</p>
-
-<p>That’s the only reason I drop it. War pike. Two swings.</p>
-
-<p>Didn’t even have time to react.</p>
-
-<p>Tentacle Horror next. Potion of Speed. Strike, step back, strike again. Kill it clean. Zero damage taken.</p>
-
-<p>Depth 22 again.</p>
-
-<p>Fire, brimstone, and everything I left alive.</p>
-
-<p>Slip past a Golem. Face the Lich and its summoned horde. Last real threat on the way up.</p>
-
-<h3>Ending</h3>
-
-<p>The rest of the climb isn’t heroic. It’s arithmetic.</p>
-
-<p>Track the hunger counter. Count the turns. Retrace safe paths I mapped on the way down. The Warden’s footsteps fade into the lower dark. The dungeon stops throwing new monsters at me—it just demands I don’t make mistakes.</p>
-
-<p>Stairs up. One floor at a time. No shortcuts. No miracles. Just the Amulet’s weight in the pack and the surface pulling closer.</p>
-
-<p>I reach the top. The stone ceiling cracks open to daylight.</p>
-
-<p>Run complete.</p>
-
-<h3>Finale</h3>
-
-<p>And this was the final gear setup I carried all the way back to the surface.</p>
-
-<p>I probably could’ve sold it to the next unfortunate adventurer for a decent profit, but honestly I’ll keep it as a souvenir instead.</p>
-
-<img src="../images/brogue/total.png" alt="Total" loading="lazy">
-
-<p>I even got an achievement somehow.</p>
-
-<p>Pure luck, honestly.</p>
-
-<img src="../images/brogue/dragonslayer.png" alt="Dragonslayer" loading="lazy">
+<p>I adjusted the shield on my back and took my first step downward.</p>
         </div>
         <div class="giscus">
           <script src="https://giscus.app/client.js"
