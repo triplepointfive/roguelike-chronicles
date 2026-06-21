@@ -660,7 +660,7 @@ It turned out to be one of the most important items of the entire expedition.
 
 In fact, I'm still wearing it today.
 
-I also found a suit of leather armour.
+I also found a suit of leather armor.
 
 Not exactly the sturdy plate I dreamed of, but at least blows to the chest would hurt a little less.
 
@@ -668,7 +668,7 @@ The problem was that I was exhausted.
 
 What I really needed was rest.
 
-The armour looked so tempting that I convinced myself a quick snack would solve the problem.
+The armor looked so tempting that I convinced myself a quick snack would solve the problem.
 
 So I took a bite from one of the apples.
 
@@ -676,7 +676,7 @@ I won't describe what I discovered after that first bite.
 
 Let's just say my stomach immediately informed me that this had been a terrible decision.
 
-At least it gave me enough energy to put on the armour.
+At least it gave me enough energy to put on the armor.
 
 Really, I should have rested first and changed equipment afterward.
 
@@ -707,3 +707,153 @@ This time, the moment he saw me, he made it very clear that he wanted no part of
 Lesson learned.
 
 ### Underground 5
+
+Whew. Back to proper rooms.
+
+I felt safer immediately.
+
+No need to worry about something creeping up behind me. One door. One corridor. One direction to go. No difficult choices, no listening for distant noises.
+
+Just follow the path ahead.
+
+That kind of adventuring I could appreciate.
+
+Before long I found a Ring of Peace.
+
+Not that it would do much to announce my intentions. Monsters rarely stop to admire jewelry before attacking.
+
+Still, it offered a bit more protection.
+
+As if the dungeon had taken that personally, a lightning beetle immediately came flying at me.
+
+The creature attacked with electricity.
+
+Painfully.
+
+I had hoped that all my leather equipment might offer some protection.
+
+It did not.
+
+The fight nearly killed me.
+
+I survived with only a sliver of strength remaining. One more strike and my adventure would have ended right there.
+
+Perhaps charging into melee had been a mistake.
+
+Maybe I should have thrown stones instead.
+
+Another rest was required.
+
+I needed time to recover and think about what exactly I was doing down here.
+
+The next difficult encounter came soon after.
+
+A scintillating toad.
+
+A green snake.
+
+A frost toad.
+
+The deeper I descended, the more dangerous the creatures became. Each one seemed to have its own unpleasant trick.
+
+You can't prepare for everything.
+
+My thoughts became sluggish.
+
+The world felt hazy around the edges.
+
+I could barely think straight.
+
+Whatever had afflicted me had left me confused, and continuing in that state seemed unwise.
+
+I stopped to rest.
+
+Unfortunately, another problem was beginning to demand attention.
+
+My stomach growled.
+
+I was completely out of food.
+
+Resting was no longer an option.
+
+I needed to find something to eat.
+
+The next room contained a flooded section of floor.
+
+Thankfully the water wasn't deep enough to swim through.
+
+My boots still ended up soaked.
+
+That worried me more than it should have.
+
+After the lightning beetle, the idea of standing in water while being electrocuted again sounded like a very effective way to die.
+
+Naturally, creatures that enjoyed damp places had already claimed the area.
+
+A giant toad attacked me.
+
+I had no idea what it had been eating to grow that large, but it seemed eager to add me to its diet.
+
+While fighting it, I spotted something on the shoreline.
+
+An amulet.
+
+I almost missed it.
+
+An Amulet of Health.
+
+Even before putting it on, I could feel the magic radiating from it, strengthening my body.
+
+That decision required no thought at all.
+
+I slipped it around my neck immediately.
+
+A few extra blows might not sound like much.
+
+Down here, they could mean the difference between life and death.
+
+Unfortunately, the amulet couldn't solve my hunger problem.
+
+Still not food.
+
+Then, at last, I found salvation.
+
+Frozen meat.
+
+It wasn't glamorous, but it was exactly what I needed.
+
+For a moment I considered eating it as it was.
+
+Common sense prevailed.
+
+My stomach was already unhappy enough.
+
+It would have to be cooked.
+
+That meant turning around and heading back.
+
+I hoped the campfires I'd passed earlier were still burning.
+
+The first one wasn't much help.
+
+As the meat thawed, droplets of water hissed into the flames and the fire quickly died.
+
+The second campfire proved more cooperative.
+
+Before long I had properly cooked meat and a full stomach.
+
+Warm.
+
+Fed.
+
+Rested.
+
+Ready to continue.
+
+As if the dungeon wished to reward my persistence, I found a second Corrosion Ring nearby.
+
+What incredible luck.
+
+I had no idea yet just how important those rings would become.
+
+Looking back, I'm not sure if I had survived the expedition without them.
