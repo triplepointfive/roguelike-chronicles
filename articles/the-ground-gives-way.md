@@ -857,3 +857,317 @@ What incredible luck.
 I had no idea yet just how important those rings would become.
 
 Looking back, I'm not sure if I had survived the expedition without them.
+
+### Dungeon 1
+
+This staircase was different from the others.
+
+No moss.
+
+No damp earth creeping between the stones.
+
+The steps were carved from solid rock, and that could only mean one thing.
+
+I was leaving the Underground behind.
+
+At last, I was entering the Dungeon.
+
+A place built rather than formed.
+
+A place where someone lived.
+
+A place that was maintained.
+
+No longer a refuge for beasts and wandering monsters, but the domain of something intelligent.
+
+As if to confirm my suspicion, I was immediately confronted by an armored goblin.
+
+Tall for his kind, clad in armor, spear at the ready.
+
+He spotted me the moment I stepped from the stairs.
+
+Almost as though he had been standing watch over the entrance.
+
+A good sentry.
+
+The sort that could easily deal with any animal foolish enough to wander down here by mistake.
+
+Everything felt different.
+
+In the caves, my path had been illuminated by patches of luminescent fungus.
+
+Here, the light came from large braziers burning along the walls.
+
+The shadows danced differently.
+
+The air felt different.
+
+The place itself felt different.
+
+I had never been anywhere like this.
+
+Back home, buildings were made from wood.
+
+Here, the walls were stone, and some of them even featured arrowslits.
+
+Whoever built this place expected trouble.
+
+Perhaps from adventurers like me.
+
+That realization was not particularly comforting.
+
+For the first time since entering the dungeon, I felt genuinely nervous.
+
+Whatever waited below would not be as simple as oversized insects and hungry animals.
+
+I would need to be careful.
+
+After dealing with a pair of blood leeches that failed to penetrate my armor, I encountered another goblin.
+
+This one was a mage.
+
+He attempted some sort of spell against me.
+
+Unfortunately for him, casting magic becomes considerably more difficult when an axe is being swung in your direction.
+
+So far, I had handled every variety of goblin without much trouble.
+
+Spearmen.
+
+Guards.
+
+Mages.
+
+None had managed to stop me.
+
+Perhaps I was lucky.
+
+Perhaps goblins were the primary inhabitants of this place.
+
+If so, the Dungeon might prove less dangerous than I feared.
+
+With that optimistic thought in mind, I continued downward.
+
+### Dungeon 2
+
+More undead.
+
+This time, a skeleton.
+
+I couldn't help but wonder who it had once been. An adventurer? One of the goblins?
+
+The thought was unpleasant enough that I decided not to dwell on it.
+
+The skeleton spotted me from a distance and immediately began throwing bones.
+
+The fight was harder than I expected.
+
+Unable to break through my armor, it focused on driving me back instead. Every strike seemed to shove me a step further.
+
+Where was it getting so much strength?
+
+Before long, I found myself pinned against a wall.
+
+There was nowhere left to retreat.
+
+The battle left me exhausted.
+
+Afterward, I picked up one of its bones. I'd heard that such things could help against poison. Useful enough to keep.
+
+Barely.
+
+My pack was already overflowing.
+
+For the first time, I had to seriously consider what to leave behind.
+
+I couldn't carry every interesting object I stumbled across.
+
+The apples were the obvious choice.
+
+One bite had already taught me everything I needed to know about them.
+
+There was no reason to keep carrying them.
+
+A moment later, an arrow struck the wall beside me.
+
+Someone had spotted me.
+
+A scout.
+
+The noise from my fight with the skeleton must have attracted attention.
+
+I needed to close the distance quickly.
+
+If I let him keep shooting, I wouldn't last long.
+
+The moment I got close enough, the scout shouted at the top of his lungs.
+
+Wonderful.
+
+Exactly what I needed.
+
+Reinforcements.
+
+I rushed after him before anyone else could arrive.
+
+The scout turned and ran.
+
+At the end of the corridor stood a trapped door.
+
+He clearly knew about it.
+
+Unfortunately for him, there was nowhere else to go.
+
+Beyond the door lay a lake of lava.
+
+I hadn't realized I had descended so far.
+
+Heat struck me immediately.
+
+The red glow flooded the cavern, painfully bright after so many days spent in darkness.
+
+I was still slightly confused from earlier.
+
+Every step required concentration.
+
+One mistake and I would melt alongside everything I owned.
+
+I had come too far to die in such a stupid way.
+
+Later, in one of the nearby chambers, I encountered a peaceful man.
+
+Imagine that.
+
+Someone down here who wasn't actively trying to kill me.
+
+He didn't look like an adventurer.
+
+Perhaps a merchant.
+
+Perhaps something else.
+
+Beside him stood a chest made of pure silver.
+
+I doubted he had dragged such a massive thing through the dungeon himself.
+
+That made it local property as far as I was concerned.
+
+I decided to investigate.
+
+At first glance, the chest appeared empty.
+
+But something about the bottom bothered me.
+
+Something was there.
+
+Barely visible.
+
+I reached inside and felt fabric.
+
+What I pulled out surprised me.
+
+An Invisible Cloak.
+
+I immediately put it on.
+
+The man promptly stopped acknowledging my existence.
+
+Apparently this was not the first time I had forgotten that people generally prefer speaking to someone they can actually see.
+
+With a sigh, I removed the cloak.
+
+The man introduced himself as Gordon.
+
+A mage.
+
+He refused to explain what he was doing alone in such a dangerous place.
+
+Fair enough.
+
+Everyone has secrets.
+
+Unfortunately, another skeleton was much more interested in talking to me.
+
+Unlike Gordon, it seemed completely unimpressed by my invisibility.
+
+Somehow it could still sense me.
+
+Among its bones I noticed a scroll.
+
+Perhaps it had once been a wizard before its ambitions were reduced to throwing parts of its own body at people.
+
+The glowing blue letters immediately gave it away.
+
+A Scroll of Enchant Weapon.
+
+I could hardly have hoped for anything better.
+
+My hands trembled slightly as I read it.
+
+I had no idea what effect it would have.
+
+The axe began to glow.
+
+When the light faded, the weapon had transformed.
+
+Pure silver.
+
+I smiled.
+
+Undead would be much easier to deal with now.
+
+Who would have guessed that a skeleton would carry the very thing that would help destroy others like itself?
+
+The level above had belonged to goblins.
+
+This one belonged to the dead.
+
+As if eager to demonstrate my new weapon's usefulness, another skeleton attacked almost immediately.
+
+This fight was considerably easier.
+
+Undead have a healthy respect for silver.
+
+Afterward, I decided to sort through my belongings.
+
+Space was becoming a serious problem, especially after finding a Rod of Firestorm.
+
+Among my possessions was a Scroll of Greed.
+
+The moment I examined it, I became aware of something.
+
+There were more chests on this level.
+
+Possibly valuable ones.
+
+Possibly very valuable ones.
+
+From behind one nearby door came the sound of metal clanking.
+
+A warning, perhaps.
+
+But by now my confidence had grown considerably.
+
+Danger seemed less intimidating than it once had.
+
+Inside I found the source of the noise.
+
+A floating longsword.
+
+There was so much magic on this floor that I could only wonder who had once lived here.
+
+The battle was brief.
+
+Three strikes.
+
+Then the sword fell silent forever.
+
+The chests contained a blue spinel and an Amulet of Sustenance.
+
+At last.
+
+Hunger would no longer be one of my concerns.
+
+With my pack reorganized and my confidence restored, it was time to continue downward.
+
+### Dungeon 3
