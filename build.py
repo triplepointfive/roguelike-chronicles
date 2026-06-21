@@ -448,9 +448,10 @@ def build():
             )
         toc_html = '\n'.join(toc_items)
         
-        # Формируем навигацию по другим играм
+        # Формируем навигацию по другим играм (сортировка по алфавиту)
+        games_sorted = sorted(articles, key=lambda x: x['title'].lower())
         other_games = []
-        for other in articles:
+        for other in games_sorted:
             if other['slug'] != article['slug']:
                 other_games.append(
                     f'<li><a href="{other["slug"]}.html" class="nav-game-link">'
@@ -616,9 +617,9 @@ def build():
             f'</a>'
         )
     
-    # Навигация для главной страницы (все игры)
+    # Навигация для главной страницы (все игры) — по алфавиту
     main_nav = []
-    for article in articles:
+    for article in sorted(articles, key=lambda x: x['title'].lower()):
         main_nav.append(
             f'<li><a href="games/{article["slug"]}.html" class="nav-game-link">'
             f'<span class="nav-game-title">{article["title"]}</span>'
