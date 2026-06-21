@@ -1598,3 +1598,244 @@ It could wait until later.
 
 ### Dungeon 5
 
+Another zombie.
+
+By now, they barely registered as a threat.
+
+I'd become far too good at dealing with them.
+
+What truly caught my attention was one of the walls.
+
+It was made entirely of ice.
+
+Cold radiated from it even at a distance.
+
+The contrast was remarkable.
+
+Less than ten minutes ago, I'd been walking alongside rivers of lava.
+
+Now I stood before frozen walls.
+
+Magic had to be involved.
+
+I refused to believe otherwise.
+
+Then I spotted yet another rogue.
+
+There seemed to be no shortage of people who had come down here chasing treasure.
+
+It made me wonder.
+
+Was I really any different?
+
+Would I eventually meet someone who looked at me and saw nothing more than another bandit?
+
+I hoped not.
+
+I had never come here to rob people.
+
+And certainly not for someone else's coins.
+
+The deeper I went, the more I felt the need to leave before greed buried me alongside the rest of the dungeon's dead.
+
+Finding no other route forward, I finally stepped through the icy passage.
+
+Winter greeted me on the other side.
+
+The air was bitterly cold.
+
+Snow covered the floor.
+
+I was completely unprepared for temperatures like these.
+
+Before long, I spotted a frostfly.
+
+Hardly a surprise.
+
+What else would choose to live in a place like this?
+
+It was finally time to use the ice crystal I'd found near the beginning of my journey.
+
+That felt like ages ago.
+
+In truth, I'd lost track of time entirely.
+
+Without sunlight, the days had begun to blur together.
+
+How long did I spend resting between battles?
+
+Half a day?
+
+A full day?
+
+How many camps had I made along the way?
+
+I no longer knew.
+
+The thought unsettled me.
+
+I needed to keep moving.
+
+Otherwise, I might become part of this dungeon myself.
+
+I'd met enough zombies to understand that some people never found their way back out.
+
+The frostflies nearly killed me.
+
+The cold resistance helped far less than I'd hoped.
+
+They hit hard.
+
+Very hard.
+
+I was forced to drink my first Greater Healing Potion.
+
+Only three remained.
+
+That was enough for me.
+
+It was time to leave this frozen kingdom behind.
+
+Whatever other treasures or secrets waited deeper inside the ice could remain undiscovered.
+
+The cold simply wasn't worth it.
+
+The staircase ahead looked different from the others.
+
+I couldn't explain why.
+
+Yet the feeling was unmistakable.
+
+I was leaving the Dungeon behind.
+
+The question was what waited beyond it.
+
+### Laboratory 1
+
+This was it.
+
+The place from the legends.
+
+It was difficult to believe, but the stories had been true.
+
+Everything was made of gold.
+
+Golden floors.
+
+Golden walls.
+
+Even the doors were forged from gold.
+
+And yet this was no throne room.
+
+It was far too extravagant, even for the king back home.
+
+What secrets lay buried in these depths?
+
+What had happened here?
+
+Had the people who built this place truly discovered how to create gold?
+
+And if they had, what else were they capable of?
+
+Perhaps they had learned how to breathe life into lifeless things.
+
+Perhaps they had mastered the elements themselves.
+
+The possibilities were overwhelming.
+
+I would never uncover every secret hidden beneath this mountain.
+
+The more I thought about what might be waiting for me here, the more uneasy I became.
+
+Best not to linger.
+
+Behind one of the golden doors came a metallic clattering sound.
+
+I pushed the door open just enough to peek inside.
+
+An iron crab.
+
+A creature made entirely of metal.
+
+Well then.
+
+Let's see whose steel is stronger.
+
+My arrows were useless.
+
+They bounced harmlessly off its shell.
+
+The crab's attacks, on the other hand, landed with frightening force.
+
+Every blow felt like being struck by a blacksmith's hammer.
+
+The fight nearly killed me.
+
+With only a sliver of life remaining, I uncorked a Greater Healing Potion.
+
+Two left.
+
+Further inside the chamber, I could still hear movement.
+
+Something larger.
+
+Something far more dangerous.
+
+Fortunately, it hadn't noticed me.
+
+I decided not to test my luck.
+
+Avoiding the fight sounded like an excellent strategy.
+
+The familiar barrels I'd grown accustomed to were gone.
+
+In their place stood iron kegs.
+
+Inside one of them, I found another Greater Healing Potion.
+
+A fortunate discovery.
+
+I was going to need it.
+
+Unfortunately, the treasure wasn't unguarded.
+
+Living fire drifted toward me.
+
+A Heat Elemental.
+
+My invisibility meant nothing to it.
+
+It knew exactly where I was.
+
+Time to make use of the charcoal I'd collected from an old campfire.
+
+The magma boots helped as well.
+
+At least I wasn't completely defenseless against fire.
+
+By now, exhaustion was catching up with me.
+
+The last few battles had taken their toll.
+
+I found a place to rest and made camp.
+
+When I woke up, someone had robbed me.
+
+Most of the coins in my purse were gone.
+
+Strangely enough, I wasn't particularly upset.
+
+Whoever had done it could have slit my throat instead.
+
+Compared to that, losing a few coins seemed like a bargain.
+
+Eventually I found the staircase leading downward.
+
+There was no reason to stay here.
+
+Nothing in this place felt safe.
+
+The only way forward was deeper.
+
+### Laboratory 2
