@@ -173,6 +173,36 @@ The runs are short. Half of them last less than ten minutes anyway.
 
 It's usually faster to start over and hope the dungeon decides to be a little more generous next time.
 
+## Deeper mechanics
+
+Had a pretty funny run today.
+
+I joined the Healer Guild, which is strongly against killing. For about six floors I fought everything bare-handed and just knocked enemies unconscious instead of finishing them off.
+
+Then I finally found a weapon.
+
+My immediate thought was: "Well, no point letting them wake up later."
+
+So I went back and executed pretty much everyone I'd left behind.
+
+My reputation instantly dropped to -21.
+
+"Whatever," I thought. "I wasn't planning to use the guild anyway."
+
+On the very next floor I found a sign informing me that I was now wanted by the Healer Guild for my crimes.
+
+"That's actually kind of cool," I thought.
+
+One room later, an assassin squad jumped me and stacked 94 poison on me.
+
+Somehow I survived thanks to sleep.
+
+Then on the floor below I killed a zombie and a mummy, which apparently improved my reputation back to -19.
+
+The assassins immediately stopped coming after me.
+
+So apparently murdering undead is fine, but knocking out bandits and coming back later to execute them is where the Healer Guild draws the line.
+
 ## To the Artifact and Back Again (Story of a Single Run)
 
 ### The Only Reload
@@ -352,7 +382,7 @@ I took them anyway.
 
 There were also two sacks.
 
-Inside one I found a zircon. Assuming I survived long enough to leave this place, I could probably sell it for a decent amount.
+Inside one, I found a zircon. Assuming I survived long enough to leave this place, I could probably sell it for a decent amount.
 
 Nearby was a pile of stones.
 
@@ -373,3 +403,307 @@ A spiral staircase descended into darkness.
 The air grew colder.
 
 I adjusted the shield on my back and took my first step downward.
+
+### Underground 2
+
+Descending the staircase, I found more of the same damp earth and mossy walls.
+
+I was immediately attacked by a giant moth. I'd never seen a moth that large before. It was hard to believe the thing could even fly considering its size.
+
+Nearby lay a badly dented helmet. Whatever had happened to it, the dungeon had finished the job. The metal was so worn that it practically crumbled in my hands.
+
+While digging through a pile of garbage, I cut myself on a piece of glass.
+
+Naturally, a rat immediately attacked me. Apparently it considered the trash heap its personal property.
+
+There was also a large barrel of water nearby.
+
+Refreshing.
+
+Just being around it seemed to fill me with energy.
+
+Beyond it I encountered undead for the first time.
+
+An animated hand came crawling toward me on its own. I saw no body attached to it. The Healer Guild respects those who deal with undead, so I couldn't simply ignore it.
+
+Besides, the thing moved surprisingly fast. Running away probably wasn't an option anyway.
+
+Clutched in its fingers was a potion.
+
+A little further on I found an unfamiliar scroll and a few coins. I stopped to examine the scroll more carefully.
+
+The letters seemed to drift across the page. The text twisted into a spiral, written in deep violet ink.
+
+It didn't take long to identify it.
+
+A Scroll of Chaos.
+
+There was absolutely no way of knowing what would happen if I read it.
+
+That sounded dangerous.
+
+I decided to leave it where it was and save that particular gamble for a desperate situation.
+
+Not everything I found was useful.
+
+There were stones too large to throw, even with all my strength behind them.
+
+There was also a broken wand.
+
+No great loss. Magic was never really my path.
+
+One chamber contained a large pool of deep water surrounding several rusty statues.
+
+Among them wandered another wild dog.
+
+The dog sniffed me, found nothing interesting, and trotted away.
+
+A shame he wasn't interested in my rotten apples. I would have gladly shared them.
+
+Further on I entered a room filled with garbage and worms of every kind.
+
+Shadow worms.
+
+Ice worms.
+
+White worms.
+
+They had clearly found plenty to eat down here, so I wasn't expecting to discover anything valuable among the mess.
+
+Turns out I was wrong.
+
+Growing among the bushes were a banana, a silverleaf, and an aloe leaf.
+
+While searching through the debris, I managed to cut myself again.
+
+I really needed to be more careful.
+
+For a moment I regretted not bringing gloves with me, but it was far too late to go back now.
+
+Hopefully I wouldn't have to dig through any more trash.
+
+Eventually I decided to examine the potion I'd taken from the animated hand.
+
+It turned out to be a Potion of Balance.
+
+I'd never used one before, but I knew what it did. Fast creatures become slower, while slowed creatures regain their speed.
+
+I had no reason to slow myself down, but it seemed like exactly the sort of thing I'd want to drink if I ever found myself moving sluggishly.
+
+Only now, while telling this story, do I realize I could have coated my weapon with it and used it against fast enemies.
+
+A useful lesson for future adventures.
+
+At last, I found a loaf of bread.
+
+I wasn't particularly hungry yet, so I saved it for later.
+
+There would be time to eat.
+
+For now, it was time to go deeper.
+
+### Underground 3
+
+Opening the next door, I was nearly blinded by a bright orange glow.
+
+A real campfire.
+
+I hurried over to it, grateful for the chance to rest, dry my clothes, and catch my breath. I had nothing to feed the fire with, so I quickly decided to make use of it while I could.
+
+The only thing I had worth cooking were the bananas.
+
+Roasted over the flames, they were far more filling than raw ones.
+
+I also ate my loaf of bread before it had the chance to grow any more mold.
+
+Nearby I found a pair of knitted mittens.
+
+They wouldn't help much in a fight, but my hands immediately felt warmer. Thick wool, rough stitching, surprisingly comfortable.
+
+After dealing with the giant moth, I found a small vial filled with green liquid.
+
+After a moment of thought, I recognized it as a lesser healing potion.
+
+Useful stuff. The kind of thing that closes wounds almost instantly when a fight starts going badly.
+
+There were also a couple more barrels of water.
+
+And yes, I drank both of them.
+
+I had every right to.
+
+I'd just eaten dry bread and roasted bananas.
+
+A little extra water wasn't going to hurt.
+
+Sitting beside the fire, warm, fed, and no longer thirsty, I relaxed more than I should have.
+
+For a while I didn't even feel like moving.
+
+But adventure has a way of making people leave comfortable places.
+
+After an easy fight with a vulture, I came across something unusual.
+
+A wall of clean-cut stone.
+
+This time there was no moss covering it.
+
+The stone had been carefully shaped and maintained. Someone had once cared about this place.
+
+This wasn't just another room.
+
+This was something important.
+
+My instincts told me there was probably something valuable hidden beyond it.
+
+My instincts also told me that valuable things tend to have guards.
+
+The question was whether I was ready to fight for a reward I knew nothing about, or whether caution would serve me better.
+
+Before I could make up my mind, something caught my eye.
+
+There was a trap built directly into the stone door.
+
+Someone had gone to considerable effort to make sure visitors stayed out.
+
+That settled the matter rather quickly.
+
+No sense looking for trouble.
+
+Whatever was hidden behind that door could stay hidden for now.
+
+I turned away and continued deeper into the dungeon.
+
+### Underground 4
+
+This level was nothing like the familiar dungeon of rooms and corridors.
+
+This was a real cave.
+
+Uneven ground, patches of mud, and clusters of luminescent fungus stretched into the darkness.
+
+The inhabitants were different, too.
+
+A black ant greeted me almost immediately at the bottom of the stairs.
+
+I was more worried about what I couldn't see than the ant itself. Creatures like that rarely live alone. If it had a colony nearby, I wanted to be gone before its companions discovered that one of their own had just been split in half with an axe.
+
+At last, I found a pair of boots.
+
+Leather boots.
+
+Nothing fancy, but they offered a little protection. My feet were already beginning to protest the endless walking. Besides, after seeing entire packs of worms crawling around, a bit of extra protection seemed wise.
+
+It would have been nice to dry my feet before putting them on.
+
+Still, they would do.
+
+A little later I encountered another adventurer.
+
+He appeared without warning. First the scrape of boots against stone, then the familiar posture of someone who keeps their hands close to their belt.
+
+A cutpurse.
+
+Not a monster. Just a man who had decided my belongings would serve him better than they served me.
+
+I struck him twice.
+
+Not hard, but hard enough to interrupt whatever calculations he was making.
+
+He froze.
+
+His hands lowered.
+
+The aggression faded, replaced by cautious indifference.
+
+For a moment we simply stood there.
+
+I would have asked where he was headed.
+
+He probably would have asked the same.
+
+Unfortunately, our languages were different, and steel was the only one we both understood.
+
+After the second blow, negotiations were over.
+
+He nodded, stepped back into the shadows, and let me pass.
+
+I continued on my way.
+
+Neutrality is when both sides realize that continuing the fight would be a bad investment.
+
+Still, was it really worth trying to rob me?
+
+I had only eighty-one coins to my name, gemstones included.
+
+Enough for a few meals.
+
+Not much else.
+
+Where was he planning to go with those injuries?
+
+Then again, perhaps he saw my equipment and assumed I came from a wealthy family. A shield like mine certainly gave that impression.
+
+If only he knew the truth.
+
+It was obvious he hadn't been down here much longer than I had.
+
+I found something he had somehow missed.
+
+A Corrosion Ring.
+
+I hadn't encountered any acid-based creatures yet, but I knew enough to recognize a valuable item when I saw one.
+
+Remember this ring.
+
+It turned out to be one of the most important items of the entire expedition.
+
+In fact, I'm still wearing it today.
+
+I also found a suit of leather armour.
+
+Not exactly the sturdy plate I dreamed of, but at least blows to the chest would hurt a little less.
+
+The problem was that I was exhausted.
+
+What I really needed was rest.
+
+The armour looked so tempting that I convinced myself a quick snack would solve the problem.
+
+So I took a bite from one of the apples.
+
+I won't describe what I discovered after that first bite.
+
+Let's just say my stomach immediately informed me that this had been a terrible decision.
+
+At least it gave me enough energy to put on the armour.
+
+Really, I should have rested first and changed equipment afterward.
+
+Because of the stomach pain, that rest stop ended up lasting twice as long as it normally would have.
+
+Eventually my strength returned.
+
+My wounds closed.
+
+I felt ready to continue.
+
+Something strange had happened while I rested.
+
+The bottle of wine I'd been carrying had somehow become aged wine.
+
+Apparently it only takes a few days to achieve that distinguished status.
+
+The stuff now healed wounds almost as well as a medicinal balm.
+
+I still wasn't convinced I wanted to find out what it tasted like.
+
+Better to keep it for emergencies.
+
+Just before descending to the next level, I ran into the cutpurse again.
+
+This time, the moment he saw me, he made it very clear that he wanted no part of a fight.
+
+Lesson learned.
+
+### Underground 5
