@@ -1839,3 +1839,179 @@ Nothing in this place felt safe.
 The only way forward was deeper.
 
 ### Laboratory 2
+
+The iron crabs and heat elementals were easier to deal with this time.
+
+I was about to make camp and get some rest when the next door opened by itself.
+
+A man stepped through.
+
+He wore a white coat and carried some strange device in his hand.
+
+It looked a bit like a wand, though the way he held it suggested otherwise.
+
+At least I had finally found someone who couldn't see me.
+
+I'd almost forgotten I was wearing the Invisible Cloak.
+
+A couple of arrows were enough to convince him to keep his distance.
+
+He never came near me again.
+
+Beyond the golden doors I could still hear movement.
+
+Something was waiting there.
+
+Fortunately, I'd already found the staircase down.
+
+That was all I needed.
+
+### Laboratory 3
+
+I was so surprised to find another human being down here that I completely forgot something important.
+
+I needed rest.
+
+I needed time to recover.
+
+Instead, I rushed forward.
+
+Everything around me seemed to whisper the same warning:
+
+Don't stay here.
+
+Keep moving.
+
+But charging ahead without thinking was foolish.
+
+I'd gotten used to crushing everything in my path.
+
+Started believing I was some kind of hero.
+
+Started believing nothing down here could stop me.
+
+Idiot.
+
+An iron crab nearly proved me wrong.
+
+Its claws brought me within a heartbeat of death.
+
+One last hit and it would have been over.
+
+With my final shred of strength, I uncorked the aged wine.
+
+The wounds closed.
+
+The pain faded.
+
+I felt stronger almost immediately.
+
+But something else changed.
+
+The world felt different afterward.
+
+Not better.
+
+Worse.
+
+A heaviness settled over me.
+
+Homesickness.
+
+A longing for places I'd taken for granted.
+
+Maybe there was a reason wine was forbidden back home.
+
+I shook the feeling off.
+
+No time for that.
+
+I was close now.
+
+Reach the end.
+
+Then make it back alive.
+
+After the battle, I found a glowing ring and a light bow.
+
+I barely looked at them.
+
+I didn't need more equipment.
+
+I had enough.
+
+For the first time since entering the dungeon, I stopped caring about collecting everything I found.
+
+That urge was dangerous.
+
+I wasn't here for treasure anymore.
+
+Down I went.
+
+### Laboratory 4
+
+I finally read the Scroll of Telepathy.
+
+There was no point saving it any longer.
+
+At this stage, caution mattered more than hoarding resources.
+
+The scroll accomplished absolutely nothing.
+
+I sensed nobody.
+
+No people.
+
+No animals.
+
+Then again, almost everything I'd encountered recently had been made of metal or fire.
+
+So perhaps I shouldn't have been surprised.
+
+That changed soon enough.
+
+Behind one of the golden doors, something was making a tremendous amount of noise.
+
+A Rock Elemental.
+
+It greeted me with a thrown boulder.
+
+Fortunately, I managed to get my shield up in time.
+
+The impact nearly knocked me off my feet.
+
+I fired arrows back at it.
+
+Looking back, I have no idea what I expected.
+
+Arrows against living stone.
+
+Brilliant plan.
+
+I only realized how foolish it was after I ran out of ammunition.
+
+At that point, close combat became the only option.
+
+Then I remembered the Rod of Firestorm.
+
+The one I'd been carrying for ages.
+
+The one buried so deep in my pack that I'd practically forgotten it existed.
+
+This was the first time I actually used it.
+
+Turns out it was worth carrying after all.
+
+After the fight, I drank both bottles of ale.
+
+I don't know what came over me.
+
+Funny how quickly a person can grow attached to alcohol.
+
+I won't even try to justify it.
+
+I simply wanted a drink.
+
+Then I continued downward.
+
+### Laboratory 5
