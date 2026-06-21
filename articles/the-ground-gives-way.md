@@ -1171,3 +1171,329 @@ Hunger would no longer be one of my concerns.
 With my pack reorganized and my confidence restored, it was time to continue downward.
 
 ### Dungeon 3
+
+At last, I found arrows.
+
+That meant I could finally get rid of the pile of stones I'd been carrying around. There had to be more than a hundred of them by now.
+
+I was an archer now.
+
+The important part would be remembering that before charging into the next fight with an axe.
+
+Ahead of me were two doors.
+
+Noise came from behind both of them.
+
+For reasons, I still can't explain, I chose the one that sounded like it contained at least three enemies.
+
+Naturally, the sensible choice would have been the door with only one.
+
+Fortunately, it turned out to be nothing more than rats.
+
+Then something launched a surprise attack.
+
+I couldn't see anyone.
+
+I could only feel that something was there.
+
+So I began swinging my axe in every direction.
+
+A ghost.
+
+At least, I assumed it was a ghost.
+
+After several wild swings, I finally hit something solid.
+
+Whatever it was died without ever revealing itself.
+
+Another person!
+
+This one introduced himself as Sam the Cold Heart.
+
+A warrior through and through.
+
+The moment he saw me—after I removed the Invisible Cloak, of course—he seemed to recognize a kindred spirit.
+
+His equipment was impressive, and he showed absolutely no interest in taking mine.
+
+Instead, he offered to train me.
+
+Battle training.
+
+It wasn't cheap.
+
+Still, the lessons were worth every coin.
+
+I could already feel myself handling the axe more confidently.
+
+In a nearby room I discovered several crates filled with food.
+
+Perfect timing.
+
+A bottle of ale.
+
+A loaf of bread.
+
+And some borovnica.
+
+Tiny blue berries.
+
+Even though I wasn't much of a mage, I ate them immediately. I've always liked the taste, and they provide a permanent boost to magical ability.
+
+Not that I had many magical abilities to improve.
+
+From behind the other door—the one I'd ignored earlier—a zombie eventually emerged.
+
+A miserable half-rotted corpse.
+
+Blunt weapons aren't ideal against creatures like that.
+
+The dead don't care much about bruises.
+
+Silver blades, however, are a different story.
+
+The door led into a completely different section of the level.
+
+Wooden walls.
+
+Dark stone floors.
+
+It looked as though the zombie had spent months slowly decaying there.
+
+The place put me on edge.
+
+Buildings like this are usually occupied by goblins.
+
+Stonework seems a bit too sophisticated for them.
+
+This time, though, I was wrong.
+
+One room contained a sign that read:
+
+"Library."
+
+There was absolutely nothing left to read.
+
+Only a statue of some forgotten writer.
+
+Perhaps the zombie had already read every book before it died.
+
+Or maybe one of its equally decayed friends had beaten it to the collection.
+
+During the fight, I chopped off one of the zombie's arms.
+
+The thing practically radiated disease.
+
+Anyone touched by it was unlikely to have a pleasant day.
+
+Then I discovered something I never expected to find.
+
+A wooden staircase leading upward.
+
+Upward.
+
+That alone felt strange.
+
+I had become so accustomed to descending deeper and deeper that I wasn't entirely sure I wanted to know where it led.
+
+Curiosity won anyway.
+
+Forward.
+
+### Castle
+
+The staircase led to the base of a tower.
+
+The stone was the same as in the dungeon, but laid with far greater care. Smooth blocks, clean edges, no cracks or missing pieces.
+
+At some point, this must have been part of a fortress.
+
+The entrance was sealed now.
+
+At least for ordinary travelers.
+
+I had never seen a place like this.
+
+The ceilings stretched high overhead, disappearing into shadow. Patterns had been carved into the walls—not decorative so much as evidence that someone had once taken pride in this place.
+
+But the biggest difference was the air.
+
+Dry.
+
+Cool.
+
+For the first time since entering the dungeon, I could take a deep breath without tasting moisture.
+
+While wandering through the castle corridors, the first person I encountered was Mat the Butch.
+
+Despite the name, he was an armourer.
+
+An experienced smith with nothing to sell, but plenty of opinions about the equipment I carried.
+
+Unfortunately, he was not impressed by my leather armour.
+
+He did, however, offer to take it off my hands for free.
+
+A generous proposal, I'm sure.
+
+On the other hand, he agreed to reforge my tower shield.
+
+The process took some time, but when he finished, the scars of countless battles were gone.
+
+The shield looked brand new.
+
+Well-crafted and noticeably less bulky than an ordinary tower shield.
+
+He also agreed to improve my leather boots.
+
+After treating them in magma, they became true magma boots.
+
+Heat-resistant and far more suitable for the dangers waiting below.
+
+The corridor stretched in both directions.
+
+At its center, painted directly onto the stone floor, was a glowing blue circle.
+
+The air above it shimmered like heat rising from a forge.
+
+A portal.
+
+Where it led, I had no idea.
+
+Stepping blindly into something like that seemed unwise.
+
+I approached cautiously.
+
+The closer I got, the denser the air felt.
+
+Or perhaps that was only my imagination.
+
+I touched the edge of the circle with the handle of my axe.
+
+Nothing happened.
+
+Then I reached out and brushed it with my hand.
+
+The circle flashed.
+
+Blue turned to green.
+
+Yet the center remained clouded and opaque.
+
+No doorway appeared.
+
+It was as if some ancient mechanism had awakened but failed to complete its work.
+
+Fine.
+
+Not today.
+
+I walked around it and continued on my way.
+
+Eventually I left the castle behind.
+
+Open ground.
+
+The sunlight hit me like a hammer.
+
+Brighter than anything I had seen in days.
+
+Then I realized why.
+
+There were no familiar trees.
+
+No grass.
+
+No soil.
+
+Only sand stretching across the ground and cacti growing wherever they pleased.
+
+I had traveled farther than I thought.
+
+Ahead stood enormous gates guarded by silent sentries.
+
+The guards were not interested in conversation.
+
+They stood perfectly still, watching everything.
+
+The moment I approached, one of them informed me that the gate was closed.
+
+Not that I had any intention of leaving.
+
+I asked what services were available.
+
+The guard informed me that he could arrange for me to be punched in the face.
+
+Free of charge.
+
+I decided not to pursue the discussion.
+
+In the square I met a woman wearing a white cloak.
+
+The insignia gave her away immediately.
+
+A healer.
+
+Lynda.
+
+The locals called her Lynda the Beautiful.
+
+The title was not an exaggeration.
+
+Still, her appearance did not prevent her from speaking plainly.
+
+The first thing she did was nod toward my axe.
+
+"Be aware that that weapon is banned."
+
+I promised not to draw it.
+
+I explained that I was a guest here, not a bandit.
+
+She seemed satisfied with that answer.
+
+More interestingly, she already knew about the undead.
+
+The guild clearly shared information quickly, especially when someone was quietly cleaning out dungeon levels.
+
+That explained why she treated me with calm curiosity rather than suspicion.
+
+Her stall was stocked with everything an adventurer might need.
+
+Potions.
+
+Herbs.
+
+Bandages.
+
+Unfortunately, none of it was within my budget.
+
+Somewhere along the way I had handed my last coins to the armourer.
+
+Whether metal was expensive or my purse simply leaked, the result was the same.
+
+Zero coins.
+
+Not a single one.
+
+I remembered her face, though.
+
+You rarely meet members of the Healer Guild in person.
+
+Usually you only hear stories about them or stumble across their markings.
+
+This was different.
+
+A living person who looked at me not as a threat, but as a guest.
+
+That sort of thing stays with you.
+
+I had nothing left to sell.
+
+Nothing left to buy.
+
+And truthfully, this place had never been the reason for my journey.
+
+I had come searching for the depths below.
+
+It was time to return.
