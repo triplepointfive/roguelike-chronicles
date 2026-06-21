@@ -1330,7 +1330,7 @@ Despite the name, he was an armourer.
 
 An experienced smith with nothing to sell, but plenty of opinions about the equipment I carried.
 
-Unfortunately, he was not impressed by my leather armour.
+Unfortunately, he was not impressed by my leather armor.
 
 He did, however, offer to take it off my hands for free.
 
@@ -2015,3 +2015,291 @@ I simply wanted a drink.
 Then I continued downward.
 
 ### Laboratory 5
+
+This time, my telepathy finally found something.
+
+A shadow.
+
+I had a feeling I'd encountered creatures like this before. Some sort of ghost, perhaps.
+
+The second presence was harder to understand.
+
+An Armor Guard.
+
+I had no idea what it was, but one thing felt obvious: whatever it was, it was built for close combat.
+
+I'd rather deal with the shadow.
+
+The guard was making me nervous.
+
+Unfortunately, the shadow led nowhere.
+
+Sooner or later, I had to pass through the Armor Guard.
+
+Beyond the golden door lay rivers of acid.
+
+At last.
+
+The moment I'd been waiting for.
+
+My corrosion rings finally had a chance to shine.
+
+I slipped both of them on and stepped forward.
+
+The acid might as well have been water.
+
+The next chamber was the hardest fight yet.
+
+Acid blocked the paths.
+
+A Poison Elemental drifted between the pools.
+
+A Fire Elemental joined the battle.
+
+And the Armor Guard stood between me and the exit.
+
+All at once.
+
+The fight dragged on.
+
+Again and again I retreated through the acid.
+
+Only I could move through it safely.
+
+Eventually the room fell silent.
+
+But something was different.
+
+There was no staircase leading downward.
+
+This was the end.
+
+Instead, I found a crystal gate.
+
+It resembled the portals I'd seen before, but not quite.
+
+Through it, I could see another place.
+
+I knew where it led.
+
+Part of me wasn't sure I was ready.
+
+I stepped through anyway.
+
+### Ancient Cave
+
+The familiar gold vanished.
+
+Dark stone surrounded me once again.
+
+The floor disappeared into shadow.
+
+The air was dry and clean.
+
+Silence.
+
+No footsteps.
+
+No breathing.
+
+It felt as though no living thing had set foot here in ages.
+
+I was close now.
+
+Very close.
+
+The stone gave way to crystal.
+
+Green crystal walls.
+
+A crystal floor.
+
+The walls were translucent, like frozen water.
+
+Light from a distant brazier reflected through countless facets, breaking into hundreds of shades.
+
+In the center of the chamber stood a low pedestal.
+
+Upon it rested an ancient artifact.
+
+Heavy.
+
+Dust-covered.
+
+Untouched by time.
+
+This was why I had come.
+
+I didn't even try to understand what it was.
+
+Its purpose.
+
+Its age.
+
+Its secrets.
+
+All of that was far beyond me.
+
+I only knew that I had found it.
+
+The moment my fingers closed around it, a loud noise echoed through the dungeon.
+
+The sound rolled through the stone.
+
+The air itself seemed to vibrate.
+
+The guardian statues positioned around the room stirred.
+
+Stone groaned against stone.
+
+Despite their size, they moved with terrifying speed.
+
+They did not intend to let anyone leave with the artifact.
+
+Four of them.
+
+I wasn't staying to find out how strong they were.
+
+Time to run.
+
+One statue raised a stone sword.
+
+The blade cut through the air with a whistle.
+
+I barely dodged in time.
+
+Stone shattered inches from my shoulder.
+
+I ran.
+
+Behind me came heavy, measured footsteps.
+
+They weren't falling behind.
+
+The distance between us never seemed to grow.
+
+The floor trembled beneath every step they took.
+
+Then—
+
+the portal.
+
+A leap.
+
+A flash of light.
+
+The smell of ozone.
+
+And suddenly I was back in the Laboratory.
+
+The first levels passed in a blur.
+
+Empty corridors.
+
+Scars of ancient battles on the walls.
+
+Soot.
+
+Cracked stone.
+
+Rusted weapons abandoned long ago.
+
+No enemies.
+
+Only echoes.
+
+Higher still.
+
+Then something blocked the way.
+
+A Dragon of FB.
+
+Massive.
+
+Dark green scales.
+
+Slow, steady breathing.
+
+How had I missed it before?
+
+Or perhaps it had arrived after sensing the artifact.
+
+Either way, my invisibility held.
+
+I slipped past without making a sound.
+
+The dragon never even turned its head.
+
+Upward.
+
+Always upward.
+
+Flight after flight of stairs.
+
+The air changed with every level.
+
+Heavy and damp became cool and dry.
+
+Somewhere in the Dungeon, another awakened statue caught up to me.
+
+There was no avoiding that fight.
+
+My axe struck stone.
+
+Bounced away.
+
+Struck again.
+
+And again.
+
+Chunks broke free with every blow until nothing remained but rubble and dust.
+
+Another staircase.
+
+Another turn.
+
+The walls became damp once more.
+
+Mossy walls.
+
+The familiar smell of wet earth and decaying leaves.
+
+The surface was close.
+
+At last, I saw it.
+
+The crack in the ground.
+
+The very place where I had fallen at the beginning of my journey.
+
+The same patch of earth.
+
+Except now sunlight shone through from above.
+
+One final climb.
+
+One final effort.
+
+Then grass beneath my boots.
+
+I had done it.
+
+I was out.
+
+And the thing I'd come searching for rested safely in my pack.
+
+Silence.
+
+For the first time in what felt like ages, I could breathe.
+
+![Congratulations](../images/tggw/congratulations.png)
+
+The world above was quiet.
+
+Peaceful.
+
+Almost unbelievably so.
+
+All that remained now was the journey home.
+
+![Surface](../images/tggw/surface.png)
