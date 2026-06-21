@@ -1497,3 +1497,104 @@ And truthfully, this place had never been the reason for my journey.
 I had come searching for the depths below.
 
 It was time to return.
+
+### Dungeon 4
+
+At last, familiar stone walls and stone floors.
+
+This place felt more natural to me now.
+
+Almost like home.
+
+In the next chamber, I spotted a lava bubble.
+
+It was clearly alive, though it showed no interest in me whatsoever.
+
+I wasn't even sure whether it possessed a mind of its own.
+
+Whatever it was, I saw no reason to pick a fight with it.
+
+A little further on, I discovered where it had come from.
+
+Streams of lava flowed through a vast hall, and right in the middle, between the molten channels, a fire beetle slept peacefully.
+
+I had become so fascinated with my equipment—so eager to test my newly improved shield—that I nearly forgot I could shoot arrows now.
+
+Three shots.
+
+That was all it took.
+
+The beetle never even reached me.
+
+Afterward, I noticed something glittering on the stone floor.
+
+A sapphire.
+
+An expensive one.
+
+I was fortunate to spot it before anyone else did.
+
+As if word of my discovery had somehow spread through the dungeon, a mysterious figure appeared moments later.
+
+He wore a long robe.
+
+Magic seemed to cling to him like a second cloak.
+
+Still, something told me he was more than just a wizard.
+
+This was Tammy the Alchemist.
+
+And he was very interested in my sapphire.
+
+In exchange, he offered his services.
+
+After examining my belongings, he proposed a deal.
+
+Four Greater Healing Potions for the gemstone.
+
+I accepted immediately.
+
+I hadn't come all this way searching for gold.
+
+The next room was covered in slime.
+
+Slimy walls.
+
+Slime on the floor.
+
+Slime everywhere.
+
+Naturally, I wasn't thrilled about ruining my boots.
+
+Still, experience had taught me that unpleasant places often contain useful things.
+
+This one was no exception.
+
+Among the muck, I found a pair of enchanted silk gloves.
+
+Unfortunately, I had no idea what enchantment they carried.
+
+Experimenting with unknown magic rarely ends well.
+
+I decided to study them later, when I had the time and energy.
+
+Magic was never my strongest subject, and properly identifying the enchantment would likely take some effort.
+
+Just before reaching the staircase downward, I encountered a ghoul.
+
+A new creature.
+
+One I had never seen before.
+
+Fortunately, it wasn't particularly fast.
+
+The moment I noticed that, I made my decision.
+
+I slipped down the stairs and left it where it stood.
+
+The ghoul wasn't going anywhere.
+
+It could wait until later.
+
+### Dungeon 5
+
