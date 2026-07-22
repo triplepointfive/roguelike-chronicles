@@ -17,60 +17,74 @@ table:
 
 ## Quick Overview
 
-С этой игрой я уже знаком - играл в неё давно, может, когда только вышла. Даже дошёл до первого босса, а может, и победил - сейчас уже не помню. Тогда играл за Echidna: на мой взгляд, это самый простой класс, там совсем базовая арифметика.
+I've played this game before, a long time ago, probably around the time it first came out. I even made it to the first boss, maybe even beat it—I honestly don't remember anymore. Back then I played as Echidna. In my opinion, it's the easiest class, with nothing more than basic arithmetic.
 
-Сейчас хочу играть за человека - чтобы получше погрузиться в разные оружия и материалы. Другие классы даже пробовать не хочу: боюсь, будет слишком сложно.
+This time I want to play as a human, so I can get a better feel for the different weapons and materials. I don't even want to try the other classes—I think they'll be too difficult.
 
-Пройти игру, наверное, будет очень тяжело. Она честная - никакого рандома. Только тактика для каждого боя. Никаких надежд на случайное зелье, свиток или что-то подобное. Только математика. От этого и продолжительность забега сильно зависит: чем медленнее считаешь, тем дольше проходишь.
+Beating the game is probably going to be really hard. It's completely fair—there's no randomness. Every fight is pure tactics. No hoping for a lucky potion, scroll, or anything like that. Just math. That's also why a successful run can take so long: the slower you do the calculations, the longer the run.
 
-Пока вообще не понимаю, как использовать оглушающее оружие. Нужно ли оно для чего‑то ещё, кроме как уменьшить входящий урон? В общем, надо разбираться.
+Right now I have no idea how to use stunning weapons properly. Are they useful for anything besides reducing incoming damage? I'll have to figure that out.
 
 ## First Death
 
-Игра за человека, 9‑й этаж. Я только спустился - и тут рядом сразу четыре гидры, голов от 5 до 40. К этому моменту у меня шесть оружий, но сопротивление к ним у гидр уже довольно серьёзное.
+Human, Floor 9. I had just gone downstairs when I immediately found myself next to four hydras, ranging from 5 to 40 heads. By that point I had six weapons, but the hydras were already building up serious resistance against them.
 
-Я толком не тратил Scrolls of the Big Stick - ещё не понял, что оружия с заточкой на 7 слишком слабые: сопротивления растут быстрее, чем поднимаешься по этажам.
+I barely used my Scrolls of the Big Stick. I still hadn't realized that +7 weapons become too weak—the enemies' resistances grow faster than your weapons keep up as you descend.
 
-Меня разнесли быстро - буквально за минуту после спуска. Пока я думал, как справиться с гидрой всего на 5 голов, остальные окружили и вынесли за три хода.
+I got torn apart almost immediately, barely a minute after reaching the floor. While I was trying to figure out how to deal with the 5-headed hydra, the others surrounded me and killed me in three turns.
 
-Никаких предметов не использовал. Сейчас, пересматривая этот момент, даже facepalm не хочется делать - просто печаль. Куда я так спешил - непонятно.
+I didn't use a single consumable. Looking back at it now, I don't even feel like facepalming. It's just sad. No idea why I was in such a hurry.
 
 ## What I Learned After the First Hour
 
-Первые этажи даются очень легко, тут думать и не нужно: выбираешь оружие, которое срубит все головы разом, и этаж пройден. Но из положительного - первые уровни не такие страшные, как мне казалось: вполне можно пробежать без проблем.
+The first few floors are very easy. You barely have to think—just pick the weapon that chops off all the heads at once, and the floor is done. On the bright side, the early game isn't nearly as intimidating as I expected. Getting through the opening levels is pretty straightforward.
 
-А вот дальше начинается интересное. Я думал, у гидр будет сопротивление только паре элементов, которые повышают количество голов. Я был неправ. Сопротивление - всем элементам, кроме одного. И растёт оно очень быстро. Так что оружия на 5–6 голов уже через 15 минут игры недостаточно: гидры начинают восстанавливать по 7–8 голов. А рук всего 4, подобрать нужные оружия пока сложно. Даже на 6‑м этаже уже становится сложно: много расходников, но подобрать нужные - проблема. Умер уже раз 5 и даже не близок к первому боссу. Вроде всё просто, всё понятно, но пока что игра никак не складывается.
+Things get interesting after that. I assumed hydras would only resist the couple of elements that increase their number of heads. I was wrong. They build resistance to every element except one, and it grows very quickly. Weapons that cut off 5–6 heads become useless after about 15 minutes of play—hydras start regrowing 7–8 heads at a time. And with only four hands, it's hard to keep the right set of weapons. Even by Floor 6 the game gets tough. There are plenty of consumables, but having the ones you actually need is another matter. I've already died around five times and I'm still nowhere near the first boss. Everything seems simple, everything makes sense, but I just can't put it all together yet.
 
-Оглушение не такое страшное, как могло показаться. Я взял топор, и вполне получается им орудовать. Важна позиция персонажа: можно немного отступить и подождать, пока оглушённые головы восстановятся, прежде чем получится их срубить.
+Stunning isn't as bad as it first seemed. I picked up an axe, and it works pretty well. Positioning matters—you can step back a little and wait for the stunned heads to recover before chopping them off again.
 
-Рук мало, всего три: одна для топора, две другие - для обычного оружия. Больше всего волнует, что однажды математика окажется не на моей стороне и я не смогу победить гидру, как бы ни пытался. Пока такого не было: всего лишь раз мне пришлось заменить одно оружие на такое же из другого материала.
+You don't have many hands to work with. One is occupied by the axe, leaving only the other two for regular weapons. What worries me most is that sooner or later the math just won't work out, and there'll be a hydra I simply can't beat no matter what I try. It hasn't happened yet. So far I've only had to replace one weapon with another made from a different material.
 
-Был ещё щит, не знаю, насколько он нужен. Понижение урона - это хорошо, но на это потратится целый слот. Слишком расточительно.
+I also found a shield, but I'm still not sure how useful it is. Reducing damage is nice, but it costs an entire equipment slot. That feels expensive.
 
-Ещё слишком много лута на уровнях. Это пугает: непонятно, что и как использовать. Пригодится, когда нужно будет подумать. Тут можно и десять минут размышлять над ходом из‑за обилия возможностей.
+There's also way too much loot on each floor. It's overwhelming because I still don't know what half of it is for. I'm sure it'll become useful once I understand the game better. Right now it's easy to spend ten minutes thinking about a single move because there are so many options.
 
 ## What I Learned After the Five Hours
 
-Из интересных противников пока только vulture hydra реально напрягает - у неё просто гора сопротивлений. Первый раз решил не рисковать и добил через stunning + decapitated potions. Достижение, правда, не дали.
+So far, the only enemy that's really given me trouble is the vulture hydra. It has an absurd amount of resistances. The first time I decided not to risk it and finished it off with stunning plus decapitated potions. Didn't get the achievement, though.
 
-Во второй раз пошёл через одно stunning, остальное добил обычными оружиями. Тут-то и понял, что невнимательно прочитал правила: оказывается, убивать гидру под станом - это вроде как не по‑честному, не «уважительно».
+The second time I only used stunning and finished it with regular weapons. That's when I realized I hadn't read the rules carefully enough. Apparently, killing a stunned hydra doesn't count as an honorable kill.
 
-И только в третий раз прошёл чисто оружием - и наконец‑то выбил достижение.
+Only on my third attempt did I beat it using weapons alone, and finally unlocked the achievement.
 
-За человека дошёл до 22‑го уровня - это уже круто, даже успел застать другую топологию этажей. Но до полного прохождения ещё как до Луны.
+As a human, I've made it to Floor 22, which already feels like a solid accomplishment. I even got to see a different floor topology. But finishing the game is still a long, long way off.
 
-Игра оказалась куда длиннее, чем я рассчитывал. 50 этажей - это реально перебор.
+The game turned out to be much longer than I expected. Fifty floors is honestly a bit much.
 
 ## What I Learned After the Ten Hours
 
-Сначала просто поворчу: Eradicator - полный провал. Его дают всего один раз за игру, на 12‑м этаже, прямо рядом с первым боссом. Выглядит как прямая подсказка: бери и используй, как в обычных играх, где возле сильного врага сразу дают самое мощное оружие.
+First, let me complain a little: the Eradicator is a complete disappointment. You only get it once per game, on Floor 12, right next to the first boss. It feels like the game is practically telling you, "Take it and use it," just like in other games where the strongest weapon is conveniently placed before a major fight.
 
-А тут - облом. Его просто нельзя применить. Я даже дважды использовал Powder of Growth, но на третий раз здоровья уже не хватило. Пришлось тратить дорогие Potions of Life. И даже после двух Powder of Growth Eradicator всё равно не сработал. Вот это waste, обидно до зубовного скрежета.
+Except it doesn't work. You simply can't use it. I even spent two Powder of Growth on it, but by the third attempt I was already out of health. Had to waste expensive Potions of Life instead. And even after two Powder of Growth, the Eradicator still wasn't usable. What a waste. That one really hurt.
 
-Прошёл игру за Echidna - та ещё гриндилка. 50 этажей, минимум по 10 гидр на каждом: выходит около 500 гидр, и почти все убиваются по одной и той же схеме. Никакой особой вариативности.
+I finished the game as an Echidna. What a grind. Fifty floors, at least ten hydras on each one—that's around five hundred hydras, and almost all of them are killed the exact same way. There isn't much variety.
 
-Не повезло с лутом: самые интересные оружия так и не выпали. Очень хотелось пустить в ход Syracuse Blade на финальном боссе. Ни Co Sector, ни Quick Sword не попалось. Vorpal Blade, может, и мелькал где‑то, но я его не взял. В итоге почти все Potion of Knowledge ушли на невидимых гидр.
+I also got unlucky with the loot. None of the weapons I really wanted ever showed up. I was hoping to use the Syracuse Blade against the final boss. No Co Sector, no Quick Sword. I might have seen a Vorpal Blade somewhere, but I didn't take it. In the end, almost all my Potions of Knowledge went toward invisible hydras.
 
-Arch‑Hydra особо себя не проявили - по крайней мере, я не заметил ничего эпичного. Мне повезло: у всех было 50 голов или меньше, так что падали они быстро, без драмы.
+The Arch-Hydras weren't particularly memorable either. At least I didn't notice anything spectacular about them. I got lucky—all of them had 50 heads or fewer, so they went down quickly without much drama.
 
-Мой план - пройти первого босса за каждую расу. Игра у меня в загашнике уже 13 лет, пора закрыть этот гештальт и успокоить свою внутреннюю гидру.
+My plan now is to beat the first boss with every race. I've had this game sitting in my backlog for thirteen years. It's time to finally close that chapter and let my inner hydra rest.
+
+## What I Learned After the Fifteen Hours
+
+The hydras keep falling one after another. Centaur, Human, Echidna, Titan, and Atlantean are all behind me now. I've beaten the first boss with every one of them.
+
+Titan has been the hardest so far. I had no idea how much I relied on items. It didn't help that even opening the inventory counted as a turn. Once I discovered that I could preview how items would affect a specific hydra without spending a turn, things became much easier.
+
+And since you can calculate exactly which weapons you'll need to kill a hydra in advance, there's nothing stopping you from using your free hands for a shield.
+
+On the other hand, I never found room for stunning weapons while playing Titan. Maybe the Titanic Club changes that. From what I've seen, people recommend spending all your Scrolls of the Big Stick on it, so it must be worth it.
+
+Only the Twins remain. I'm so used to controlling a single character that I'm honestly a little nervous to even try them. I have a feeling their strategy is going to be completely different from everything I've played so far.
+
+But there's no way around it. One last race, and I'm finally free.
