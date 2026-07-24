@@ -3,7 +3,7 @@ title: "Hydra Slayer"
 hours: 
 date: "2026-07-10"
 deaths:  
-version: ""
+version: "18.3"
 table:
   - metric: "First win after (Echidna)"
     value: " hours"
@@ -12,7 +12,7 @@ table:
   - metric: "First win date"
     value: "28.06.2026"
   - metric: "Single success run"
-    value: ""
+    value: "5h 30m"
 ---
 
 ## Quick Overview
