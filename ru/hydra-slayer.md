@@ -7,7 +7,7 @@ version: "18.3"
 table:
   - metric: "First win after (Echidna)"
     value: " hours"
-  - metric: "Total deaths"
+  - metric: "Total deaths before first win"
     value: "4"
   - metric: "First win date"
     value: "14.07.2026"
