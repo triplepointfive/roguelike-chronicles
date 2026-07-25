@@ -6,7 +6,7 @@ deaths:  13
 version: "18.3"
 table:
   - metric: "First win after (Echidna)"
-    value: " hours"  
+    value: "6 hours"  
   - metric: "Total deaths before first win"
     value: "4"
   - metric: "First win date"
