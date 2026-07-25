@@ -1,0 +1,2893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydra Slayer — Roguelike Chronicles</title>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKC3J0J8XS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BKC3J0J8XS');
+  </script>
+  <style>
+/* =============================================
+   Roguelike Chronicles — terminal / ASCII theme
+   ============================================= */
+
+:root {
+  --bg-primary: #080b08;
+  --bg-secondary: #0f140f;
+  --bg-sidebar: #060806;
+  --bg-card: #0c100c;
+  --bg-hover: #141a14;
+  --bg-active: #101510;
+
+  --phosphor-green: #00ff9f;
+  --phosphor-amber: #ffcc00;
+  --phosphor-red: #ff6b6b;
+  --phosphor-cyan: #5ee7ff;
+  --phosphor-purple: #c9a0ff;
+
+  --accent-green: var(--phosphor-green);
+  --accent-amber: var(--phosphor-amber);
+  --accent-red: var(--phosphor-red);
+  --accent-cyan: var(--phosphor-cyan);
+  --accent-purple: var(--phosphor-purple);
+
+  --text-primary: #b8c4b8;
+  --text-secondary: #7a8a7a;
+  --text-muted: #4f5f4f;
+  --text-bright: #d8e8d8;
+
+  --border-color: #2a3a2a;
+  --border-bright: #3d5c3d;
+  --border-subtle: #151c15;
+
+  --floor-dot: rgba(0, 255, 159, 0.09);
+  --glow-green: rgba(0, 255, 159, 0.45);
+  --glow-amber: rgba(255, 204, 0, 0.35);
+
+  --font-mono: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+  --font-terminal: 'VT323', 'Courier New', Courier, monospace;
+
+  --sidebar-width: 300px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body.roguelike-terminal {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Тайловый пол «.» на фоне основной области */
+.dungeon-floor {
+  position: fixed;
+  inset: 0;
+  left: var(--sidebar-width);
+  pointer-events: none;
+  z-index: 0;
+  background-color: var(--bg-primary);
+  background-image: radial-gradient(circle, var(--floor-dot) 1px, transparent 1px);
+  background-size: 12px 20px;
+}
+
+.crt-scanlines {
+  position: fixed;
+  inset: 0;
+  left: var(--sidebar-width);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.07;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.45) 2px,
+    rgba(0, 0, 0, 0.45) 4px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt-scanlines { display: none; }
+}
+
+a {
+  color: var(--accent-green);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover { color: var(--accent-cyan); text-decoration: underline; }
+
+::selection {
+  background: rgba(126, 231, 135, 0.25);
+  color: var(--text-bright);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 2px;
+}
+
+.app {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ═══ Главный «экран терминала» ═══ */
+.terminal-screen {
+  flex: 1;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  margin: 12px 12px 0;
+  width: auto;
+  max-width: none;
+  border: 1px solid rgba(0, 255, 159, 0.45);
+  box-shadow:
+    inset 0 0 32px rgba(0, 0, 0, 0.55);
+  background: #030503;
+}
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  background: linear-gradient(180deg, #0f1a0f 0%, #080d08 100%);
+  border-bottom: 1px solid var(--border-bright);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.tb-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--phosphor-green);
+  box-shadow: 0 0 8px var(--glow-green);
+  flex-shrink: 0;
+}
+
+.tb-title {
+  flex: 1;
+  color: var(--phosphor-amber);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tb-title::before {
+  content: '$ ';
+  color: var(--phosphor-green);
+}
+
+.tb-tag {
+  padding: 2px 8px;
+  border: 1px solid var(--border-bright);
+  color: var(--phosphor-green);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Вложенные панели (карточки, статы) */
+.terminal-panel {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  border-radius: 0;
+  box-shadow:
+    inset 0 0 24px rgba(0, 0, 0, 0.35),
+    0 0 0 1px var(--bg-primary);
+}
+
+.terminal-panel::before,
+.terminal-panel::after {
+  position: absolute;
+  font-family: var(--font-terminal);
+  font-size: 16px;
+  line-height: 1;
+  color: var(--accent-green);
+  text-shadow: 0 0 8px var(--glow-green);
+  pointer-events: none;
+  user-select: none;
+}
+
+.terminal-panel::before {
+  content: '+';
+  top: -1px;
+  left: 4px;
+  transform: translateY(-50%);
+}
+
+.terminal-panel::after {
+  content: '+';
+  bottom: -1px;
+  right: 4px;
+  transform: translateY(50%);
+}
+
+/* =============================================
+   SIDEBAR
+   ============================================= */
+
+.sidebar {
+  width: var(--sidebar-width);
+  min-height: 100vh;
+  background: var(--bg-sidebar);
+  border-right: 1px solid rgba(0, 255, 159, 0.35);
+  box-shadow: inset -12px 0 32px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-width: 0;
+}
+
+/* Flex-дети не должны раздувать сайдбар по ширине */
+.sidebar > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 2px; }
+
+/* Sidebar Header */
+.sidebar-header {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: center;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-terminal);
+  font-size: 56px;
+  font-weight: 400;
+  color: var(--phosphor-green);
+  text-decoration: none;
+  line-height: 1;
+  padding: 0 0.1em;
+  text-shadow:
+    0 0 12px var(--glow-green),
+    0 0 28px rgba(0, 255, 159, 0.25);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  caret-color: transparent;
+}
+
+.logo:hover {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 30px rgba(86, 212, 221, 0.5);
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
+.subtitle {
+  font-family: var(--font-terminal);
+  font-size: 18px;
+  color: var(--phosphor-amber);
+  margin-top: 8px;
+  letter-spacing: 2px;
+  overflow-wrap: break-word;
+}
+
+/* =============================================
+   SIDEBAR: CURRENT GAME (on game pages)
+   ============================================= */
+
+.sidebar-current-game {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(126, 231, 135, 0.04);
+}
+
+.current-game-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.current-game-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.current-game-hours {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.current-game-hours.time-short { color: var(--accent-green); }
+.current-game-hours.time-medium { color: var(--accent-amber); }
+.current-game-hours.time-long { color: var(--accent-red); }
+
+.current-game-deaths {
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* =============================================
+   SIDEBAR: TABLE OF CONTENTS
+   ============================================= */
+
+.sidebar-toc {
+  flex: 1;
+  padding: 12px 0;
+  min-height: 0;
+  overflow-x: hidden;
+}
+
+.toc-label,
+.other-games-label,
+.all-games-label {
+  padding: 0 20px;
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  color: var(--accent-amber);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.sidebar-toc ul,
+.sidebar-other-games ul,
+.sidebar-all-games ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-link {
+  display: block;
+  padding: 8px 20px 8px 24px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 1.5;
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.toc-link::before {
+  content: '>';
+  position: absolute;
+  left: 10px;
+  opacity: 0;
+  color: var(--accent-green);
+  font-size: 11px;
+  font-family: var(--font-terminal);
+  transition: opacity 0.2s ease;
+}
+
+.toc-link:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.toc-link:hover::before { opacity: 0.5; }
+
+.toc-link.active {
+  background: var(--bg-hover);
+  color: var(--accent-green);
+  border-left-color: var(--accent-green);
+}
+
+.toc-link.active::before { opacity: 1; }
+
+/* =============================================
+   SIDEBAR: OTHER GAMES
+   ============================================= */
+
+.sidebar-other-games {
+  padding: 12px 0;
+  border-top: 1px solid var(--border-subtle);
+  overflow-x: hidden;
+}
+
+.nav-game-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 20px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.nav-game-link:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.nav-game-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-game-hours {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* =============================================
+   SIDEBAR: ALL GAMES (index page)
+   ============================================= */
+
+.sidebar-all-games {
+  flex: 1;
+  padding: 12px 0;
+  min-height: 0;
+  overflow-x: hidden;
+}
+
+.nav-game-link::before {
+  content: '· ';
+  color: var(--text-muted);
+  font-family: var(--font-terminal);
+}
+
+.nav-game-link:hover::before {
+  content: '> ';
+  color: var(--accent-green);
+}
+
+/* =============================================
+   SIDEBAR FOOTER
+   ============================================= */
+
+.sidebar-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-sidebar);
+}
+
+.back-link {
+  display: block;
+  color: var(--text-muted);
+  font-size: 12px;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--accent-green);
+  text-decoration: none;
+}
+
+.total-hours {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.total-label {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.total-value {
+  color: var(--accent-amber);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.total-deaths {
+  color: var(--text-muted);
+  font-size: 11px;
+  margin-left: auto;
+}
+
+/* =============================================
+   MAIN CONTENT
+   ============================================= */
+
+.main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-bottom: 16px;
+}
+
+/* =============================================
+   INDEX PAGE
+   ============================================= */
+
+.main-index,
+.main {
+  background: transparent;
+}
+
+.index-container {
+  width: 100%;
+  padding: 28px 24px 32px;
+}
+
+.index-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.hero-ascii {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.ascii-dungeon {
+  margin: 0;
+  padding: 14px 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: pre;
+  text-align: left;
+  color: var(--text-muted);
+  background: #000;
+  border: 1px solid var(--border-bright);
+  box-shadow: inset 0 0 20px rgba(0, 255, 159, 0.04);
+}
+
+.index-header h1 {
+  font-family: var(--font-terminal);
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--phosphor-green);
+  margin: 0;
+  text-shadow: 0 0 16px var(--glow-green);
+}
+
+.index-subtitle {
+  font-family: var(--font-terminal);
+  font-size: 22px;
+  color: var(--phosphor-amber);
+  margin: 0 0 28px 0;
+  text-shadow: 0 0 12px var(--glow-amber);
+}
+
+.section-heading {
+  font-family: var(--font-terminal);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--phosphor-amber);
+  text-align: center;
+  margin: 0 0 20px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--glow-amber);
+}
+
+.index-stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.index-stat {
+  text-align: center;
+  padding: 12px 20px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(0, 0, 0, 0.25);
+  min-width: 88px;
+}
+
+.index-stat-value {
+  display: block;
+  font-family: var(--font-terminal);
+  font-size: 40px;
+  color: var(--accent-green);
+  line-height: 1.1;
+  text-shadow: 0 0 12px var(--glow-green);
+}
+
+.index-stat-label {
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  color: var(--accent-amber);
+  letter-spacing: 1px;
+}
+
+/* Games Grid */
+.games-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Game Card */
+.game-card {
+  display: block;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.game-card:nth-child(1) { animation-delay: 0.05s; }
+.game-card:nth-child(2) { animation-delay: 0.1s; }
+.game-card:nth-child(3) { animation-delay: 0.15s; }
+.game-card:nth-child(4) { animation-delay: 0.2s; }
+.game-card:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.game-card:hover {
+  border-color: var(--accent-green);
+  box-shadow:
+    inset 0 0 20px rgba(95, 207, 95, 0.06),
+    0 0 12px rgba(95, 207, 95, 0.12);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.game-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.game-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin: 0;
+}
+
+.game-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.game-card-hours {
+  padding: 2px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 0;
+  font-size: 11px;
+  font-family: var(--font-terminal);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.game-card-hours.time-short {
+  background: rgba(126, 231, 135, 0.1);
+  color: var(--accent-green);
+}
+
+.game-card-hours.time-medium {
+  background: rgba(255, 166, 87, 0.1);
+  color: var(--accent-amber);
+}
+
+.game-card-hours.time-long {
+  background: rgba(255, 123, 114, 0.15);
+  color: var(--accent-red);
+}
+
+.game-card-deaths {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.game-card-date {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.game-card-preview {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0 0 16px 0;
+}
+
+.game-card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.game-card-link {
+  font-size: 12px;
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.game-card:hover .game-card-link {
+  color: var(--accent-cyan);
+}
+
+/* =============================================
+   GAME PAGE
+   ============================================= */
+
+.article-page {
+  width: 100%;
+  padding: 28px 24px 16px;
+}
+
+.article-page-header {
+  margin-bottom: 32px;
+  padding: 24px;
+}
+
+.article-page-header h1 {
+  font-family: var(--font-terminal);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--accent-green);
+  margin: 0 0 16px 0;
+  text-shadow: 0 0 16px var(--glow-green);
+}
+
+/* Строка статуса в духе NetHack / Brogue */
+.status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 4px;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.status-key {
+  color: var(--accent-amber);
+  margin-right: 4px;
+}
+
+.status-sep {
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.status-item.time-short { color: var(--accent-green); }
+.status-item.time-medium { color: var(--accent-amber); }
+.status-item.time-long { color: var(--accent-red); }
+.status-item.status-danger { color: var(--accent-red); }
+
+/* =============================================
+   STATISTICS TABLE
+   ============================================= */
+
+.stats-section {
+  margin-bottom: 32px;
+  padding: 20px 24px;
+}
+
+.stats-title {
+  font-family: var(--font-terminal);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--accent-amber);
+  margin: 0 0 16px 0;
+  letter-spacing: 1px;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.stats-table tbody tr {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.stats-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.stat-metric {
+  padding: 8px 0;
+  color: var(--text-secondary);
+  width: 45%;
+}
+
+.stat-value {
+  padding: 8px 0;
+  text-align: right;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-value.val-normal { color: var(--text-primary); }
+.stat-value.val-success { color: var(--accent-green); }
+.stat-value.val-danger { color: var(--accent-red); }
+
+/* =============================================
+   ARTICLE CONTENT
+   ============================================= */
+
+.article-content {
+  color: var(--text-primary);
+}
+
+.article-content h1 {
+  font-size: 22px;
+  color: var(--text-bright);
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-subtle);
+  scroll-margin-top: 24px;
+}
+
+.article-content h2 {
+  font-family: var(--font-terminal);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--accent-green);
+  margin: 28px 0 14px;
+  scroll-margin-top: 24px;
+  padding-left: 12px;
+  border-left: 3px solid var(--border-bright);
+}
+
+.article-content h2::before {
+  content: '## ';
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
+.article-content h3 {
+  font-size: 15px;
+  color: var(--accent-amber);
+  margin: 24px 0 12px;
+  font-weight: 600;
+}
+
+.article-content h4 {
+  font-size: 14px;
+  color: var(--accent-cyan);
+  margin: 20px 0 10px;
+  font-weight: 600;
+}
+
+.article-content p {
+  margin: 0 0 16px 0;
+  line-height: 1.8;
+}
+
+.article-content strong { color: var(--text-bright); font-weight: 600; }
+.article-content em { color: var(--accent-purple); font-style: italic; }
+
+.article-content code {
+  background: var(--bg-secondary);
+  color: var(--accent-cyan);
+  padding: 2px 6px;
+  border-radius: 0;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  border: 1px solid var(--border-subtle);
+}
+
+.article-content pre {
+  background: #040604;
+  border: 1px solid var(--border-bright);
+  border-radius: 0;
+  padding: 16px 20px;
+  margin: 20px 0;
+  overflow-x: auto;
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.5);
+}
+
+.article-content pre::before {
+  content: ' ``` ';
+  display: block;
+  font-family: var(--font-terminal);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}
+
+.article-content pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Блок цитаты — как строка message log */
+.article-content blockquote {
+  margin: 20px 0;
+  padding: 12px 16px;
+  border: none;
+  border-left: 3px solid var(--accent-amber);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0;
+  font-style: normal;
+  color: var(--text-primary);
+}
+
+.article-content blockquote::before {
+  content: '> ';
+  color: var(--accent-amber);
+  font-family: var(--font-terminal);
+  font-size: 14px;
+}
+
+.article-content blockquote p { margin: 0; }
+
+.article-content ul,
+.article-content ol {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+.article-content li { margin: 8px 0; }
+
+.article-content ul {
+  list-style: none;
+  padding-left: 8px;
+}
+
+.article-content ul li::before {
+  content: '· ';
+  color: var(--accent-green);
+  font-weight: bold;
+}
+
+.article-content ol li::marker {
+  color: var(--accent-amber);
+  font-family: var(--font-terminal);
+}
+
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  object-fit: contain;
+}
+
+.article-content hr {
+  border: none;
+  height: 1px;
+  background: var(--border-color);
+  margin: 32px 0;
+  position: relative;
+}
+
+.article-content hr::after {
+  content: '***';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-primary);
+  padding: 0 16px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+
+.article-content a {
+  color: var(--accent-green);
+  border-bottom: 1px dotted var(--accent-green);
+  transition: all 0.2s ease;
+}
+
+.article-content a:hover {
+  color: var(--accent-cyan);
+  border-bottom-color: var(--accent-cyan);
+}
+
+/* Content tables (markdown tables in articles) */
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13px;
+  border: 1px solid var(--border-bright);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.article-content thead {
+  background: var(--bg-secondary);
+}
+
+.article-content th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--accent-amber);
+  border-bottom: 2px solid var(--border-color);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.article-content td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.article-content tbody tr:hover {
+  background: rgba(126, 231, 135, 0.03);
+}
+
+.article-content tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* =============================================
+   SITE FOOTER
+   ============================================= */
+
+.site-footer {
+  text-align: center;
+  padding: 24px 32px 32px;
+  color: var(--text-muted);
+  font-size: 12px;
+  border-top: 1px dashed var(--border-color);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.footer-status {
+  font-family: var(--font-terminal);
+  font-size: 16px;
+  color: var(--accent-amber);
+  margin: 0 0 8px;
+  animation: blink-more 1.2s step-end infinite;
+}
+
+@keyframes blink-more {
+  50% { opacity: 0.35; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-status { animation: none; }
+}
+
+.footer-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+  letter-spacing: 0.5px;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 11px;
+}
+
+.site-footer a {
+  color: var(--text-secondary);
+  border-bottom: 1px dotted var(--border-color);
+}
+
+.site-footer a:hover { color: var(--accent-green); }
+
+/* =============================================
+   MOBILE
+   ============================================= */
+
+@media (max-width: 768px) {
+  :root { --sidebar-width: 100%; }
+
+  .dungeon-floor,
+  .crt-scanlines {
+    left: 0;
+  }
+
+  .app { flex-direction: column; }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    max-height: 55vh;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .sidebar-header { padding: 16px; }
+  .logo { font-size: 36px; }
+
+  .main { margin-left: 0; }
+
+  .terminal-screen {
+    margin: 8px 8px 0;
+  }
+
+  .article-page,
+  .index-container { padding: 20px 14px; }
+
+  .ascii-dungeon { font-size: 10px; max-width: 100%; overflow-x: auto; }
+
+  .index-stats { gap: 20px; }
+  .index-stat-value { font-size: 28px; }
+  .index-header h1 { font-size: 32px; }
+
+  .article-page-header h1 { font-size: 22px; }
+
+  .game-card { padding: 20px; }
+  .game-card-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+  </style>
+</head>
+<body class="roguelike-terminal">
+  <div class="dungeon-floor" aria-hidden="true"></div>
+  <div class="crt-scanlines" aria-hidden="true"></div>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="logo" title="Roguelike Chronicles" aria-label="Roguelike Chronicles">@</a>
+        <div class="subtitle">[ chronicles ]</div>
+      </div>
+      <div class="sidebar-current-game">
+        <div class="current-game-title">Hydra Slayer</div>
+        <div class="current-game-meta">
+          <span class="current-game-hours time-short">18h</span>
+          <span class="current-game-deaths">&#x2620; 13</span>
+        </div>
+      </div>
+      <nav class="sidebar-toc">
+        <div class="toc-label">~ map ~</div>
+        <ul>
+<li><a href="#quick-overview" class="toc-link" data-target="quick-overview">Quick Overview</a></li>
+<li><a href="#first-death" class="toc-link" data-target="first-death">First Death</a></li>
+<li><a href="#what-i-learned-after-the-first-hour" class="toc-link" data-target="what-i-learned-after-the-first-hour">What I Learned After the First Hour</a></li>
+<li><a href="#what-i-learned-after-the-five-hours" class="toc-link" data-target="what-i-learned-after-the-five-hours">What I Learned After the Five Hours</a></li>
+<li><a href="#what-i-learned-after-the-ten-hours" class="toc-link" data-target="what-i-learned-after-the-ten-hours">What I Learned After the Ten Hours</a></li>
+<li><a href="#what-i-learned-after-the-fifteen-hours" class="toc-link" data-target="what-i-learned-after-the-fifteen-hours">What I Learned After the Fifteen Hours</a></li>
+<li><a href="#becoming-the-hydra-story-of-a-single-run" class="toc-link" data-target="becoming-the-hydra-story-of-a-single-run">Becoming the Hydra (Story of a Single Run)</a></li>
+        </ul>
+      </nav>
+      <nav class="sidebar-other-games">
+        <div class="other-games-label">~ other ~</div>
+        <ul>
+<li><a href="brogue.html" class="nav-game-link"><span class="nav-game-title">Brogue</span><span class="nav-game-hours">40h</span></a></li>
+<li><a href="jupiter-hell-classic.html" class="nav-game-link"><span class="nav-game-title">Jupiter Hell Classic</span><span class="nav-game-hours">18h</span></a></li>
+<li><a href="the-ground-gives-way.html" class="nav-game-link"><span class="nav-game-title">The Ground Gives Way</span><span class="nav-game-hours">31h</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="../index.html" class="back-link">&larr; All Games</a>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="terminal-screen">
+        <div class="terminal-titlebar">
+          <span class="tb-led" aria-hidden="true"></span>
+          <span class="tb-title">~/games/hydra-slayer</span>
+          <span class="tb-tag">ASCII</span>
+        </div>
+        <div class="terminal-body">
+      <div class="article-page">
+        <header class="article-page-header">
+          <h1>Hydra Slayer</h1>
+          <div class="status-bar" role="status">
+            <span class="status-item"><span class="status-key">Date</span> 25.07.2026</span>
+            <span class="status-sep">|</span>
+            <span class="status-item time-short"><span class="status-key">Time</span> 18h</span>
+            <span class="status-sep">|</span>
+            <span class="status-item status-danger"><span class="status-key">Deaths</span> 13</span>
+          </div>
+        </header>
+        <div class="stats-section terminal-panel">
+          <h2 class="stats-title">~ character sheet ~</h2>
+<table class="stats-table">
+<tbody>
+<tr><td class="stat-metric">First win after (Echidna)</td><td class="stat-value val-normal"> hours</td></tr>
+<tr><td class="stat-metric">Total deaths before first win</td><td class="stat-value val-normal">4</td></tr>
+<tr><td class="stat-metric">First win date</td><td class="stat-value val-normal">14.07.2026</td></tr>
+<tr><td class="stat-metric">Single success run</td><td class="stat-value val-normal">5h 30m</td></tr>
+</tbody>
+</table>
+        </div>
+        <div class="article-content">
+<h2 id="quick-overview">Quick Overview</h2>
+
+<p>I've played this game before, a long time ago, probably around the time it first came out. I even made it to the first boss, maybe even beat it—I honestly don't remember anymore. Back then I played as Echidna. In my opinion, it's the easiest class, with nothing more than basic arithmetic.</p>
+
+<p>This time I want to play as a human, so I can get a better feel for the different weapons and materials. I don't even want to try the other classes—I think they'll be too difficult.</p>
+
+<p>Beating the game is probably going to be really hard. It's completely fair—there's no randomness. Every fight is pure tactics. No hoping for a lucky potion, scroll, or anything like that. Just math. That's also why a successful run can take so long: the slower you do the calculations, the longer the run.</p>
+
+<p>Right now I have no idea how to use stunning weapons properly. Are they useful for anything besides reducing incoming damage? I'll have to figure that out.</p>
+
+<h2 id="first-death">First Death</h2>
+
+<p>Human, Floor 9. I had just gone downstairs when I immediately found myself next to four hydras, ranging from 5 to 40 heads. By that point I had six weapons, but the hydras were already building up serious resistance against them.</p>
+
+<p>I barely used my Scrolls of the Big Stick. I still hadn't realized that +7 weapons become too weak—the enemies' resistances grow faster than your weapons keep up as you descend.</p>
+
+<p>I got torn apart almost immediately, barely a minute after reaching the floor. While I was trying to figure out how to deal with the 5-headed hydra, the others surrounded me and killed me in three turns.</p>
+
+<p>I didn't use a single consumable. Looking back at it now, I don't even feel like facepalming. It's just sad. No idea why I was in such a hurry.</p>
+
+<h2 id="what-i-learned-after-the-first-hour">What I Learned After the First Hour</h2>
+
+<p>The first few floors are very easy. You barely have to think—just pick the weapon that chops off all the heads at once, and the floor is done. On the bright side, the early game isn't nearly as intimidating as I expected. Getting through the opening levels is pretty straightforward.</p>
+
+<p>Things get interesting after that. I assumed hydras would only resist the couple of elements that increase their number of heads. I was wrong. They build resistance to every element except one, and it grows very quickly. Weapons that cut off 5–6 heads become useless after about 15 minutes of play—hydras start regrowing 7–8 heads at a time. And with only four hands, it's hard to keep the right set of weapons. Even by Floor 6 the game gets tough. There are plenty of consumables, but having the ones you actually need is another matter. I've already died around five times and I'm still nowhere near the first boss. Everything seems simple, everything makes sense, but I just can't put it all together yet.</p>
+
+<p>Stunning isn't as bad as it first seemed. I picked up an axe, and it works pretty well. Positioning matters—you can step back a little and wait for the stunned heads to recover before chopping them off again.</p>
+
+<p>You don't have many hands to work with. One is occupied by the axe, leaving only the other two for regular weapons. What worries me most is that sooner or later the math just won't work out, and there'll be a hydra I simply can't beat no matter what I try. It hasn't happened yet. So far I've only had to replace one weapon with another made from a different material.</p>
+
+<p>I also found a shield, but I'm still not sure how useful it is. Reducing damage is nice, but it costs an entire equipment slot. That feels expensive.</p>
+
+<p>There's also way too much loot on each floor. It's overwhelming because I still don't know what half of it is for. I'm sure it'll become useful once I understand the game better. Right now it's easy to spend ten minutes thinking about a single move because there are so many options.</p>
+
+<h2 id="what-i-learned-after-the-five-hours">What I Learned After the Five Hours</h2>
+
+<p>So far, the only enemy that's really given me trouble is the vulture hydra. It has an absurd amount of resistances. The first time I decided not to risk it and finished it off with stunning plus decapitated potions. Didn't get the achievement, though.</p>
+
+<p>The second time I only used stunning and finished it with regular weapons. That's when I realized I hadn't read the rules carefully enough. Apparently, killing a stunned hydra doesn't count as an honorable kill.</p>
+
+<p>Only on my third attempt did I beat it using weapons alone, and finally unlocked the achievement.</p>
+
+<p>As a human, I've made it to Floor 22, which already feels like a solid accomplishment. I even got to see a different floor topology. But finishing the game is still a long, long way off.</p>
+
+<p>The game turned out to be much longer than I expected. Fifty floors is honestly a bit much.</p>
+
+<h2 id="what-i-learned-after-the-ten-hours">What I Learned After the Ten Hours</h2>
+
+<p>First, let me complain a little: the Eradicator is a complete disappointment. You only get it once per game, on Floor 12, right next to the first boss. It feels like the game is practically telling you, "Take it and use it," just like in other games where the strongest weapon is conveniently placed before a major fight.</p>
+
+<p>Except it doesn't work. You simply can't use it. I even spent two Powder of Growth on it, but by the third attempt I was already out of health. Had to waste expensive Potions of Life instead. And even after two Powder of Growth, the Eradicator still wasn't usable. What a waste. That one really hurt.</p>
+
+<p>I finished the game as an Echidna. What a grind. Fifty floors, at least ten hydras on each one—that's around five hundred hydras, and almost all of them are killed the exact same way. There isn't much variety.</p>
+
+<p>I also got unlucky with the loot. None of the weapons I really wanted ever showed up. I was hoping to use the Syracuse Blade against the final boss. No Co Sector, no Quick Sword. I might have seen a Vorpal Blade somewhere, but I didn't take it. In the end, almost all my Potions of Knowledge went toward invisible hydras.</p>
+
+<p>The Arch-Hydras weren't particularly memorable either. At least I didn't notice anything spectacular about them. I got lucky—all of them had 50 heads or fewer, so they went down quickly without much drama.</p>
+
+<p>My plan now is to beat the first boss with every race. I've had this game sitting in my backlog for thirteen years. It's time to finally close that chapter and let my inner hydra rest.</p>
+
+<h2 id="what-i-learned-after-the-fifteen-hours">What I Learned After the Fifteen Hours</h2>
+
+<p>The hydras keep falling one after another. Centaur, Human, Echidna, Titan, and Atlantean are all behind me now. I've beaten the first boss with every one of them.</p>
+
+<p>Titan has been the hardest so far. I had no idea how much I relied on items. It didn't help that even opening the inventory counted as a turn. Once I discovered that I could preview how items would affect a specific hydra without spending a turn, things became much easier.</p>
+
+<p>And since you can calculate exactly which weapons you'll need to kill a hydra in advance, there's nothing stopping you from using your free hands for a shield.</p>
+
+<p>On the other hand, I never found room for stunning weapons while playing Titan. Maybe the Titanic Club changes that. From what I've seen, people recommend spending all your Scrolls of the Big Stick on it, so it must be worth it.</p>
+
+<p>Only the Twins remain. I'm so used to controlling a single character that I'm honestly a little nervous to even try them. I have a feeling their strategy is going to be completely different from everything I've played so far.</p>
+
+<p>But there's no way around it. One last race, and I'm finally free.</p>
+
+<h2 id="becoming-the-hydra-story-of-a-single-run">Becoming the Hydra (Story of a Single Run)</h2>
+
+<h3>Going down</h3>
+
+<p>Ancient monsters. Hydras. They're back.</p>
+
+<p>So many of our people tried to stop them. None came back. I grew up hearing those stories, and now I see the proof myself: abandoned spears, shields frozen in ash.</p>
+
+<p>People tried to fight them with ordinary weapons. But for every head they cut off, new ones grew back. I've seen it with my own eyes: a sword falls, heads roll to the ground, and new ones are already pushing through the stumps.</p>
+
+<p>It's time to remember the forgotten art of fighting hydras. Not children's tales, but real knowledge: a longsword cuts exactly five heads. No more, no less. And if that's not enough to kill the beast, new heads will grow. The only question is how many.</p>
+
+<p>My teacher used to say something strange: sometimes you have to make a hydra stronger before you can kill it. I never understood what he meant.</p>
+
+<p>Now I do.</p>
+
+<p>My people are different from humans. We are Echidna, born to fight, equally skilled with both hands. But everything has its price. When the gods took our legs away, they made us slower, as if the earth itself refuses to let us move freely.</p>
+
+<p>Today I am the one chosen by my people. This burden is mine.</p>
+
+<p>Standing before these gates, I can feel it.</p>
+
+<p>It's time to prove what we're capable of.</p>
+
+<p>Even if I have to pay even more.</p>
+
+<h3>Level 1</h3>
+
+<p>I only brought one weapon in each hand. Weapons don't belong in a backpack. If you're going down there to kill, you keep them ready.</p>
+
+<p>And killing is the only reason I'm here.</p>
+
+<p>There's no talking to hydras. They know neither mercy nor words. As if the Erinyes themselves filled them with nothing but rage.</p>
+
+<p>In my right hand is an ice dagger.</p>
+
+<p>It's so cold it feels like I'm holding a shard of winter itself. They say it can freeze a neck before new heads grow back.</p>
+
+<p>Sounds like a fairy tale.</p>
+
+<p>In my left hand, an ash machete.</p>
+
+<p>Yes, it's made of wood. Who would've thought our training weapons would one day become useful in a real battle?</p>
+
+<p>Don't underestimate it.</p>
+
+<p>I know it works well against skeletons. They also say there are powerful hydras afraid of it, as if even monsters remember the sacred oaks that once fell beneath the axes of ancient heroes.</p>
+
+<p>I hope I find one soon.</p>
+
+<p>I step down and look around.</p>
+
+<p>There they are.</p>
+
+<p>Creatures straight out of hell, as if they'd crawled from the deepest pits of Tartarus.</p>
+
+<p>The first one has only a single head. If that even counts as a hydra.</p>
+
+<p>Looks more like a giant slug.</p>
+
+<p>Its scales are white. All six claws gleam like polished silver.</p>
+
+<p>Looks can be deceiving.</p>
+
+<p>It's only waiting for a chance to attack.</p>
+
+<p>I strike first.</p>
+
+<p>The dagger slips through its scales with ease. A little force, and its only head falls to the ground.</p>
+
+<p>That was easy.</p>
+
+<p>The next hydra is made entirely of ice.</p>
+
+<p>The cave isn't cold enough to melt it. Snow remains wherever it walks, as if winter itself follows behind.</p>
+
+<p>One swing.</p>
+
+<p>Dead.</p>
+
+<p>Another one comes around the corner. Thick, foul liquid drips from its claws.</p>
+
+<p>Every drop burns the ground black.</p>
+
+<p>Not a problem either.</p>
+
+<p>This one has a long tail covered in greenish-blue fur.</p>
+
+<p>As it drags across the ground, sparks fly in every direction. Tiny bolts of lightning dance around its heads whenever it moves.</p>
+
+<p>When I stab it, a small shock runs through my body.</p>
+
+<p>Nothing serious.</p>
+
+<p>Better.</p>
+
+<p>This hydra has two heads.</p>
+
+<p>Covered in mud and slime, green muck dripping from every scale.</p>
+
+<p>I don't even want to touch it.</p>
+
+<p>One swing of the machete.</p>
+
+<p>Done.</p>
+
+<p>I thought my first hydra looked beautiful.</p>
+
+<p>This one shines like the sun.</p>
+
+<p>Its scales look as if they were forged from gold itself. I can already imagine them decorating my armor.</p>
+
+<p>Three heads.</p>
+
+<p>Now that's more like a real hydra.</p>
+
+<p>One weapon won't be enough.</p>
+
+<p>I strike with both hands at once.</p>
+
+<p>All three heads fall together.</p>
+
+<p>Perfect.</p>
+
+<p>Ahead of me lies the skeleton of a hydra.</p>
+
+<p>I've seen skeletons like this before, decorating the collections of wealthy nobles.</p>
+
+<p>This one is different.</p>
+
+<p>It's alive.</p>
+
+<p>So many bones...</p>
+
+<p>I'm sure it can regrow its limbs just as well as the others.</p>
+
+<p>Breaking bones would only waste my time.</p>
+
+<p>I cut off the heads instead.</p>
+
+<p>The rest collapses lifelessly.</p>
+
+<p>Deep in the dungeon I find something that should help me.</p>
+
+<p>Power Juice.</p>
+
+<p>An essence made from hydra blood.</p>
+
+<p>Far too rare to find anywhere outside these depths.</p>
+
+<p>Yes, it will make me more like a hydra.</p>
+
+<p>That's the price of survival.</p>
+
+<p>I take a small sip.</p>
+
+<p>Surprisingly sweet.</p>
+
+<p>You can't drink half of it.</p>
+
+<p>There's no turning back.</p>
+
+<p>The moment I swallow the last drop, my body begins to change.</p>
+
+<p>Something pushes through my skin.</p>
+
+<p>Another right arm.</p>
+
+<p>I move it a little.</p>
+
+<p>Just as strong as the others.</p>
+
+<p>Now it only needs a weapon.</p>
+
+<p>Among the bodies of fallen warriors I find an acid sabre.</p>
+
+<p>Should work well against metal hydras.</p>
+
+<p>It'll serve me well.</p>
+
+<p>The next hydra looks more like a mammal.</p>
+
+<p>Instead of scales, it's covered in thick brown fur.</p>
+
+<p>Its single head looks disturbingly human.</p>
+
+<p>I'll rid the world of this nightmare.</p>
+
+<p>Then comes a burning hydra.</p>
+
+<p>Smoke pours from its jaws.</p>
+
+<p>Getting close is dangerous.</p>
+
+<p>We Echidna don't like heat.</p>
+
+<p>Still, there's nothing on me that can catch fire.</p>
+
+<p>Let it burn.</p>
+
+<p>Three heads fall to the acid sabre in a single strike.</p>
+
+<p>This must be the last one.</p>
+
+<p>The strangest of them all.</p>
+
+<p>Every head looks different.</p>
+
+<p>They even change while I'm looking at them.</p>
+
+<p>Madness.</p>
+
+<p>But it's still standing in front of me.</p>
+
+<p>That won't stop me.</p>
+
+<p>I'll cut down every last head.</p>
+
+<p>No matter what shape they take.</p>
+
+<h3>Level 2</h3>
+
+<p>The acid sabre is great, but what I really need are weapons with powers of two. If I use all my hands in one strong attack, I'll be able to cut off any number of heads.</p>
+
+<p>Lucky me. Right after coming down the stairs I find a frozen shortsword. Now I have weapons for one, two, and four heads. Hydras with fewer than eight heads don't scare me anymore.</p>
+
+<p>The first one I meet has four heads. I don't even need to be ambidextrous for this one.</p>
+
+<p>Then comes a burning beast with six heads. Even if I weren't such a skilled fighter, it wouldn't stand a chance against ice. I freeze the stumps before new heads can grow back. Steam rises from its necks, and the hydra collapses.</p>
+
+<h3>Level 3</h3>
+
+<p>A seven-headed werehydra.</p>
+
+<p>That's my limit for now.</p>
+
+<p>I deal with it easily.</p>
+
+<p>Then a nine-headed hydra.</p>
+
+<p>More than I can cut off in one strike. I'll have to hit it twice.</p>
+
+<p>For the first time, I get bitten.</p>
+
+<p>A deep wound tears through my side. Hydra blood has healing properties, so I patch myself up a little.</p>
+
+<p>Hydra blood doesn't heal us Echidna as well as it heals others.</p>
+
+<p>I'd better stop getting hit.</p>
+
+<p>I'm much slower than the hydras.</p>
+
+<p>Another one could come around the corner at any moment and strike first.</p>
+
+<p>Better to wait.</p>
+
+<p>The hydras didn't appear here by accident. They won't wait. They're trying to break into our world.</p>
+
+<p>I'm guarding the only way up.</p>
+
+<p>They'll come to me.</p>
+
+<p>I spot a frozen machete.</p>
+
+<p>Time to replace my ash machete.</p>
+
+<p>Now I fight with ice alone.</p>
+
+<p>Yes, ice hydras will be harder to deal with.</p>
+
+<p>But every other hydra will only regrow heads once per attack.</p>
+
+<p>That's how hydra magic works. They don't regrow heads for every weapon that cuts them, but for every element used against them. No matter how many weapons I strike with, it's the magic that matters, not the number of blows.</p>
+
+<h3>Level 4</h3>
+
+<p>A Potion of Power Juice.</p>
+
+<p>Another arm.</p>
+
+<p>This time, a left one.</p>
+
+<p>Ahead of me waits a ten-headed hydra.</p>
+
+<p>I pick up a flaming sword for my new hand.</p>
+
+<p>Now I wield two elements at once.</p>
+
+<p>Enough to cut off up to thirteen heads in a single attack.</p>
+
+<p>A twelve-headed chaos hydra.</p>
+
+<p>A tangled mess of faces and necks.</p>
+
+<p>They're growing stronger fast.</p>
+
+<p>I'm only on the fourth floor, and I'm already facing monsters like this.</p>
+
+<h3>Level 5</h3>
+
+<p>A human.</p>
+
+<p>Maybe one of our warriors survived.</p>
+
+<p>No.</p>
+
+<p>He has two heads.</p>
+
+<p>He can't speak.</p>
+
+<p>He's heavily armed.</p>
+
+<p>He's wary of me.</p>
+
+<p>I could take off both heads in a single swing.</p>
+
+<p>That means there's still some reason left in him.</p>
+
+<p>Unlike the hydras.</p>
+
+<p>I step closer and immediately get hit.</p>
+
+<p>I guess there's no other way with creatures like this.</p>
+
+<p>Another arm.</p>
+
+<p>My weapons are multiplying faster than the hydras' heads.</p>
+
+<p>That's a good sign.</p>
+
+<h3>Level 6</h3>
+
+<p>I was wrong.</p>
+
+<p>Twenty-two heads.</p>
+
+<p>I'll have to use a Scroll of the Big Stick to sharpen my weapons.</p>
+
+<p>Now I have weapons that cut 1, 2, 4, 8, and 7 heads.</p>
+
+<p>That should be enough.</p>
+
+<p>Well, look at that.</p>
+
+<p>A Storm Bisector.</p>
+
+<p>Cutting heads off one by one is becoming too expensive.</p>
+
+<p>They grow back too quickly.</p>
+
+<p>It's time to start dividing.</p>
+
+<p>This weapon cuts a hydra's heads in half.</p>
+
+<p>Now I'm ready for how quickly they're growing.</p>
+
+<h3>Level 7</h3>
+
+<p>An open area.</p>
+
+<p>Hydras everywhere.</p>
+
+<p>I need to be careful.</p>
+
+<img src="../images/hydra-slayer/surrounded1.png" alt="surrounded1" loading="lazy">
+
+<p>I fight off the ones that get too close, then retreat into the mushrooms.</p>
+
+<p>Come one at a time, you bastards.</p>
+
+<p>Let them think they've cornered me.</p>
+
+<p>Even from the shadows I can strike back.</p>
+
+<p>A new hydra.</p>
+
+<p>I've never seen one like this before.</p>
+
+<p>It's related to the vultures that fed on Prometheus' liver.</p>
+
+<p>That's what gives it its strange ability.</p>
+
+<p>It grows new heads not only when I cut them off, but every time it attacks.</p>
+
+<p>It grows twice as fast.</p>
+
+<p>Unfortunately, it has twenty-nine heads.</p>
+
+<p>I can't halve that.</p>
+
+<p>I'll have to improvise.</p>
+
+<p>I throw a Powder of Growth at it.</p>
+
+<p>Thirty-six heads.</p>
+
+<p>The hydra is faster than I am.</p>
+
+<p>While I'm throwing the powder, it bites me.</p>
+
+<p>I panic and attack without using a bisector.</p>
+
+<p>Forty-six heads.</p>
+
+<p>Way too many.</p>
+
+<p>I strike with every weapon I have.</p>
+
+<p>Twenty-one left.</p>
+
+<p>Still too many for my weapons.</p>
+
+<p>Another bite.</p>
+
+<p>Twelve heads.</p>
+
+<p>One final swing with everything I've got.</p>
+
+<p>My first vulture hydra finally falls.</p>
+
+<p>The blood of such powerful hydras heals especially well.</p>
+
+<p>Even for an Echidna.</p>
+
+<p>My wounds begin closing before my eyes.</p>
+
+<h3>Level 8</h3>
+
+<p>An ice hydra nearly finished me off.</p>
+
+<p>I just couldn't split it quickly enough.</p>
+
+<p>I'm already down to half my health.</p>
+
+<p>That's the downside of ice weapons.</p>
+
+<p>They slow everything down.</p>
+
+<p>If they worked differently, other hydras would become much harder to deal with.</p>
+
+<p>I need more weapons.</p>
+
+<p>Luckily, I grow another pair of arms.</p>
+
+<p>Six now.</p>
+
+<p>I can already feel how much stronger they've made me.</p>
+
+<p>I pick up a two-handed sword.</p>
+
+<p>My arms may be new, but they're strong enough to wield it in one hand.</p>
+
+<p>I'll manage.</p>
+
+<h3>Level 9</h3>
+
+<p>A forty-nine-headed vulture hydra.</p>
+
+<p>Something's wrong.</p>
+
+<p>One bisector isn't enough anymore.</p>
+
+<p>Then I find another one.</p>
+
+<p>A Trisector.</p>
+
+<p>Now I have more ways to deal with hydras once their head count gets out of control.</p>
+
+<h3>Level 10</h3>
+
+<p>I've never seen a hydra like this before.</p>
+
+<p>It's covered in dried blood and dirt.</p>
+
+<p>I hope that's not the blood of the warriors who came before me.</p>
+
+<p>I look at its claws.</p>
+
+<p>Nothing.</p>
+
+<p>Its mouths are closed.</p>
+
+<p>That doesn't help either.</p>
+
+<p>I'll have to attack without knowing what it is.</p>
+
+<p>Only five heads.</p>
+
+<p>Shouldn't be difficult.</p>
+
+<p>A chaos hydra.</p>
+
+<p>I probably should've guessed.</p>
+
+<p>Lying on the ground is a legendary weapon.</p>
+
+<p>The Decimator.</p>
+
+<p>One swing divides a hydra's heads by ten.</p>
+
+<p>Perfect for the really big ones.</p>
+
+<p>I know I'll need it.</p>
+
+<p>Not just yet.</p>
+
+<p>But their heads keep growing.</p>
+
+<h3>Level 11</h3>
+
+<p>Two hundred and nine heads.</p>
+
+<p>What a jump.</p>
+
+<p>Splitting them in half or into thirds won't be enough anymore.</p>
+
+<img src="../images/hydra-slayer/over-hundred.png" alt="over-hundred" loading="lazy">
+
+<p>I'll put my new weapon to work.</p>
+
+<p>Just not yet.</p>
+
+<p>First I'll round the number into something more convenient.</p>
+
+<p>I'll have to take a few hits.</p>
+
+<p>So be it.</p>
+
+<p>I didn't come this far to turn back because of a number.</p>
+
+<p>My first hydra with more than a hundred heads.</p>
+
+<p>And not just barely over.</p>
+
+<p>If I make it back to the surface, I'll have quite a story to tell.</p>
+
+<h3>Level 12</h3>
+
+<p>Something feels wrong.</p>
+
+<p>Usually the floor echoes with roars, sparks, and fire.</p>
+
+<p>Here, there's nothing.</p>
+
+<p>Not a sound.</p>
+
+<p>Then I see it.</p>
+
+<p>I can't even count how many heads it has.</p>
+
+<p>99,756.</p>
+
+<img src="../images/hydra-slayer/ancient-hydra.png" alt="ancient-hydra" loading="lazy">
+
+<p>Far more than I could have imagined.</p>
+
+<p>Hydras have been growing stronger all this time, but nothing like this.</p>
+
+<p>This fight will take forever.</p>
+
+<p>If not for one thing.</p>
+
+<p>Lying on the ground is the Eradicator.</p>
+
+<p>A weapon spoken of in legends.</p>
+
+<p>It pulls the root out of a hydra's heads.</p>
+
+<p>I can't tell whether it'll work here. The numbers are already too big to reason about.</p>
+
+<p>I'll have to trust luck.</p>
+
+<p>Or a miracle.</p>
+
+<p>The hydra is faster than I am, so I immediately drink a Potion of Extreme Speed.</p>
+
+<p>My heart pounds in my throat.</p>
+
+<p>The whole world suddenly feels sharper.</p>
+
+<p>Much better.</p>
+
+<p>I'll reach the weapon before the hydra reaches me.</p>
+
+<p>I pick up the Eradicator and try it.</p>
+
+<p>Nothing.</p>
+
+<p>The magic doesn't work.</p>
+
+<p>I hesitate.</p>
+
+<p>Maybe the hydra doesn't have enough heads.</p>
+
+<p>Or maybe it has too many.</p>
+
+<p>I throw a Powder of Growth at it.</p>
+
+<p>The hydra tries to bite me.</p>
+
+<p>It has so many heads that they get in each other's way. They collide, tangle together, and only a dozen of them actually manage to reach me.</p>
+
+<p>The Eradicator still doesn't work.</p>
+
+<p>Damn it.</p>
+
+<p>I throw another Powder of Growth.</p>
+
+<p>Another hit.</p>
+
+<p>I can taste blood.</p>
+
+<p>I won't survive this much longer.</p>
+
+<p>The Eradicator fails me again.</p>
+
+<p>Looks like I'll have to finish it the old-fashioned way.</p>
+
+<p>Four swings with the Decimator.</p>
+
+<p>The hydra crashes to the ground, shaking the entire cavern.</p>
+
+<p>The world is safe again.</p>
+
+<p>Or is it?</p>
+
+<p>Beyond the mushroom forest I notice another staircase leading down.</p>
+
+<p>Lower still.</p>
+
+<p>I can't go back now and say I gave up.</p>
+
+<p>Not after everything.</p>
+
+<p>I have to see this through.</p>
+
+<h3>Level 13</h3>
+
+<p>The dungeon's population keeps growing.</p>
+
+<p>This time it's a monkey.</p>
+
+<p>It must have wandered down from the surface.</p>
+
+<p>The hydras don't seem interested in it.</p>
+
+<p>Probably because it has three heads.</p>
+
+<p>This place changes everyone who comes down here.</p>
+
+<p>I check myself.</p>
+
+<p>Still one head.</p>
+
+<p>Better not count the arms.</p>
+
+<p>We're all becoming a little more like hydras.</p>
+
+<p>The monkey is quick.</p>
+
+<p>One careless moment and it snatches my double sword.</p>
+
+<p>Then it bolts, weaving between the stalagmites.</p>
+
+<p>Without magic, I'll never catch it.</p>
+
+<p>I need that sword back.</p>
+
+<p>Without it, I won't survive down here.</p>
+
+<p>I drink a Potion of Extreme Speed.</p>
+
+<p>The world slows down around me as I speed up.</p>
+
+<p>Still not enough.</p>
+
+<p>I have to drink another one.</p>
+
+<p>No point saving them now.</p>
+
+<p>I catch up with the monkey.</p>
+
+<p>Without hesitation, I cut off all three heads.</p>
+
+<p>Nothing that looks like a hydra should ever leave this place.</p>
+
+<p>...That sounds cruel.</p>
+
+<p>But down here, it's either you or them.</p>
+
+<h3>Level 15</h3>
+
+<p>I kill a golden hydra, and something feels wrong.</p>
+
+<p>I hear footsteps.</p>
+
+<p>Very close.</p>
+
+<p>But I can't see anyone.</p>
+
+<p>Then something bites me.</p>
+
+<p>A light bite, about as strong as a three-headed hydra.</p>
+
+<p>But there's nothing there.</p>
+
+<p>Then it hits me.</p>
+
+<p>An invisible hydra.</p>
+
+<p>I have no idea how many heads it has.</p>
+
+<p>It's clever enough not to reveal itself.</p>
+
+<p>It doesn't attack with all of them, only the ones close enough to reach me.</p>
+
+<p>I'll have to swing blindly.</p>
+
+<p>Every strike cuts through empty air.</p>
+
+<p>I hate fighting something I can't see.</p>
+
+<p>Or...</p>
+
+<p>I could drink a Potion of Knowledge.</p>
+
+<p>It doesn't work as well against invisible hydras.</p>
+
+<p>I can only figure out the first three attacks.</p>
+
+<p>After that, everything turns into a blur.</p>
+
+<p>Five heads gone.</p>
+
+<p>Now I can use the Decimator.</p>
+
+<p>At least that's something.</p>
+
+<p>Big bastard.</p>
+
+<p>I finally bring it down.</p>
+
+<p>It's a relief.</p>
+
+<p>Fighting a hydra you can actually see is so much easier.</p>
+
+<p>You know where to strike.</p>
+
+<p>You can watch it fall.</p>
+
+<p>Lying on the ground is a weapon so heavy that even with all my arms it's difficult to lift.</p>
+
+<p>A massive club.</p>
+
+<p>That means Titans were here.</p>
+
+<p>People asked them for help too.</p>
+
+<p>The weapon is still here.</p>
+
+<p>Which means they failed.</p>
+
+<p>I hope my fate will be different.</p>
+
+<p>Or at least that I'll make it farther than they did.</p>
+
+<h3>Level 16</h3>
+
+<p>A strange place.</p>
+
+<p>No matter how far I walk in one direction, I end up back where I started.</p>
+
+<p>As if the dungeon itself has folded into a loop.</p>
+
+<p>At least the hydras don't keep coming forever.</p>
+
+<p>The dungeon may toy with me, but it doesn't create endless enemies.</p>
+
+<p>I'd rather leave this place.</p>
+
+<p>It can be deeper.</p>
+
+<p>It can be more dangerous.</p>
+
+<p>Anything is better than walking in circles.</p>
+
+<h3>Level 17</h3>
+
+<p>I find another strange weapon.</p>
+
+<p>A Null Sector.</p>
+
+<p>I have no idea what it's supposed to do.</p>
+
+<p>Dividing by zero makes no sense.</p>
+
+<p>Even our teachers called it impossible.</p>
+
+<p>I test it on some mushrooms.</p>
+
+<p>Better that than accidentally creating a hydra with an infinite number of heads.</p>
+
+<p>Nothing happens.</p>
+
+<p>No flash.</p>
+
+<p>No sound.</p>
+
+<p>Not even a chill in the air.</p>
+
+<p>Just silence.</p>
+
+<p>To hell with this useless weapon.</p>
+
+<h3>Level 18</h3>
+
+<p>There are too many bite wounds on me. I'm starting to bleed. Drop by drop, as if the dungeon itself is draining the life out of me, tasting it.</p>
+
+<p>Hydra blood doesn't heal me very well. I've accumulated too many wounds. They don't just hurt anymore—they weigh me down, like stones sewn into the hem of my cloak.</p>
+
+<p>Fear begins to creep in. Quiet, sticky fear. It doesn't scream. It whispers:</p>
+
+<p>"You won't make it. You've gone too far."</p>
+
+<p>No help is coming. There are no allies down here. Only enemies, and a silence that's far too loud.</p>
+
+<p>I'll have to drink a Potion of Life.</p>
+
+<p>I only have two.</p>
+
+<p>I wanted to save the second one for something truly terrifying.</p>
+
+<p>But I guess truly terrifying is when you're barely able to stand.</p>
+
+<p>I've already come too far to hesitate.</p>
+
+<p>I drink it.</p>
+
+<p>It burns all the way down, as if molten gold is being poured into me.</p>
+
+<p>Then suddenly, it isn't just the pain that fades. My body feels denser. Bones harder. Muscles stronger. As if someone reforged me in Hephaestus' own forge.</p>
+
+<p>Not only are my wounds healed—I can feel that I'm much tougher than I was before.</p>
+
+<p>As if the earth itself whispered,</p>
+
+<p>"Hold on. Just a little farther."</p>
+
+<p>I'm ready.</p>
+
+<p>Let them come.</p>
+
+<p>Let them try.</p>
+
+<p>I'm no longer just surviving.</p>
+
+<p>I'm standing.</p>
+
+<h3>Level 19</h3>
+
+<p>An unusual hydra.</p>
+
+<p>Not only does it have 612 heads, but beneath its scales is green skin, as if the earth itself cursed the day this creature was born.</p>
+
+<p>Huge black eyes, empty like bottomless pits.</p>
+
+<p>Teeth sharp as blades, each one looking as though it had been forged to cut not flesh, but the will to resist.</p>
+
+<p>The legends spoke of creatures like this.</p>
+
+<p>They said they appeared after a magical star fell to Earth, and since then the world has become a slightly less reliable place.</p>
+
+<p>Our earthly magic means nothing to it.</p>
+
+<p>It has no resistance to any weapon, as if it came from a world where our rules simply don't apply.</p>
+
+<p>The fight was long.</p>
+
+<p>It clawed me.</p>
+
+<p>It bit me.</p>
+
+<p>Every hit echoed through my bones.</p>
+
+<p>Every bite drained my strength like an icy wind pulling warmth from the body.</p>
+
+<p>But I won.</p>
+
+<p>On trembling legs.</p>
+
+<p>With blood covering my blades.</p>
+
+<p>But I won.</p>
+
+<h3>Level 24</h3>
+
+<p>I need help.</p>
+
+<p>Nobody on the surface knows that the way down is safe now.</p>
+
+<p>No one would dare descend just to check. To them, these floors are still filled with death, every step like walking across glass over an abyss.</p>
+
+<p>So I'll have to find help down here.</p>
+
+<p>I still have forbidden magic that can raise the dead.</p>
+
+<p>Using it on ordinary creatures would anger the gods.</p>
+
+<p>They don't like anyone tugging on threads they've already cut.</p>
+
+<p>But hydras?</p>
+
+<p>Maybe that's different.</p>
+
+<p>If these beasts came straight from Tartarus, perhaps it's allowed.</p>
+
+<p>There's no one left to judge me.</p>
+
+<p>Even the gods seem to have abandoned these depths.</p>
+
+<p>I use the corpse of a swamp hydra for the ritual.</p>
+
+<p>The air grows thick.</p>
+
+<p>It smells of rot and ozone, like a thunderstorm that will never arrive.</p>
+
+<p>New heads grow where the old ones were cut away.</p>
+
+<p>But this isn't life returning.</p>
+
+<p>It's only empty mechanics.</p>
+
+<p>Its eyes are dull.</p>
+
+<p>There's no rage left in its movements.</p>
+
+<p>It walks like a puppet whose voice has been cut away.</p>
+
+<p>I can't command it.</p>
+
+<p>Hydras are too stupid.</p>
+
+<p>There's nothing left inside them to obey.</p>
+
+<p>But it doesn't attack me.</p>
+
+<p>I won't test what happens if I strike first.</p>
+
+<p>Sometimes it's better not to know how far someone else's obedience goes.</p>
+
+<p>It won't make it past the other hydras.</p>
+
+<p>They'll attack it immediately.</p>
+
+<p>The moment they see it, they rush at it.</p>
+
+<p>They can sense death clinging to it, as if they recognize something that breaks the very law by which they grow.</p>
+
+<p>The resurrected hydra doesn't regrow heads.</p>
+
+<p>That magic disappeared along with its soul.</p>
+
+<p>Only the shell remains.</p>
+
+<p>It fights.</p>
+
+<p>It falls.</p>
+
+<p>Without remembering why.</p>
+
+<p>It wasn't much help before it finally collapsed.</p>
+
+<p>But it bought me a better position.</p>
+
+<p>Sometimes that's enough to call it a victory.</p>
+
+<h3>Level 26</h3>
+
+<p>A strange hydra.</p>
+
+<p>It looks like all of them at once, as if someone had mixed every nightmare I've faced before into a single body and added a dozen new ones.</p>
+
+<p>I can't identify it.</p>
+
+<p>I've never seen one like this before.</p>
+
+<p>Not by its scales.</p>
+
+<p>Not by its eyes.</p>
+
+<p>Not by the way it moves.</p>
+
+<p>Everything about it feels alien, as if it doesn't know what shape it wants to take.</p>
+
+<p>I cut off some of its heads, and suddenly it begins to change before my eyes.</p>
+
+<p>Its skin darkens.</p>
+
+<p>Icy veins spread across its neck, as if the very magic I wounded it with has become its armor.</p>
+
+<p>It's evolving.</p>
+
+<p>It's gaining resistance to the magic I'm using against it.</p>
+
+<p>I have to finish it quickly before its resistance to ice becomes a real problem.</p>
+
+<p>A few more seconds, and my blade will be sliding across it like polished marble.</p>
+
+<h3>Level 27</h3>
+
+<p>A hydra with green skin, almost like a plant.</p>
+
+<p>Vines seem to grow through its scales, and shadows hide between the folds of its skin like they do in a dense forest.</p>
+
+<p>It's obvious that it's fought people before.</p>
+
+<p>It understands our weapons.</p>
+
+<p>Not just that they're dangerous—it knows how they work.</p>
+
+<p>Its eyes go straight to the divisors in my hands.</p>
+
+<p>As if it had read my plan before I even came up with it.</p>
+
+<p>A second passes while I calculate...</p>
+
+<p>...and another head grows, on purpose, just to ruin my math.</p>
+
+<p>It can grow extra heads specifically so that divisors stop working.</p>
+
+<p>As if arithmetic itself obeys it.</p>
+
+<p>The fight drags on.</p>
+
+<p>I only manage to divide its heads once, and only because it hesitated for a moment.</p>
+
+<p>I hope I won't meet many more like this.</p>
+
+<p>If every one of them starts playing with numbers, I won't have enough hands—or enough blades.</p>
+
+<h3>Level 31</h3>
+
+<p>A storm hydra.</p>
+
+<p>But this one is different.</p>
+
+<p>It has learned to shoot lightning from a distance.</p>
+
+<p>Not just spit sparks, but unleash bolts, as if the storm itself had become its voice.</p>
+
+<p>In other lands, creatures like this are called dragons.</p>
+
+<p>But dragons only have one head.</p>
+
+<p>Maybe dragons once lived in these caves.</p>
+
+<p>And one of them became a hydra, losing its pride but keeping its rage.</p>
+
+<p>That's no reason to leave it alive.</p>
+
+<p>I just need to be careful.</p>
+
+<p>If I let it get too close, it'll burn me from the inside, the way lightning burns a tree.</p>
+
+<h3>Level 32</h3>
+
+<p>Every hydra on this floor is stronger.</p>
+
+<p>Every one of them has over a thousand heads.</p>
+
+<p>They stand shoulder to shoulder like a forest of necks and teeth, every one of them staring at me as if it knows my name.</p>
+
+<p>The biggest one, an Evolving hydra, has 3,569 heads.</p>
+
+<p>It reminds me of the ancient hydra I fought so long ago.</p>
+
+<p>As if time has curled into a circle, bringing old enemies back with new scars.</p>
+
+<p>But creatures like these have more blood.</p>
+
+<p>That means I'll heal more from them.</p>
+
+<p>Let that be our bargain.</p>
+
+<p>I take their strength.</p>
+
+<p>They get their peace.</p>
+
+<p>Among them is one with an unusually small number of heads.</p>
+
+<p>Only 42.</p>
+
+<p>A glowing aura surrounds it.</p>
+
+<p>Thin and trembling, like morning mist over a lake.</p>
+
+<p>The nymphs had the same aura.</p>
+
+<p>I remember it from childhood.</p>
+
+<p>A warm light that promised everything would be alright.</p>
+
+<p>Here, it lies.</p>
+
+<p>This hydra helps the others grow new heads.</p>
+
+<p>It doesn't simply heal them.</p>
+
+<p>It's as if it whispers,</p>
+
+<p>"Grow."</p>
+
+<p>That must be why the others have so many heads.</p>
+
+<p>It feeds them with its magic, the way a gardener feeds weeds.</p>
+
+<p>I need to kill it first.</p>
+
+<p>Let that light go out.</p>
+
+<p>After that, I notice an especially enormous hydra.</p>
+
+<p>An Alien.</p>
+
+<p>It has 7,128 heads.</p>
+
+<p>The number itself sounds like a curse.</p>
+
+<p>That will be my new record.</p>
+
+<p>Something worth talking about when I make it back to the surface...</p>
+
+<p>...if anyone believes I really saw such a thing.</p>
+
+<h3>Level ???</h3>
+
+<p>I've lost count of the floors.</p>
+
+<p>And of the hydras I've killed.</p>
+
+<p>They've merged into one endless pattern of necks, teeth, and falling heads, as if the cave itself keeps painting the same picture over and over again.</p>
+
+<p>I fight almost mechanically.</p>
+
+<p>My arm rises.</p>
+
+<p>The blade finds its target.</p>
+
+<p>A head falls.</p>
+
+<p>Then again.</p>
+
+<p>And again.</p>
+
+<p>No triumphant thoughts.</p>
+
+<p>No dramatic sighs.</p>
+
+<p>I've even stopped counting.</p>
+
+<p>If you start adding up the heads, the numbers will consume you long before any hydra does.</p>
+
+<p>With my ten arms, I've almost become part of this cave.</p>
+
+<p>As if I wasn't born, but carved from the same stone as the ancient guardians standing before forgotten gates.</p>
+
+<p>My fingers remember every corner.</p>
+
+<p>The shadows know where I'll step next.</p>
+
+<p>The air no longer smells of dust.</p>
+
+<p>Only iron.</p>
+
+<p>And someone else's blood.</p>
+
+<p>Sometimes I catch myself thinking that if I closed my eyes, I wouldn't be able to tell my own movements from the rhythm of the dungeon.</p>
+
+<p>But I still remember why I came here.</p>
+
+<p>For now, that's enough to take one more step.</p>
+
+<h3>Level 50</h3>
+
+<p>I didn't even know creatures this enormous could exist.</p>
+
+<p>But I trust my eyes.</p>
+
+<p>It's standing right in front of me.</p>
+
+<p>I've never seen—or even heard of—anything like it.</p>
+
+<p>A hydra as ancient as the world itself.</p>
+
+<p>Red scales, as if tempered in the heart of a volcano.</p>
+
+<p>Old eyes filled with the fury of thousands of years.</p>
+
+<p>Teeth just as deadly, each one like a blade forged in the smithies of Tartarus itself.</p>
+
+<p>It's alone on this floor.</p>
+
+<p>The other hydras fear it.</p>
+
+<p>Even their instinct to grow new heads falls silent in its presence, as if arithmetic itself bows before its greatness.</p>
+
+<p>It's a hybrid of a hydra and a dragon.</p>
+
+<p>Fire pours from its jaws.</p>
+
+<p>Not just flames.</p>
+
+<p>A living storm capable of burning even stone.</p>
+
+<p>It has 930,859 heads.</p>
+
+<p>The number settles on my mind like a boulder.</p>
+
+<p>But numbers no longer shake me.</p>
+
+<p>Now they're just targets.</p>
+
+<img src="../images/hydra-slayer/ancient-dragon.png" alt="ancient-dragon" loading="lazy">
+
+<p>I go through the combinations in my head.</p>
+
+<p>Decimator.</p>
+
+<p>Trisector.</p>
+
+<p>Bisector.</p>
+
+<p>I have weapons that divide by two.</p>
+
+<p>By three.</p>
+
+<p>By ten.</p>
+
+<p>By half.</p>
+
+<p>But against a number like this, every fraction feels like a joke.</p>
+
+<p>Heads fall faster than they can grow back.</p>
+
+<p>Not because I cut them well.</p>
+
+<p>Because they've lost the right to grow.</p>
+
+<p>It lashes out with its tail.</p>
+
+<p>The ground trembles.</p>
+
+<p>Fire surges toward me.</p>
+
+<p>But I'm already inside its rhythm.</p>
+
+<p>I'm part of this cave now.</p>
+
+<p>And now I'm the one setting the rhythm.</p>
+
+<p>One more strike.</p>
+
+<p>The ancient monster sinks to the ground, like a mountain that's finally grown tired of standing.</p>
+
+<p>Silence settles over the floor.</p>
+
+<p>Heavy.</p>
+
+<p>Unfamiliar.</p>
+
+<p>No sparks.</p>
+
+<p>No roaring.</p>
+
+<p>No crackling of new heads.</p>
+
+<p>Only cooling ash and the smell of burning, slowly giving way to the damp air of the dungeon.</p>
+
+<p>I stand among the remains.</p>
+
+<p>For the first time in a long while, I feel my fingers stop clenching into fists.</p>
+
+<p>I can finally return to the surface.</p>
+
+<p>The sky is up there.</p>
+
+<p>The wind.</p>
+
+<p>People who have no idea what lies beneath their feet.</p>
+
+<p>I can tell them this story.</p>
+
+<p>Maybe...</p>
+
+<p>someone will even believe it.</p>
+
+<p>Or I could stay here.</p>
+
+<p>Among the stone.</p>
+
+<p>Among the shadows.</p>
+
+<p>Among those who have almost become my own.</p>
+
+<p>Because I'm a little like this cave now.</p>
+
+<p>All sharp edges.</p>
+
+<p>And an exhaustion that has settled into my bones.</p>
+
+<p>I take a step toward the stairs.</p>
+
+<p>Then another.</p>
+        </div>
+        <div class="giscus">
+          <script src="https://giscus.app/client.js"
+                  data-repo="triplepointfive/roguelike-chronicles"
+                  data-repo-id="R_kgDOSlrlag"
+                  data-category="General"
+                  data-category-id="DIC_kwDOSlrlas4C9rHT"
+                  data-mapping="pathname"
+                  data-strict="1"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="dark"
+                  data-lang="en"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
+      </div>
+        </div>
+      </div>
+      <footer class="site-footer">
+        <p class="footer-hint">j/k scroll · g/G top/bottom</p>
+        <p class="footer-copy">Roguelike Chronicles :: 2026</p>
+      </footer>
+    </main>
+  </div>
+  <script>
+/**
+ * Roguelike Chronicles — Navigation & Scroll Spy
+ * Handles table of contents highlighting and keyboard shortcuts
+ */
+
+(function() {
+    'use strict';
+
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const h2Elements = document.querySelectorAll('.article-content h2[id]');
+    const sidebar = document.querySelector('.sidebar');
+    const desktopSidebar = window.matchMedia('(min-width: 769px)');
+
+    /**
+     * Прокрутить пункт TOC только внутри сайдбара (не трогать window).
+     * scrollIntoView() на мобилке тянет страницу к сайдбару вверху — отсюда «откат».
+     */
+    function scrollTocLinkInSidebar(link) {
+        if (!sidebar || !desktopSidebar.matches) return;
+        if (sidebar.scrollHeight <= sidebar.clientHeight) return;
+
+        const linkRect = link.getBoundingClientRect();
+        const sidebarRect = sidebar.getBoundingClientRect();
+
+        if (linkRect.top < sidebarRect.top) {
+            sidebar.scrollTop += linkRect.top - sidebarRect.top - 8;
+        } else if (linkRect.bottom > sidebarRect.bottom) {
+            sidebar.scrollTop += linkRect.bottom - sidebarRect.bottom + 8;
+        }
+    }
+
+    /**
+     * Update active TOC item based on scroll position
+     */
+    function updateActiveToc() {
+        if (!h2Elements.length || !tocLinks.length) return;
+
+        const scrollPos = window.scrollY + 80;
+
+        let current = null;
+        h2Elements.forEach(h2 => {
+            const top = h2.getBoundingClientRect().top + window.scrollY;
+            if (scrollPos >= top) {
+                current = h2.id;
+            }
+        });
+
+        tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.dataset.target === current) {
+                link.classList.add('active');
+                scrollTocLinkInSidebar(link);
+            }
+        });
+    }
+
+    /**
+     * TOC link click — smooth scroll to section
+     */
+    tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.dataset.target;
+            const target = document.getElementById(targetId);
+
+            if (target) {
+                e.preventDefault();
+                const top = target.getBoundingClientRect().top + window.scrollY - 16;
+                window.scrollTo({
+                    top: top,
+                    behavior: 'smooth'
+                });
+                history.pushState(null, null, '#' + targetId);
+            }
+        });
+    });
+
+    /**
+     * Scroll spy
+     */
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        if (scrollTimeout) return;
+        scrollTimeout = setTimeout(() => {
+            updateActiveToc();
+            scrollTimeout = null;
+        }, 50);
+    }, { passive: true });
+
+    /**
+     * Handle initial hash on page load
+     */
+    function handleHash() {
+        const hash = window.location.hash.slice(1);
+        if (hash) {
+            const target = document.getElementById(hash);
+            if (target) {
+                setTimeout(() => {
+                    const top = target.getBoundingClientRect().top + window.scrollY - 16;
+                    window.scrollTo({ top: top, behavior: 'instant' });
+                    updateActiveToc();
+                }, 100);
+            }
+        }
+    }
+    handleHash();
+
+    /**
+     * Keyboard navigation (vim-style) — только не на сенсорных устройствах без клавиатуры
+     */
+    if (!window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+            switch(e.key) {
+                case 'j':
+                    e.preventDefault();
+                    window.scrollBy({ top: 40, behavior: 'smooth' });
+                    break;
+                case 'k':
+                    e.preventDefault();
+                    window.scrollBy({ top: -40, behavior: 'smooth' });
+                    break;
+                case 'g':
+                    e.preventDefault();
+                    if (e.repeat) return;
+                    if (window._gKeyPressed) {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        window._gKeyPressed = false;
+                    } else {
+                        window._gKeyPressed = true;
+                        setTimeout(() => { window._gKeyPressed = false; }, 400);
+                    }
+                    break;
+                case 'G':
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: document.body.scrollHeight,
+                        behavior: 'smooth'
+                    });
+                    break;
+            }
+        });
+    }
+
+    /**
+     * Mobile sidebar — сворачивание секций по тапу на заголовок
+     */
+    if (window.innerWidth <= 768) {
+        if (sidebar) {
+            const toc = sidebar.querySelector('.sidebar-toc');
+            const otherGames = sidebar.querySelector('.sidebar-other-games');
+            const allGames = sidebar.querySelector('.sidebar-all-games');
+
+            [toc, otherGames, allGames].forEach(section => {
+                if (!section) return;
+                const label = section.querySelector('.toc-label, .other-games-label, .all-games-label');
+                const ul = section.querySelector('ul');
+                if (label && ul) {
+                    label.style.cursor = 'pointer';
+                    label.addEventListener('click', () => {
+                        ul.style.display = ul.style.display === 'none' ? 'block' : 'none';
+                    });
+                }
+            });
+        }
+    }
+
+    /**
+     * Image modal — открытие по клику, закрытие по клику на изображение или фон
+     */
+    const modal = document.createElement('div');
+    modal.className = 'modal-overlay';
+    const modalImg = document.createElement('img');
+    modal.appendChild(modalImg);
+    document.body.appendChild(modal);
+
+    document.addEventListener('click', function(e) {
+        const target = e.target.closest('.article-content img');
+        if (!target) return;
+        modalImg.src = target.src;
+        modalImg.alt = target.alt;
+        modal.classList.add('open');
+    });
+
+    modal.addEventListener('click', function() {
+        modal.classList.remove('open');
+    });
+
+})();
+
+  </script>
+</body>
+</html>
